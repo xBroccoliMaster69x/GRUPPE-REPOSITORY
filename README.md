@@ -1,5 +1,6 @@
 # GRUPPE-REPOSITORY
 | Navn | Github profil |
+| ------------- | ------------- |
 | Alexander Glasdam Andersen | https://github.com/xBroccoliMaster69x |
 | ------------- | ------------- |
 | Amir Krpo | https://github.com/AmirKrpo |
