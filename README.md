@@ -15,3 +15,5 @@
 | Victor Normannseth | https://github.com/vicnorm |
 | ------------- | ------------- |
 
+Før vi fikk oppgaven, hadde de fleste av oss allerede fikset egen Github konto, og laget egen repository. Vi var ikke helt trygge på hvordan pull og push fungerte, dermed var det med hjelp av LA, at vi fikk en liten forståelses av hvordan det hele går for seg. Vi støtte på en del små problemer som vi i gruppa kunne sammen se over å fikse. 
+Selvevaluering: 2
