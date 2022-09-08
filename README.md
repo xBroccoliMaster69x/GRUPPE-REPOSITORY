@@ -8,5 +8,5 @@
 |Simen Hølland 
 |https://github.com/SiMENhol/
 =======
-|joackim|
+|joackim Anglevik
 https://github.com/Ziaok/
