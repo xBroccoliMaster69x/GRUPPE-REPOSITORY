@@ -11,8 +11,14 @@ Rebekka broder
 ========
 |Simen Hølland 
 |https://github.com/SiMENhol/
+
+=======
+|joackim Anglevik
+=======
 ========
 |joackim|
+
+
 https://github.com/Ziaok/
 | Victor Normannseth | Second Header |Header  | Header  |Header | Header  |
 | ------------- | ------------- |------------- | ------------- |------------- | ------------- |
