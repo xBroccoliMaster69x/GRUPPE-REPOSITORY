@@ -22,3 +22,14 @@ Til diskusjon: Der skulle vi da som gruppe diskutere oppgaven, hvem som skulle g
 Todo: Her la vi oppgaver som var klar til å jobbes med, men som ikke var startet på enda.
 In Progress: Under her havnet oppgaver som ble jobbet med.
 Done: Dette var her vi la de ferdige oppgavene.
+
+b)
+
+c)
+P style-flagg  
+I body elementet, satte vi inn tre <p> element med attributten «style», deretter skrev vi navnet på hver enkelt farge. Så brukte vi «background-color» til å endre bakgrunnsfargen slik at den var lik navnet på fargen. Deretter endret vi fargen til skriften, slik at den var lik bakgrunnsfargen. Da hadde vi de tre fargene på rad, men det var mellomrom mellom dem og de hadde ikke riktig dimensjoner. For å endre på det så brukte vi «margin: 0 auto» for å fjerne marginene slik at det ikke var noen mellomrom og for å sette flagget i senter. Til slutt brukte vi «height» og «width» for å gi flagget den korrekte dimensjonen 3:5.
+
+CSS-flagg 
+
+Canvas-flagg 
+I canvas elementet tegnet vi ulike firkanter med forskjellige farger og størrelser. Dette gjorde vi med konteksten “2D” (ctx = canvas.getContext("2d")) og deretter (ctx.beginPath();). Vi begynte med å tegne et rødt rektangel på størrelse med det norske flagg (16:22). Vi brukte “fillStyle” for å velge riktig farge og deretter “fillRect”, med startkoorinater (x,y), lengde og bredde, for å tegne et rektangel. Vi mulitpliserte en variabel kalt “scale” med alle argumentene i rektangelen, for å enkelt kunne endre størrelsen på hele flagget. Det så slik ut: (let scale = 4; ctx.fillRect(0*scale, 0*scale, 220*scale, 160*scale);). Videre tegnet vi hvite striper over den røde boksen, et horisontalt og et vertikalt rektangel. Til slutt gjorde vi det samme med de blå stripene, bare tynnere. 
