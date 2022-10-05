@@ -17,3 +17,8 @@ Selvevaluering: 3
 
 # Innlevering 2
 
+a) Vi valgte Github projects å jobbe med, der vi brukte scrum som metode å jobbe på. Vi strukturerte Github projects som “bord”, der vi fordelte arbeidsoppgaver ut ifra drafts og issues. Vi hadde fire enkle inndelinger vi kunne legge oppgavene inn i:
+Til diskusjon: Der skulle vi da som gruppe diskutere oppgaven, hvem som skulle gjøre den å hvordan.
+Todo: Her la vi oppgaver som var klar til å jobbes med, men som ikke var startet på enda.
+In Progress: Under her havnet oppgaver som ble jobbet med.
+Done: Dette var her vi la de ferdige oppgavene.
