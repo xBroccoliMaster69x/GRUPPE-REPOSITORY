@@ -4,9 +4,10 @@
 <title>Flagg oppgaven til gruppe 5A</title>
 <style>
 body {
-    background: rgb(0, 0, 0);
-    margin: 100px;
-
+    background-color: black;
+}
+.wrapper {
+    float: left;
 }
 
 .flag {
@@ -27,13 +28,14 @@ body {
 <body>
 
 <div class="wrapper">
-<div class="flag" align="center">
-<div class="round-red">
+<div class="flag" align="center"></div>
+<div class="round-red"></div>
 </div>
-</div>
+   
+<div class="wrapper">
+<canvas id="myCanvas" style="border: 1px solid black; margin-left: 20%; margin-top: 50px;"></canvas>
 </div>
     
-<canvas id="myCanvas" style="border: 1px solid black; margin-left: 20%; margin-top: 50px;"></canvas>
 <script>
     let c = document.getElementById("myCanvas");
     let scale = 4;
