@@ -7,40 +7,39 @@ body {
     background-color: green;
 }
 .wrapper {
-    float: left;
-    margin-left: 20px;
-    margin-top: 20px;
+   
 }
-
 .flag {
    width: 600px;
    height: 375px;
    background: white;
    display:table-cell;
-   vertical-align: middle;
 }
 .round-red {
    width: 200px;
    height: 200px;
    background: crimson;
    border-radius: 50%;
+   position: absolute;
+   top:275px;
+   left: 200px;
 }
+
 </style>
 </head>
 <body>
-
+    
+<div class="wrapper">    
+<p class="flag" ></p>
+<p class="round-red"></p>
+</div>
+    
 <div class="wrapper">
 <p style="height: 64px; width: 320px; margin: 0 auto; background-color:black">black</p>
 <p style="height: 64px; width: 320px; margin: 0 auto; color: red; background-color:red">red</p>
 <p style="height: 64px; width: 320px; margin: 0 auto; color: gold; background-color:gold">gold</p>
 </div>
     
-<div class="wrapper">
-<div class="flag" align="center">
-<div class="round-red">
-</div>
-</div>
-</div>
    
 <div class="wrapper">
 <canvas id="myCanvas"></canvas>
