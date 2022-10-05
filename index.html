@@ -32,6 +32,28 @@ body {
 </div>
 </div>
 </div>
+    
+<canvas id="myCanvas" style="border: 1px solid black; margin-left: 20%; margin-top: 50px;"></canvas>
+<script>
+    let c = document.getElementById("myCanvas");
+    let scale = 4;
+    c.height = 160 * scale;
+    c.width = (c.height * 1.375);
+
+    let ctx = c.getContext("2d");
+    ctx.beginPath();
+
+    ctx.fillStyle = '#BA0C2F'; // RED
+    ctx.fillRect(0*scale, 0*scale, 220*scale, 160*scale);
+
+    ctx.fillStyle = '#FFFFFF'; // WHITE
+    ctx.fillRect(60*scale, 0*scale, 40*scale, 160*scale);
+    ctx.fillRect(0*scale, 60*scale, 220*scale, 40*scale);
+
+    ctx.fillStyle = '#00205B'; // BLUE
+    ctx.fillRect(70*scale, 0*scale, 20*scale, 160*scale);
+    ctx.fillRect(0*scale, 70*scale, 220*scale, 20*scale);
+</script>
 
 </body>
 </html>
