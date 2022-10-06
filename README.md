@@ -23,7 +23,7 @@ Todo: Her la vi oppgaver som var klar til å jobbes med, men som ikke var starte
 In Progress: Under her havnet oppgaver som ble jobbet med.
 Done: Dette var her vi la de ferdige oppgavene.
 
-b)
+b) Arbeidsoppgavene delte vi opp i Github projects, og vi gjorde det med å ha to og to på hver arbeidsoppgave. Målet vårt var å dele oppgavene opp rettferdig at alle hadde rundt like mye arbeid, og gjøre det mest effektivt. Med å dele oppgavene inn med to og to på hver oppgave gjorde at hvis en ikke hadde tid å gjøre oppgaven av en eller annen grunn, så kunne den andre personen gjøre mesteparten, så det var mindre risiko enn å dele det opp til en og en per oppgave. Rammene i oppgaven består av tidsramme, der hadde vi over en måned på oppgaven, og ressursene våre var alle personene i oppgaven. I gruppen vår er vi 7 personer, og alle kunne jobbe når som helst, litt og litt. Planen vår ble beskrevet godt i Github projects, og gjorde det enkelt for oss å se hvem som skulle gjøre hva. Denne måten funket ganske bra, og vi vil mest sannsynlig bruke denne fremgangsmåten i de neste prosjektoppgavene.
 
 c)
 
