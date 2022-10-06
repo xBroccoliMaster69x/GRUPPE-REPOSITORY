@@ -49,5 +49,6 @@ I canvas elementet tegnet vi ulike firkanter med forskjellige farger og størrel
  Referanseliste
   
  Cope, S. (2022, 20.September). Border-radius. Css-tricks. https://css-tricks.com/almanac/properties/b/border-radius/
+ 
  W3Schools (u.å.). HTML canvas fillRect() Method. W3Schools Online Web Tutorials. https://www.w3schools.com/tags/canvas_fillrect.asp
 
