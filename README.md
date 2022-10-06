@@ -30,6 +30,19 @@ P style-flagg
 I body elementet, satte vi inn tre <p> element med attributten «style», deretter skrev vi navnet på hver enkelt farge. Så brukte vi «background-color» til å endre bakgrunnsfargen slik at den var lik navnet på fargen. Deretter endret vi fargen til skriften, slik at den var lik bakgrunnsfargen. Da hadde vi de tre fargene på rad, men det var mellomrom mellom dem og de hadde ikke riktig dimensjoner. For å endre på det så brukte vi «margin: 0 auto» for å fjerne marginene slik at det ikke var noen mellomrom og for å sette flagget i senter. Til slutt brukte vi «height» og «width» for å gi flagget den korrekte dimensjonen 3:5.
 
 CSS-flagg 
+Når jeg brukte <p>-elementet så brukte jeg class, selv om jeg kunne brukt id. På det japanske flagget så hadde det ikke vært så mye forskjell på Id og class med tanke på at det er 2 forskjellige farger. Id hadde også funket. Jeg hadde to forskjellige <p>-element den første var den hvite delen av flagget og den andre var den røde delen av flagget. Jeg samlet også disse to elementene inne i en div. 
+Det japanske flagget er ganske simpelt, hvor det er ett hvitt rektangel med en mørkere rød sirkel i midten, fargen som sirkelen har heter Crimson.  
+For å få en sirkel så måtte jeg kutte radiusen på borderen, for å gjøre dette brukte jeg Border-Radius. 50 %. (css-tricks, 2022). 
+vi brukte også top og left for å få sirkelen sentrert i flagget. I index filen er top og left litt forskjellig enn det den er i cssflagg. 
 
+ 
 Canvas-flagg 
 I canvas elementet tegnet vi ulike firkanter med forskjellige farger og størrelser. Dette gjorde vi med konteksten “2D” (ctx = canvas.getContext("2d")) og deretter (ctx.beginPath();). Vi begynte med å tegne et rødt rektangel på størrelse med det norske flagg (16:22). Vi brukte “fillStyle” for å velge riktig farge og deretter “fillRect”, med startkoorinater (x,y), lengde og bredde, for å tegne et rektangel. Vi mulitpliserte en variabel kalt “scale” med alle argumentene i rektangelen, for å enkelt kunne endre størrelsen på hele flagget. Det så slik ut: (let scale = 4; ctx.fillRect(0*scale, 0*scale, 220*scale, 160*scale);). Videre tegnet vi hvite striper over den røde boksen, et horisontalt og et vertikalt rektangel. Til slutt gjorde vi det samme med de blå stripene, bare tynnere. 
+  
+
+ 
+  
+  Referanseliste
+  
+ Cope, S. (2022, 20.September). Border-radius. Css-tricks. https://css-tricks.com/almanac/properties/b/border-radius/ 
+
