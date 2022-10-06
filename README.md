@@ -29,7 +29,7 @@ c)
 
 P style-flagg
 
-I body elementet, satte vi inn tre <p> element med attributten «style», deretter skrev vi navnet på hver enkelt farge. Så brukte vi «background-color» til å endre bakgrunnsfargen slik at den var lik navnet på fargen. Deretter endret vi fargen til skriften, slik at den var lik bakgrunnsfargen. Da hadde vi de tre fargene på rad, men det var mellomrom mellom dem og de hadde ikke riktig dimensjoner. For å endre på det så brukte vi «margin: 0 auto» for å fjerne marginene slik at det ikke var noen mellomrom og for å sette flagget i senter. Til slutt brukte vi «height» og «width» for å gi flagget den korrekte dimensjonen 3:5.
+I body elementet, satte vi inn tre <p> element med attributten «style», deretter skrev vi navnet på hver enkelt farge. Så brukte vi «background-color» til å endre bakgrunnsfargen slik at den var lik navnet på fargen. Deretter endret vi fargen til skriften, slik at den var lik bakgrunnsfargen. Da hadde vi de tre fargene på rad, men det var mellomrom mellom dem og de hadde ikke riktig dimensjoner. For å endre på det så brukte vi «margin: 0 auto» for å fjerne marginene slik at det ikke var noen mellomrom og for å sette flagget i senter. Til slutt brukte vi «height» og «width» for å gi flagget den korrekte dimensjonen 3:5 (MDN, 2022).
 
 CSS-flagg
 
@@ -49,6 +49,8 @@ I canvas elementet tegnet vi ulike firkanter med forskjellige farger og størrel
  Referanseliste
   
  Cope, S. (2022, 20.September). Border-radius. Css-tricks. https://css-tricks.com/almanac/properties/b/border-radius/
+ 
+ MDN. (2022, 4.oktober). HTML basics. MDN Web Docs. https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/HTML_basics
  
  W3Schools (u.å.). HTML canvas fillRect() Method. W3Schools Online Web Tutorials. https://www.w3schools.com/tags/canvas_fillrect.asp
 
