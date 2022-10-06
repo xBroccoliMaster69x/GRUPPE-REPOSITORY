@@ -26,6 +26,13 @@ Done: Dette var her vi la de ferdige oppgavene.
 b) Arbeidsoppgavene delte vi opp i Github projects, og vi gjorde det med å ha to og to på hver arbeidsoppgave. Målet vårt var å dele oppgavene opp rettferdig at alle hadde rundt like mye arbeid, og gjøre det mest effektivt. Med å dele oppgavene inn med to og to på hver oppgave gjorde at hvis en ikke hadde tid å gjøre oppgaven av en eller annen grunn, så kunne den andre personen gjøre mesteparten, så det var mindre risiko enn å dele det opp til en og en per oppgave. Rammene i oppgaven består av tidsramme, der hadde vi over en måned på oppgaven, og ressursene våre var alle personene i oppgaven. I gruppen vår er vi 7 personer, og alle kunne jobbe når som helst, litt og litt. Planen vår ble beskrevet godt i Github projects, og gjorde det enkelt for oss å se hvem som skulle gjøre hva. Denne måten funket ganske bra, og vi vil mest sannsynlig bruke denne fremgangsmåten i de neste prosjektoppgavene.
 
 c)
+<p> elementet i html er brukes til å definere en paragraf med tekst, <p> elementet har egne regler og vil ha en standard margin. (W3Schools 2022) Dette er i motsetning til <div> som kan inneholde andre elementer, men ikke har predefinert regler for stil (W3Schools 2022). Når man bruker <p> elementet til å utforme stil på en paragraf. Kan man bruke <Style> til å bestemme verdier slik som farge på bakgrunn og tekst og dimensjoner på paragrafen. CSS, cascading style sheet, referer til språket vi bruker til å lage stilen i et html-dokument. Den kan befinne seg i html filen eller i en annen ekstern fil (W3Schools 2022). I CSS kan vi bruke ID og Class til å definere en. Denne IDen eller Classen kan refereres til for å hente style verdier. Forskjellen på ID og Classes som er relevant for oss er at Id kan bare hentes en gang, mens Classes kan hentes ubegrenset antall ganger (W3Schools 2022). Canvas elementet er et grafisk vindu hvor du kan via javascript tegne bokser, sirkler eller legge til bilder (W3Schools 2022). 
+
+Den første fremgangsmetoden. Design av flag ved bruk av <p> element og style, fungerer fint til å tegne det tyske flagget, men ville være vanskelig å bruke til å tegne mer kompliserte flag da prosessen essensielt består av å fargelegge bakgrunnen til paragrafer som ikke inneholder tekst. 
+
+Den andre fremgangsmetoden er enklere å bruke for mer kompliserte flag, da vi kan definere stil-verdier en gang og så hente dem etter behov, bruken av <div> gjør det også enklere å utforme flagget. 
+
+Den tredje fremgangsmåten via canvas er den mest anvendelige, da canvas har mange metoder for å utforme bokser, sirkler, linjer og bilder. Dette gjør Canvas til den beste fremgangsmetoden ved mer kompliserte flagg. 
 
 P style-flagg
 
@@ -52,3 +59,16 @@ I canvas elementet tegnet vi ulike firkanter med forskjellige farger og størrel
  
  W3Schools (u.å.). HTML canvas fillRect() Method. W3Schools Online Web Tutorials. https://www.w3schools.com/tags/canvas_fillrect.asp
 
+ W3Schools. (u.å.) HTML <p> Tag. Hentet 6. oktober 2022 fra https://www.w3docs.com/learn-html/html-p-tag.html 
+
+W3Schools. (u.å.) HTML <div> Tag. Hentet 6. oktober 2022 fra https://www.w3schools.com/tags/tag_div.ASP 
+
+W3Schools. (u.å.) HTML ID Attribute. Hentet 6. oktober 2022 fra https://www.w3schools.com/html/html_id.asp 
+
+W3Schools. (u.å.) HTML class attribute. Hentet 6. oktober 2022 fra https://www.w3schools.com/html/html_classes.asp 
+
+W3Schools. (u.å.) HTML Styles CSS. Hentet 6. oktober 2022 fra https://www.w3schools.com/html/html_css.asp 
+
+W3Schools. (u.å.) CSS introduction. Hentet 6. oktober 2022 fra https://www.w3schools.com/css/css_intro.asp 
+
+W3Schools. (u.å.) HTML Canvas. Hentet 6. oktober 2022 fra https://www.w3schools.com/html/html5_canvas.asp 
