@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Felles-skapet</title>
+
+    <style>
+
+        body
+        {
+            margin: 0;
+            font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        #header
+        {
+            position: fixed;
+            width: 100%;
+            overflow: hidden;
+            background-color: #FF284C;
+        }
+        .HeaderContents
+        {
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            top: 0;
+            margin-top: 40px;
+            cursor: default;
+        }
+            .NavigationMenuContents
+            {
+                position: relative;
+                margin-top: -10px;
+                background-color: transparent;
+                border: none;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+
+            #groupName:hover
+            {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+            .NavigationMenuContents:hover
+            {
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+    </style>
+
+</head>
+<body>
+
+        <div id="header">
+            <img class="HeaderContents" id="logo" src="UiA logo.png" style="height: 50px; margin-top: 25px;">
+            <p class="HeaderContents" id="pageName" style="font-size: 30px;">FELLES-SKAPET</p>
+            <a class="HeaderContents" id="groupName" href="https://github.com/xBroccoliMaster69x/GRUPPE-REPOSITORY" target="_blank">| Gruppe 5A</a> <!-- LINK TIL GITHUB GRUPPE-REPOSITORY -->
+            <div class="HeaderContents" id="navigationMenu" style="right: 0;">
+                <button class="HeaderContents NavigationMenuContents" id="howWeRoll">How We Roll</button>
+                <button class="HeaderContents NavigationMenuContents" id="hwrReport">HWR Report</button>
+                <button class="HeaderContents NavigationMenuContents" id="aboutUs">About Us</button>
+            </div>
+        </div>
+
+    
+    <script>
+    // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
+    // WINDOW RESIZING - HEADER CSS
+        // STATUS: DONE
+        // NEED HELP: -
+        /* COMMENT: Seksjonen tilpasser utseendet til "header" slik at den alltid er synlig, selv om brukeren endrer størrelsen på skjermen.
+        */
+
+        var HTMLheader = document.getElementById("header"); // Starter variabelnavnet med HTML for å vise at det er et HTML-element
+        var HTMLpageName = document.getElementById("pageName");
+        var HTMLlogo = document.getElementById("logo");
+        var HTMLgroupName = document.getElementById("groupName");
+        var HTMLnavigationMenu = document.getElementById("navigationMenu");
+
+        // Sjekker når størrelsen på vinduet blir endra og kjører funksjonen "ResizeWindow"
+        window.onresize = function() {ResizeWindow();}
+
+        // Funksjonen inneholder 4 forskjellige stadier en skjerm kan ha (bredde) og endrer de ulike elementene i "header" ved hjelp av CSS, slik at de alltid er synlige
+        function ResizeWindow ()
+        {
+            if (window.innerWidth < 410)
+            {
+                HTMLheader.style.height = "250px";
+
+                HTMLpageName.style.marginTop = "80px";
+                HTMLpageName.style.position = "relative";
+                HTMLpageName.style.textAlign = "center";
+                HTMLpageName.style.marginRight = "0px";
+
+                HTMLlogo.style.marginLeft = "0px";
+
+                HTMLgroupName.hidden = false;
+                HTMLgroupName.style.marginLeft = "195px";
+
+                HTMLnavigationMenu.style.marginTop = "125px";
+                HTMLnavigationMenu.style.marginRight = (window.innerWidth/2)-80 + "px";
+                HTMLnavigationMenu.style.width = "150px";
+            }
+            else if (window.innerWidth < 560)
+            {
+                HTMLheader.style.height = "150px";
+
+                HTMLpageName.style.marginTop = "35px";
+                HTMLpageName.style.position = "absolute";
+                HTMLpageName.style.right = "0";
+                HTMLpageName.style.marginRight = "10px";
+
+                HTMLlogo.style.marginLeft = "10px";
+
+                HTMLgroupName.hidden = true;
+                HTMLgroupName.style.marginLeft = "225px";
+
+                HTMLnavigationMenu.style.marginTop = "100px";
+                HTMLnavigationMenu.style.marginRight = "10px";
+                HTMLnavigationMenu.style.width = "auto";
+            }
+            else if (window.innerWidth < 1000)
+            {
+                HTMLheader.style.height = "150px";
+
+                HTMLpageName.style.marginTop = "35px";
+                HTMLpageName.style.position = "absolute";
+                HTMLpageName.style.right = "0";
+                HTMLpageName.style.marginRight = "25px";
+
+                HTMLlogo.style.marginLeft = "25px";
+
+                HTMLgroupName.hidden = false;
+                HTMLgroupName.style.marginLeft = "225px";
+
+                HTMLnavigationMenu.style.marginTop = "100px";
+                HTMLnavigationMenu.style.marginRight = "20px";
+                HTMLnavigationMenu.style.width = "auto";
+            }
+            else
+            {
+                HTMLheader.style.height = "100px";
+
+                HTMLpageName.style.marginTop = "35px";
+                HTMLpageName.style.position = "relative";
+                HTMLpageName.style.textAlign = "center";
+                HTMLpageName.style.marginRight = "0px";
+
+                HTMLlogo.style.marginLeft = "25px";
+
+                HTMLgroupName.hidden = false;
+                HTMLgroupName.style.marginLeft = "225px";
+
+                HTMLnavigationMenu.style.marginTop = "40px";
+                HTMLnavigationMenu.style.marginRight = "20px";
+                HTMLnavigationMenu.style.width = "auto";
+            }
+        }
+        ResizeWindow(); // Kaller funksjonen ved oppstart
+
+    // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
+    // NAVIGATION MENU - FUNKSJONALITET
+        // STATUS: DONE
+        // NEED HELP: -
+        /* COMMENT: Seksjonen bytter bakgrunnsfarge på knapper for å visualisere hvilken side du befinner deg på, etter knappetrykk.
+        */
+
+        var currentPage = "aboutUs"; // Default landing page
+        
+        var HTMLhowWeRoll = document.getElementById("howWeRoll"); // Starter variabelnavnet med HTML for å vise at det er et HTML-element
+        var HTMLhwrReport = document.getElementById("hwrReport");
+        var HTMLaboutUs = document.getElementById("aboutUs");
+
+        // Når en knapp blir trykket på bytter variabelen "currentPage" til den respektive siden og funksjonen "UpdateNavigationMenu" blir kjørt
+        HTMLhowWeRoll.onclick = function() {currentPage = "howWeRoll"; UpdateNavigationMenu();}
+        HTMLhwrReport.onclick = function() {currentPage = "hwrReport"; UpdateNavigationMenu();}
+        HTMLaboutUs.onclick = function() {currentPage = "aboutUs"; UpdateNavigationMenu();}
+
+        // Funksjonen tester hva som er "currentPage" og bytter bakgrunnsfarge på den respektive knappen
+        function UpdateNavigationMenu ()
+        {
+            if (currentPage == "howWeRoll")
+            {
+                HTMLhowWeRoll.style.backgroundColor = "#F40029";
+                HTMLhwrReport.style.backgroundColor = "transparent";
+                HTMLaboutUs.style.backgroundColor = "transparent";
+            }
+            else if (currentPage == "hwrReport")
+            {
+                HTMLhowWeRoll.style.backgroundColor = "transparent";
+                HTMLhwrReport.style.backgroundColor = "#F40029";
+                HTMLaboutUs.style.backgroundColor = "transparent";
+            }
+            else if (currentPage == "aboutUs")
+            {
+                HTMLhowWeRoll.style.backgroundColor = "transparent";
+                HTMLhwrReport.style.backgroundColor = "transparent";
+                HTMLaboutUs.style.backgroundColor = "#F40029";
+            }
+            else {document.write("ERROR: NAVIGATION MENU")}
+        }
+        UpdateNavigationMenu(); // Kaller funksjonen ved oppstart
+
+     // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
+    </script>
+    
+</body>
+</html>
