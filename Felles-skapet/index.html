@@ -17,7 +17,7 @@
         {
             position: fixed;
             width: 100%;
-            overflow: hidden;
+            overflow: auto;
             background-color: #FF284C;
         }
         .HeaderContents
@@ -63,6 +63,7 @@
             <div class="HeaderContents" id="navigationMenu" style="right: 0;">
                 <button class="HeaderContents NavigationMenuContents" id="howWeRoll">How We Roll</button>
                 <button class="HeaderContents NavigationMenuContents" id="hwrReport">HWR Report</button>
+                <button class="HeaderContents NavigationMenuContents" id="syntax">Syntax</button>
                 <button class="HeaderContents NavigationMenuContents" id="aboutUs">About Us</button>
             </div>
         </div>
@@ -87,9 +88,9 @@
         // Funksjonen inneholder 4 forskjellige stadier en skjerm kan ha (bredde) og endrer de ulike elementene i "header" ved hjelp av CSS, slik at de alltid er synlige
         function ResizeWindow ()
         {
-            if (window.innerWidth < 410)
+            if (window.innerWidth < 560)
             {
-                HTMLheader.style.height = "250px";
+                HTMLheader.style.height = "125px";
 
                 HTMLpageName.style.marginTop = "80px";
                 HTMLpageName.style.position = "relative";
@@ -105,25 +106,7 @@
                 HTMLnavigationMenu.style.marginRight = (window.innerWidth/2)-82 + "px";
                 HTMLnavigationMenu.style.width = "150px";
             }
-            else if (window.innerWidth < 560)
-            {
-                HTMLheader.style.height = "150px";
-
-                HTMLpageName.style.marginTop = "35px";
-                HTMLpageName.style.position = "absolute";
-                HTMLpageName.style.right = "0";
-                HTMLpageName.style.marginRight = "10px";
-
-                HTMLlogo.style.marginLeft = "10px";
-
-                HTMLgroupName.hidden = true;
-                HTMLgroupName.style.marginLeft = "225px";
-
-                HTMLnavigationMenu.style.marginTop = "100px";
-                HTMLnavigationMenu.style.marginRight = (window.innerWidth/2)-192 + "px";
-                HTMLnavigationMenu.style.width = "auto";
-            }
-            else if (window.innerWidth < 1000)
+            else if (window.innerWidth < 1175)
             {
                 HTMLheader.style.height = "150px";
 
@@ -138,7 +121,7 @@
                 HTMLgroupName.style.marginLeft = "225px";
 
                 HTMLnavigationMenu.style.marginTop = "100px";
-                HTMLnavigationMenu.style.marginRight = (window.innerWidth/2)-192 + "px";
+                HTMLnavigationMenu.style.marginRight = (window.innerWidth/2)-237 + "px";
                 HTMLnavigationMenu.style.width = "auto";
             }
             else
@@ -173,11 +156,13 @@
         
         var HTMLhowWeRoll = document.getElementById("howWeRoll"); // Starter variabelnavnet med HTML for å vise at det er et HTML-element
         var HTMLhwrReport = document.getElementById("hwrReport");
+        var HTMLsyntax = document.getElementById("syntax");
         var HTMLaboutUs = document.getElementById("aboutUs");
 
         // Når en knapp blir trykket på bytter variabelen "currentPage" til den respektive siden og funksjonen "UpdateNavigationMenu" blir kjørt
         HTMLhowWeRoll.onclick = function() {currentPage = "howWeRoll"; UpdateNavigationMenu();}
         HTMLhwrReport.onclick = function() {currentPage = "hwrReport"; UpdateNavigationMenu();}
+        HTMLsyntax.onclick = function() {currentPage = "syntax"; UpdateNavigationMenu();}
         HTMLaboutUs.onclick = function() {currentPage = "aboutUs"; UpdateNavigationMenu();}
 
         // Funksjonen tester hva som er "currentPage" og bytter bakgrunnsfarge på den respektive knappen
@@ -187,18 +172,28 @@
             {
                 HTMLhowWeRoll.style.backgroundColor = "#F40029";
                 HTMLhwrReport.style.backgroundColor = "transparent";
+                HTMLsyntax.style.backgroundColor = "transparent";
                 HTMLaboutUs.style.backgroundColor = "transparent";
             }
             else if (currentPage == "hwrReport")
             {
                 HTMLhowWeRoll.style.backgroundColor = "transparent";
                 HTMLhwrReport.style.backgroundColor = "#F40029";
+                HTMLsyntax.style.backgroundColor = "transparent";
+                HTMLaboutUs.style.backgroundColor = "transparent";
+            }
+            else if (currentPage == "syntax")
+            {
+                HTMLhowWeRoll.style.backgroundColor = "transparent";
+                HTMLhwrReport.style.backgroundColor = "transparent";
+                HTMLsyntax.style.backgroundColor = "#F40029";
                 HTMLaboutUs.style.backgroundColor = "transparent";
             }
             else if (currentPage == "aboutUs")
             {
                 HTMLhowWeRoll.style.backgroundColor = "transparent";
                 HTMLhwrReport.style.backgroundColor = "transparent";
+                HTMLsyntax.style.backgroundColor = "transparent";
                 HTMLaboutUs.style.backgroundColor = "#F40029";
             }
             else {document.write("ERROR: NAVIGATION MENU")}
