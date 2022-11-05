@@ -1,0 +1,51 @@
+#header /* Menylinja på toppen */
+{
+    position: fixed;
+    width: 100%;
+    overflow: auto;
+    background-color: #FF284C;
+}
+.HeaderContents /* Alle elementene inne i menylinja */
+{
+    position: absolute;
+    color: white;
+    font-size: 20px;
+    text-decoration: none;
+    top: 0;
+    margin-top: 40px;
+    cursor: default;
+}
+    .NavigationMenuContents /* Alle knappene på menylinja aka navigeringen */
+    {
+        position: relative;
+        margin-top: -10px;
+        background-color: transparent;
+        border: none;
+        padding: 10px;
+        margin-bottom: 10px;
+    }
+
+    /* Disse to med :hover gjør at musepekeren endrer utseende når man har musa over en knapp i menylinja */
+    #groupName:hover
+    {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+    .NavigationMenuContents:hover
+    {
+        cursor: pointer;
+        text-decoration: underline;
+    }
+
+#page /* En div for alt av innhold på siden hvor iframes blir puttet inn */
+{
+    position: absolute;
+    width: 100%;
+}
+.PageContents /* Alle iframe-elementene (4) */
+{
+    position: absolute;
+    width: 100%;
+    border: 0;
+    overflow: auto;
+}
