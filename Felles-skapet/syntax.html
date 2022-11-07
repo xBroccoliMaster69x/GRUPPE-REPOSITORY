@@ -1,6 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        #meny{width: 200px;}
+        #meny p.active{background-color: #ff284c;}
+        #meny p{border: 1px solid black;display:block;padding: 12px;margin:0;}
+        
+    </style>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,5 +16,41 @@
     <h1>Syntax</h1>
     <!-- test -->
     <iframe width="560" height="315" src="https://www.youtube.com/embed/EIccb5v6yiI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <a target="_blank" href="https://www.youtube.com/channel/UCqXKOTXjzrQNVhZQtGBUebA">Gå til kanalen</a>
+    <div id="meny">
+        <p class="active" id="velg">Velg kodespråk</p>
+        <div id="menyContent" hidden>
+            <p id="html">HTML</p>
+            <p id="css">CSS</p>
+            <p id="js">JavaScript</p>
+        </div>
+    </div>
+    <script>
+       
+    var velg = document.getElementById("velg");
+      var menyContent = document.getElementById("menyContent");
+
+      var synlig = "usant";
+
+        velg.onclick = function ()
+        {
+            if (synlig == "usant")
+            {
+                menyContent.hidden = false;
+                synlig = "sant";
+            }
+            else if (synlig == "sant")
+            {
+                menyContent.hidden = true;
+                synlig = "usant";
+            }
+        }
+
+
+        
+
+    </script>
+
+
 </body>
 </html>
