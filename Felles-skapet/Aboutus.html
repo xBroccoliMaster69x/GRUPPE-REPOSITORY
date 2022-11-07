@@ -11,8 +11,34 @@
                 text-align: center;
                 background-color: rgb(255, 255, 255);
             }
-        </style>
-        <img src="Joackim.jpeg" width="300px">
+
+* {
+  box-sizing: border-box;
+}
+
+.kolonne {
+  float: left;
+  width: 25%;
+  padding: 5px;
+}
+
+.bilderad::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+</style>
+<!-- en div slik at alle bildene i visittkortet bli på samme linje, hvertfall de første 4 --> 
+       <div class="Bilderad">
+        <div class="kolonne">
+          <img src="Joackim.jpeg" alt="joe" style="width:100%">
+        </div>
+    </div class="kolonne">
+         <img src="tobeeass.jpg" alt="toby" style="width: 50%">
+        </div>
+      </div>
+
+
     </head>
 <body>
     
