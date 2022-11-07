@@ -1,77 +1,188 @@
 <!DOCTYPE html>
 <html lang="en">
-=======
+
     <head>
       <meta charset="UTF-8">
       <meta http-equiv="X-UA-Compatible" content="IE=edge">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>How We Roll</title>
+     
+    <style>
 
-      <style>
-        .slidecontainer {
-          width: 300px;
-          margin-top: 50px;
-        }
+
+.slidecontainer /* Hører til sliders */
+{
+   /* Brukte  width: 650px;   men den fører til at slider forskyver seg til venste */
+    margin-top: 25px;
+    text-align: center;
+}
+  
+ .slider {    /* Denne justere alt som har med sliders */
+    -webkit-appearance: none;
+    width: 20%;
+    height: 15px;
+    border-radius: 5px;
+    background: #d3d3d3;
+    outline: none;
+    opacity: 0.7;
+    -webkit-transition: .2s;
+    transition: opacity .2s;
+ }
+ 
+  .slider:hover /* Mouse-over effects */
+  {
+    opacity: 1;
+  }
+  
+  .slider::-webkit-slider-thumb /* Denne justere den røde kula i midten av sliders */
+  {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #FF284C;
+    cursor: pointer;
+  }
+  
+  .slider::-moz-range-thumb /* Hører til sliders aka How we roll siden */
+   {
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: #FF284C;
+    cursor: pointer;
+  }
+
+  .center-button /* Hører til sliders, den er for å sentrere knappen */
+  {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 200px;
+}
+
+.form {
+            text-align: center;
+        }           /* Gjøre textbokse pluss buttons sentrert */
+
+.container {
+            text-align: center;
+            margin-top: 7em;
+            display: none;
+
+}
+
+    </style>
+
+
+
+     </head>
+       <body>
         
-        .slider {
-          -webkit-appearance: none;
-          width: 100%;
-          height: 15px;
-          border-radius: 5px;
-          background: #d3d3d3;
-          outline: none;
-          opacity: 0.7;
-          -webkit-transition: .2s;
-          transition: opacity .2s;
-        }
-        
-        .slider:hover {
-          opacity: 1;
-        }
-        
-        .slider::-webkit-slider-thumb {
-          -webkit-appearance: none;
-          appearance: none;
-          width: 25px;
-          height: 25px;
-          border-radius: 50%;
-          background: #FF284C;
-          cursor: pointer;
-        }
-        
-        .slider::-moz-range-thumb {
-          width: 25px;
-          height: 25px;
-          border-radius: 50%;
-          background: #FF284C;
-          cursor: pointer;
-        }
-        </style>
-        </head>
-        <body>
-        
-        <h1>Overskrift</h1>
-        
+        <!-- Overskriften samt fyll inn boksene -->
+        <section class="form">
+          <h1>Overskrift</h1>
+          <h3>Fyll inn</h3>
+          <form>
+              <p><label for="data01">Relevant informasjon</label>
+                  <input type="text" name="navn" id="data01" /></p>
+      
+              <p><label for="data02">Relevant informasjon</label>
+                  <input type="text" name="gruppe" id="data02" /></p>
+
+
+        <!-- Slider 1 -->
         <div class="slidecontainer">
+          <label>Early bird</label> <!-- Navn før slideren -->
           <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
-
+          <label>Night owl</label> <!-- // Navn etter slideren -->
         </div>
-        
+
+        <!-- Slider 2 -->
         <div class="slidecontainer">
+            <label>Work on it together</label> <!-- Navn før slideren -->
             <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            <label>Go off alone and think</label> <!-- // Navn etter slideren -->
           </div>
 
+        <!-- Slider 3 -->
+        <div class="slidecontainer">
+          <label>Tell me the backstory</label> <!-- Navn før slideren -->
+          <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+          <label>Cut to the chase</label> <!-- // Navn etter slideren -->
+        </div>
+
+         <!-- Slider 4 -->
+        <div class="slidecontainer">
+              <label>Need to talk it out</label> <!-- Navn før slideren -->
+              <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+              <label>Need to move on</label> <!-- // Navn etter slideren -->
+                </div>
+
+        <!-- Slider 5 -->
+        <div class="slidecontainer">
+          <label>Verbal processor</label> <!-- Navn før slideren -->
+          <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+          <label>Mental processor</label> <!-- // Navn etter slideren -->
+        </div>
+
+            <!-- Slider 6 -->
+          <div class="slidecontainer">
+            <label>Schedule a time to chat</label> <!-- Navn før slideren -->
+              <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+              <label>Interrupt me when you need me</label> <!-- // Navn etter slideren -->
+                </div>
+
+           <!-- Slider 7 -->
+         <div class="slidecontainer">
+             <label>Video chat</label> <!-- Navn før slideren -->
+            <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            <label>Slack/Text</label> <!-- // Navn etter slideren -->
+           </div>
+
+           <!-- Slider 8 -->
+         <div class="slidecontainer">
+          <label>09-17 Hours</label> <!-- Navn før slideren -->
+            <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            <label>I have no set schedule</label> <!-- // Navn etter slideren -->
+                </div>
+
+              <!-- Slider 9 -->
+            <div class="slidecontainer">
+          <label>ekempel 1</label> <!-- Navn før slideren -->
+           <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+           <label>eksempel1</label> <!-- // Navn etter slideren -->
+             </div>
+
+             <!-- Slider 10 -->
+               <div class="slidecontainer">
+          <label>eksempel2</label> <!-- Navn før slideren -->
+           <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+           <label>eksempel2</label> <!-- // Navn etter slideren -->
+        </div>
+
+            <!-- Lagreknapp -->
+        </div>
+        <button>Lagre</button> <!-- type="submit" id="btnLagre"-->
+
+
+<!-- Dette må gjøres/jobbes med evt finnes ny metode 
+  Create a dynamic range slider to display the current value, with JavaScript:
         <script>
         var slider = document.getElementById("myRange");
         var output = document.getElementById("demo");
-        output.innerHTML = slider.value;
+        output.innerHTML = slider.value;  // Display the default slider value
         
+        // Update the current slider value (each time you drag the slider handle)
         slider.oninput = function() {
           output.innerHTML = this.value;
         }
+
         </script>
-          
+
+
+      -->
 
         </body>
->>>>>>> cd2f718e9600df5136fe9c94b82f216fda355626
 </html>
