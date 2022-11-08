@@ -5,12 +5,14 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <title>About us</title>
-        <style>
-            body
-            {
-                text-align: center;
-                background-color: rgb(255, 255, 255);
-            }
+
+  <style>
+        body
+        {
+            text-align: center;
+            background-color: rgb(255, 255, 255);
+        }
+
 
 * {
   box-sizing: border-box;
@@ -18,7 +20,22 @@
 
 .kolonne {
   float: left;
-  width: 25%;
+  width: 20%;
+  padding: 5px;
+}
+
+.bilderad::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+* {
+  box-sizing: border-box;
+}
+
+.kolonne2 {
+  float: left;
+  width: 20%;
   padding: 5px;
 }
 
@@ -28,19 +45,43 @@
   display: table;
 }
 </style>
-<!-- en div slik at alle bildene i visittkortet bli på samme linje, hvertfall de første 4 --> 
-       <div class="Bilderad">
-        <div class="kolonne">
-          <img src="Joackim.jpeg" alt="joe" style="width:100%">
-        </div>
-    </div class="kolonne">
-         <img src="tobeeass.jpg" alt="toby" style="width: 50%">
-        </div>
-      </div>
-
 
     </head>
 <body>
-    
+  <!-- en div slik at alle bildene i visittkortet bli på samme linje, hvertfall de første 4 --> 
+  <div class="Bilderad">
+    <div class="kolonne">
+      <img src="Joackim.jpg" alt="joe" style="width:100%">
+      <p1>Joackim er 20 år fra karmøy, han har ikke veldig mye erfaring med programmering</p1>
+    </div>
+<div class="kolonne">
+     <img src="toby.jpg" alt="toby" style="width: 100%">
+     <p1>Tobias er youtuber fra sogndal</p1>
+    </div>
+    <div class="kolonne">
+      <img src="viccy.jpg" alt="joe" style="width:100%">
+      <p2>Victor deltar ikke i mowember</p2>
+    </div>
+    <div class="kolonne">
+      <img src="simen.jpg" alt="joe" style="width:100%">
+      <p1>Simen er fra sauda</p1>
+    </div>
+  </div>
+
+  <div class="Bilderad2">
+    <div class="kolonne2">
+      <img src="rebs.jpg" alt="joe" style="width:100%">
+      <p1>Rebz e fra haugesund</p1>
+    </div>
+    <div class="kolonne2">
+      <img src="amir.jpg" alt="joe" style="width:100%">
+      <p1>BOSNIA</p1>
+    </div>
+    <div class="kolonne2">
+      <img src="ga.jpg" alt="joe" style="width:100%">
+      <p1>SERBIA</p1>
+    </div>
+  </div>
+
 </body>
 </html>
