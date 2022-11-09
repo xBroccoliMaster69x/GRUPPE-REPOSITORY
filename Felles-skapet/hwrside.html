@@ -10,14 +10,15 @@
     <style>
 
 
-.slidecontainer /* Hører til sliders */
+.slidecontainer /* Hører til sliders, dette er class til sliders */
 {
    /* Brukte  width: 650px;   men den fører til at slider forskyver seg til venste */
     margin-top: 25px;
     text-align: center;
 }
   
- .slider {    /* Denne justere alt som har med sliders */
+.slider /* Denne justere selve slidersene */
+{    
     -webkit-appearance: none;
     width: 20%;
     height: 15px;
@@ -27,15 +28,15 @@
     opacity: 0.7;
     -webkit-transition: .2s;
     transition: opacity .2s;
- }
+}
  
-  .slider:hover /* Mouse-over effects */
-  {
+.slider:hover /* Mouse-over effects */
+{
     opacity: 1;
-  }
+}
   
-  .slider::-webkit-slider-thumb /* Denne justere den røde kula i midten av sliders */
-  {
+.slider::-webkit-slider-thumb /* Denne justere den røde kula i midten av sliders */
+{
     -webkit-appearance: none;
     appearance: none;
     width: 25px;
@@ -43,144 +44,177 @@
     border-radius: 50%;
     background: #FF284C;
     cursor: pointer;
-  }
+}
   
-  .slider::-moz-range-thumb /* Hører til sliders aka How we roll siden */
-   {
+.slider::-moz-range-thumb /* Hører til sliders, for moz */
+{
     width: 25px;
     height: 25px;
     border-radius: 50%;
     background: #FF284C;
     cursor: pointer;
-  }
+}
 
   .center-button /* Hører til sliders, den er for å sentrere knappen */
-  {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 200px;
+{
+   display: flex;
+    justify-content: center;
+   align-items: center;
+   height: 200px;
 }
 
-.form {
-            text-align: center;
-
-        }           /* Gjøre textbokse pluss buttons sentrert */
-
-.container {
-            text-align: center;
-            margin-top: 7em;
-            display: none;
-
+.resultat /* Er for å gjøre form data hidden */
+{
+    visibility: hidden;
 }
+
+.id /* Fikser margin på tekstbox samt lagre knappen */
+{
+   margin-top: 10px;
+}
+
+.form /* Gjøre textbokse pluss buttons sentrert */
+{
+    text-align: center;
+
+}           
+
     </style>
     </head>
        <body>
         
         <!-- Overskriften samt fyll inn boksene -->
         <section class="form">
-          <h1>Overskrift</h1>
+          <h1>How We Roll</h1>
           <h3>Fyll inn</h3>
           <form>
-              <p><label for="data01">Relevant informasjon</label>
+              <p><label for="data01">Navn</label>
                   <input type="text" name="navn" id="data01" /></p>
       
-              <p><label for="data02">Relevant informasjon</label>
+              <p><label for="data02">Gruppe</label>
                   <input type="text" name="gruppe" id="data02" /></p>
 
         <!-- Slider 1 -->
         <div class="slidecontainer">
              <label>Early bird</label> <!-- Navn før slideren -->
-            <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            <input type="range" min="0" max="100" value="50" class="slider" name="eorn"> <!--Dette er selve slideren-->
              <label>Night owl</label> <!-- // Navn etter slideren -->
         </div>
 
         <!-- Slider 2 -->
         <div class="slidecontainer">
             <label>Work on it together</label> <!-- Navn før slideren -->
-            <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            <input type="range" min="0" max="100" value="50" class="slider" name="worg"> <!--Dette er selve slideren-->
             <label>Go off alone and think</label> <!-- // Navn etter slideren -->
           </div>
 
         <!-- Slider 3 -->
         <div class="slidecontainer">
             <label>Tell me the backstory</label> <!-- Navn før slideren -->
-            <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            <input type="range" min="0" max="100" value="50" class="slider" name="torc"> <!--Dette er selve slideren-->
             <label>Cut to the chase</label> <!-- // Navn etter slideren -->
         </div>
 
          <!-- Slider 4 -->
         <div class="slidecontainer">
              <label>Need to talk it out</label> <!-- Navn før slideren -->
-             <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+             <input type="range" min="0" max="100" value="50" class="slider" name="norn"> <!--Dette er selve slideren-->
              <label>Need to move on</label> <!-- // Navn etter slideren -->
         </div>
 
         <!-- Slider 5 -->
         <div class="slidecontainer">
             <label>Verbal processor</label> <!-- Navn før slideren -->
-            <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            <input type="range" min="0" max="100" value="50" class="slider" name="vorm"> <!--Dette er selve slideren-->
             <label>Mental processor</label> <!-- // Navn etter slideren -->
         </div>
 
         <!-- Slider 6 -->
         <div class="slidecontainer">
              <label>Schedule a time to chat</label> <!-- Navn før slideren -->
-            <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            <input type="range" min="0" max="100" value="50" class="slider" name="sori"> <!--Dette er selve slideren-->
             <label>Interrupt me when you need me</label> <!-- // Navn etter slideren -->
         </div>
 
         <!-- Slider 7 -->
         <div class="slidecontainer">
             <label>Video chat</label> <!-- Navn før slideren -->
-            <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            <input type="range" min="0" max="100" value="50" class="slider" name="vors"> <!--Dette er selve slideren-->
              <label>Slack/Text</label> <!-- // Navn etter slideren --> 
         </div>
 
         <!-- Slider 8 -->
         <div class="slidecontainer">
             <label>09-17 Hours</label> <!-- Navn før slideren -->
-            <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            <input type="range" min="0" max="100" value="50" class="slider" name="hori"> <!--Dette er selve slideren-->
             <label>I have no set schedule</label> <!-- // Navn etter slideren -->
         </div>
 
         <!-- Slider 9 -->
         <div class="slidecontainer">
             <label>ekempel 1</label> <!-- Navn før slideren -->
-            <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+            <input type="range" min="0" max="100" value="50" class="slider" name="eks1"> <!--Dette er selve slideren-->
             <label>eksempel1</label> <!-- // Navn etter slideren -->
         </div>
 
         <!-- Slider 10 -->
         <div class="slidecontainer">
            <label>eksempel2</label> <!-- Navn før slideren -->
-           <input type="range" min="0" max="100" value="50" class="slider" id="myRange">
+           <input type="range" min="0" max="100" value="50" class="slider" name="eks2"> <!--Dette er selve slideren-->
            <label>eksempel2</label> <!-- // Navn etter slideren -->
         </div>
 
         <!-- Lagreknapp -->
-        </div>
-        <button>Lagre</button> <!-- type="submit" id="btnLagre"-->
+        <button class="id"type="submit" id="btn">Lagre</button>
+      
+        <!--Dette er for å gjøre time å trxid sammen og få det inn i tekstbox-->
+       <div class="id">
+        Kopier id: <input type="text" id="timetrxidCOPY" style="width: 400px">
+       </div>
+
+        <!--Dette er for å få frem resultat-->   
+       <div class="resultat">
+        <h2>Form Data</h2>
+        <pre></pre>
+       </div>
 
 
-<!-- Dette må gjøres/jobbes med evt finnes ny metode 
-  
-  Create a dynamic range slider to display the current value, with JavaScript:
-        <script>
-        var slider = document.getElementById("myRange");
-        var output = document.getElementById("demo");
-        output.innerHTML = slider.value;  // Display the default slider value
-        
-        // Update the current slider value (each time you drag the slider handle)
-        slider.oninput = function() {
-          output.innerHTML = this.value;
+<script> // Dette er for å få frem dataen i slidersene, hentet av tidligere gruppe, samt Janis
+        // From https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch 
+        // Example POST method implementation using fetch:
+        async function postData(url = '', data = {}) {
+            // Default options are marked with *
+            const response = await fetch(url, {
+                method: 'POST', // *GET, POST, PUT, DELETE, etc.
+                mode: 'cors', // no-cors, *cors, same-origin
+                cache: 'no-cache', // *default, no-cache, reload, force-cache,only-if-cached
+                credentials: 'same-origin', // include, *same-origin, omit
+                headers: {
+                    'Content-Type': 'application/json',
+                    // 'Content-Type': 'application/x-www-form-urlencoded',
+                },
+                redirect: 'follow', // manual, *follow, error
+                referrerPolicy: 'no-referrer', // no-referrer,*no-referrer-when-downgrade, origin, origin-when-cross-origin, same-origin, strict-origin, strict-origin-when-cross-origin, unsafe-url
+                body: JSON.stringify(data) // body data type must match"Content-Type"header
+            });
+            return response.json(); // parses JSON response into native JavaScriptobjects
         }
 
-        </script>
+        function handleSubmit(event) {
+            event.preventDefault();
+            const data = new FormData(event.target);
+            const formJSON = Object.fromEntries(data.entries());
+            const results = document.querySelector('.resultat pre');
+            postData('https://bacit.info/', formJSON)
+                .then(data => {
+                    results.innerText = JSON.stringify(data, null, 2);
+                    timetrxidCOPY.value=data.time+"-"+data.trxid;
+                });
+        }
+        const form = document.querySelector('form');
+        form.addEventListener('submit', handleSubmit);
 
+</script>
 
-      -->
-
-<!-- Visuelle av data ID -->
     </body>
 </html>
