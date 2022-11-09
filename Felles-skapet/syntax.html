@@ -7,10 +7,28 @@
     <title>Syntax</title>
 
     <style>
-        
+        body
+        {
+            text-align:center;
+            margin:0;
+            font-family: "Helvetica", "Arial", sans-serif;
+        }
+        #youtubeLink {
+            position:absolute;
+            margin-top:325px;
+            font-size:20px;
+            margin-left:-340px;
+        }
+        #ramme{
+            width:100%;
+             margin-top: 50px;
+        }
         #meny
         {
+            margin-left:33%;
             width: 200px;
+            font-weight: bold;
+            cursor: pointer;
         }
         #meny p.active
         {
@@ -23,7 +41,19 @@
             padding: 12px;
             margin:-1px;
         }
-        
+        .bokser{
+            width:40%;
+            position:relative;
+            float:left;
+            margin:4.9%;
+        }
+        .bokserInnhold
+        {
+            margin-top: 25px;
+            width: 100%;
+            height: 100px;
+            background: #e5e8e9;
+        }
     </style>
 
 </head>
@@ -31,16 +61,35 @@
 
     <h1>Syntax</h1>
     <iframe width="560" height="315" src="https://www.youtube.com/embed/EIccb5v6yiI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <a target="_blank" href="https://www.youtube.com/channel/UCqXKOTXjzrQNVhZQtGBUebA">Gå til kanalen</a>
-    <div id="meny">
-        <p class="active" id="velg">Velg kodespråk</p>
-        <div id="menyContent" hidden>
-            <p id="html">HTML</p>
-            <p id="css">CSS</p>
-            <p id="js">JavaScript</p>
+    <a id="youtubeLink" target="_blank" href="https://www.youtube.com/channel/UCqXKOTXjzrQNVhZQtGBUebA">Gå til kanalen</a>
+    <div id="ramme">
+        <div class="bokser">
+            <div id="meny">
+                <p class="active" id="velg">Velg kodespråk</p>
+                <div id="menyContent" hidden>
+                    <p id="htmlKnapp">HTML</p>
+                    <p id="cssKnapp">CSS</p>
+                    <p id="jsKnapp">JavaScript</p>
+                </div>
+            </div>
+            <div class="bokserInnhold" id="htmlSide" hidden>
+                <p>HTML lorem ipsum</p>
+            </div>
+            <div class="bokserInnhold" id="cssSide" hidden>
+                <p>CSS lorem ipsum</p>
+            </div>
+            <div class="bokserInnhold" id="jsSide" hidden>
+                <p>JavaScript lorem ipsum</p>
+            </div>
+        </div>
+        <div class="bokser">
+            <p style="font-weight:bold;">GitHub</p>
+            <div class="bokserInnhold" id="githubSide">
+                <p>GitHub lorem ipsum</p>
+            </div>
         </div>
     </div>
-
+  
     <script>
        
         var velg = document.getElementById("velg");
@@ -54,14 +103,65 @@
             {
                 menyContent.hidden = false;
                 synlig = "sant";
+                velg.innerHTML = "Velg kodespråk";
+                htmlSide.hidden = true;
+                cssSide.hidden = true;
+                jsSide.hidden = true;
             }
             else if (synlig == "sant")
             {
                 menyContent.hidden = true;
                 synlig = "usant";
+                velg.innerHTML = activePage;
+                if (activePage == "HTML") {htmlSide.hidden = false;}
+                else if (activePage == "CSS") {cssSide.hidden = false;}
+                else if (activePage == "JavaScript") {jsSide.hidden = false;}
             }
+            
         }
 
+        var activePage ="Velg kodespråk"
+
+        var htmlKnapp = document.getElementById("htmlKnapp");
+        var cssKnapp = document.getElementById("cssKnapp");
+        var jsKnapp = document.getElementById("jsKnapp");
+
+        var htmlSide = document.getElementById("htmlSide");
+        var cssSide = document.getElementById("cssSide");
+        var jsSide = document.getElementById("jsSide");
+
+        htmlKnapp.onclick=function()
+        {
+            menyContent.hidden = true;
+            synlig = "usant";
+            activePage="HTML"
+            velg.innerHTML= activePage;
+            htmlSide.hidden = false;
+            cssSide.hidden = true;
+            jsSide.hidden = true;
+        }
+
+        cssKnapp.onclick=function()
+        {
+            menyContent.hidden = true;
+            synlig = "usant";
+            activePage="CSS"
+            velg.innerHTML= activePage;
+            htmlSide.hidden = true;
+            cssSide.hidden = false;
+            jsSide.hidden = true;
+        }
+
+        jsKnapp.onclick=function()
+        {
+            menyContent.hidden = true;
+            synlig = "usant";
+            activePage="JavaScript"
+            velg.innerHTML= activePage;
+            htmlSide.hidden = true;
+            cssSide.hidden = true;
+            jsSide.hidden = false;
+        }
     </script>
 
 </body>
