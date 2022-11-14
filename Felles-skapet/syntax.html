@@ -13,6 +13,33 @@
             margin: 0;
             font-family: "Helvetica", "Arial", sans-serif;
         }
+
+    /* - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - - */
+    /* VIDEOBIBLIOTEK UTSEENDE */
+    /* KOMMENTAR: */
+
+        .SmåVideoer
+        {
+            position: absolute;
+            margin-top: 67px;
+        }
+        .PreventYouTube
+        {
+            width: 320px;
+            height: 180px;
+            position: absolute;
+            top: 175px;
+            cursor: pointer;
+        }
+        .Previous
+        {
+            left: 65px;
+        }
+        .Next
+        {
+            right: 65px;
+        }
+
         #youtubeLink
         {
             position: absolute;
@@ -21,83 +48,60 @@
             margin-left: -335px;
             color: #ff284c;
         }
+
+    /* - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - - */
+    /* BOKSER MED INFORMASJON UTSEENDE */
+    /* KOMMENTAR: */
+
         #ramme
         {
             width: 100%;
             margin-top: 50px;
         }
-        #meny
-        {
-            position: relative;
-            margin-left: 35%;
-            width: 200px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        #meny p#velg
-        {
-            background-color: #ff284c;
-        }
-        #meny p
-        {
-            border: 1px solid black;
-            display: block;
-            padding: 12px;
-            margin: -1px;
-        }
-        .bokser
-        {
-            width: 45%;
-            position: relative;
-            float: left;
-            margin: 2.49%;
-        }
-        .bokserInnhold
-        {
-            margin-top: 25px;
-            width: 100%;
-            background: #e5e8e9;
-            padding: 5px 0 5px 0;
-        }
-        .bokserInnhold a
-        {
-            color: #ff284c;
-        }
-        .venstreBoks
-        {
-            margin-top: 17px;
-        }
+            .bokser
+            {
+                width: 45%;
+                position: relative;
+                float: left;
+                margin: 2.49%;
+            }
+                .bokserInnhold
+                {
+                    margin-top: 25px;
+                    width: 100%;
+                    background: #e5e8e9;
+                    padding: 5px 0 5px 0;
+                }
+                    .bokserInnhold a
+                    {
+                        color: #ff284c;
+                    }
+                .venstreBoks
+                {
+                    margin-top: 17px;
+                }
 
-        .SmåVideoer
-        {
-            position: absolute;
-            margin-top: 67px;
-        }
-        #previousVideo
-        {
-            left: 65px;
-        }
-        #nextVideo
-        {
-            right: 65px;
-        }
+                #meny
+                {
+                    position: relative;
+                    margin-left: 35%;
+                    width: 200px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+                    #meny p
+                    {
+                        border: 1px solid black;
+                        display: block;
+                        padding: 12px;
+                        margin: -1px;
+                    }
+                        #meny #velg
+                        {
+                            background-color: #ff284c;
+                        }
 
-        .preventYouTube
-        {
-            width: 320px;
-            height: 180px;
-            position: absolute;
-            top: 175px;
-            cursor: pointer;
-        }
-        #previousButton
-        {
-            left: 65px;
-        }
-        #nextButton
-        {
-            right: 65px;
-        }
+    /* - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - - */
     </style>
 
 </head>
@@ -106,13 +110,13 @@
     <h2 style="margin-top: 50px;">Kode-Kurs for dummies</h2>
 
     <!-- TRE VIDEOELEMENTER: EN SOM VISER FORRIGE VIDEO, EN SOM VISER AKTIV VIDEO, OG EN SOM VISER NESTE VIDEO -->
-    <iframe id="previousVideo" width="320" height="180" frameborder="0" src="" class="SmåVideoer"></iframe>
+    <iframe id="previousVideo" width="320" height="180" frameborder="0" src="" class="SmåVideoer Previous"></iframe>
     <iframe id="currentVideo" width="560" height="315" frameborder="0" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe id="nextVideo" width="320" height="180" frameborder="0" src="" class="SmåVideoer"></iframe>
+    <iframe id="nextVideo" width="320" height="180" frameborder="0" src="" class="SmåVideoer Next"></iframe>
    
     <!-- OVERLAY SOM GJØR AT DU IKKE KAN SPILLE AV VIDEOENE SOM IKKE ER AKTIVE, MEN FUNGERER SOM KNAPPER -->
-    <div class="preventYouTube" id="previousButton"></div>
-    <div class="preventYouTube" id="nextButton"></div>
+    <div class="PreventYouTube Previous" id="previousButton"></div>
+    <div class="PreventYouTube Next" id="nextButton"></div>
 
     <a id="youtubeLink" target="_blank" href="https://www.youtube.com/channel/UCqXKOTXjzrQNVhZQtGBUebA">Gå til kanalen</a>
     
@@ -236,7 +240,7 @@
             menyContent.hidden = true;
             synlig = false;
             activePage = "HTML"
-            velg.innerHTML= activePage;
+            velg.innerHTML = activePage;
             tomSide.hidden = true;
             htmlSide.hidden = false;
             cssSide.hidden = true;
@@ -248,7 +252,7 @@
             menyContent.hidden = true;
             synlig = false;
             activePage = "CSS"
-            velg.innerHTML= activePage;
+            velg.innerHTML = activePage;
             tomSide.hidden = true;
             htmlSide.hidden = true;
             cssSide.hidden = false;
@@ -268,7 +272,7 @@
         }
 
     // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
-    // VIDEO BIBLIOTEK FUNKSJONALITET
+    // VIDEOBIBLIOTEK FUNKSJONALITET
     // KOMMENTAR: 
 
         var previousButton = document.getElementById("previousButton");
