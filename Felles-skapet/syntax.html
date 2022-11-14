@@ -266,7 +266,8 @@
             currentVideo.src = videoArray[counter] + autoplay;
         }
 
-        previousVideo.src = videoArray[counter-1];
+        if (videoArray[counter-1] == undefined) {previousVideo.src = "";}
+        else {previousVideo.src = videoArray[counter-1];}
         currentVideo.src = videoArray[counter] + autoplay + mute;
         nextVideo.src = videoArray[counter+1];
 
