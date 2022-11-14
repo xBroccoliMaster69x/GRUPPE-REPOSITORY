@@ -96,10 +96,10 @@
                         padding: 12px;
                         margin: -1px;
                     }
-                        #meny #velg
-                        {
-                            background-color: #ff284c;
-                        }
+                    #meny #velg
+                    {
+                        background-color: #ff284c;
+                    }
 
     /* - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - - */
     </style>
@@ -194,13 +194,24 @@
     // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
     // MENY FUNKSJONALITET
     // KOMMENTAR: 
-
+        
         var velg = document.getElementById("velg");
         var menyContent = document.getElementById("menyContent");
 
-        var synlig = false;
+        var htmlKnapp = document.getElementById("htmlKnapp");
+        var cssKnapp = document.getElementById("cssKnapp");
+        var jsKnapp = document.getElementById("jsKnapp");
 
-        velg.onclick = function()
+        var tomSide = document.getElementById("tomSide");
+        var htmlSide = document.getElementById("htmlSide");
+        var cssSide = document.getElementById("cssSide");
+        var jsSide = document.getElementById("jsSide");
+
+        var synlig = false;
+        var activePage = "Velg kodespråk"
+
+        // Åpning og lukking av menyen
+        velg.onclick = function ()
         {
             if (synlig == false)
             {
@@ -224,17 +235,7 @@
             } 
         }
 
-        var activePage ="Velg kodespråk"
-
-        var htmlKnapp = document.getElementById("htmlKnapp");
-        var cssKnapp = document.getElementById("cssKnapp");
-        var jsKnapp = document.getElementById("jsKnapp");
-
-        var tomSide = document.getElementById("tomSide");
-        var htmlSide = document.getElementById("htmlSide");
-        var cssSide = document.getElementById("cssSide");
-        var jsSide = document.getElementById("jsSide");
-
+        // Menyens knappers funksjonalitet
         htmlKnapp.onclick = function ()
         {
             menyContent.hidden = true;
@@ -246,7 +247,6 @@
             cssSide.hidden = true;
             jsSide.hidden = true;
         }
-
         cssKnapp.onclick = function ()
         {
             menyContent.hidden = true;
@@ -258,7 +258,6 @@
             cssSide.hidden = false;
             jsSide.hidden = true;
         }
-
         jsKnapp.onclick = function ()
         {
             menyContent.hidden = true;
@@ -287,35 +286,37 @@
         var kk03 = "https://www.youtube.com/embed/qL-BgejBNXM";
         var kk11 = "https://www.youtube.com/embed/pJFrJNbKJI8";
         var kk12 = "https://www.youtube.com/embed/1nyYjoOKOmw";
-
+        
         var videoArray = [kk01, kk02, kk03, kk11, kk12];
-        var counter = 0;
+        var index = 0;
 
         var autoplay = "?autoplay=1";
         var mute = "&mute=1";
 
+        // Laster inn videoer ved oppstart
+        if (videoArray[index-1] == undefined) {previousVideo.src = "";}
+        else {previousVideo.src = videoArray[index-1];}
+        currentVideo.src = videoArray[index] + autoplay + mute;
+        nextVideo.src = videoArray[index+1];
+
+        // Går tilbake i listen over videoer
         previousButton.onclick = function()
         {
-            if (counter !== 0) {counter--;}
-            if (counter == 0) {previousVideo.src = "";}
-            else {previousVideo.src = videoArray[counter-1];}
-            currentVideo.src = videoArray[counter] + autoplay;
-            nextVideo.src = videoArray[counter+1];
+            if (index !== 0) {index--;}
+            if (index == 0) {previousVideo.src = "";}
+            else {previousVideo.src = videoArray[index-1];}
+            currentVideo.src = videoArray[index] + autoplay;
+            nextVideo.src = videoArray[index+1];
         }
-
+        // Går frem i listen over videoer
         nextButton.onclick = function()
         {
-            if (counter < videoArray.length-1) {counter++;}
-            if (counter == videoArray.length-1) {nextVideo.src = "";}
-            else {nextVideo.src = videoArray[counter+1];}
-            previousVideo.src = videoArray[counter-1];
-            currentVideo.src = videoArray[counter] + autoplay;
+            if (index < videoArray.length-1) {index++;}
+            if (index == videoArray.length-1) {nextVideo.src = "";}
+            else {nextVideo.src = videoArray[index+1];}
+            previousVideo.src = videoArray[index-1];
+            currentVideo.src = videoArray[index] + autoplay;
         }
-
-        if (videoArray[counter-1] == undefined) {previousVideo.src = "";}
-        else {previousVideo.src = videoArray[counter-1];}
-        currentVideo.src = videoArray[counter] + autoplay + mute;
-        nextVideo.src = videoArray[counter+1];
 
     // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
     </script>
