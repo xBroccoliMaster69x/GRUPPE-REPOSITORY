@@ -9,27 +9,27 @@
     <style>
         body
         {
-            text-align:center;
-            margin:0;
+            text-align: center;
+            margin: 0;
             font-family: "Helvetica", "Arial", sans-serif;
         }
         #youtubeLink
         {
-            position:absolute;
-            margin-top:325px;
-            font-size:18px;
-            margin-left:-335px;
+            position: absolute;
+            margin-top: 325px;
+            font-size: 18px;
+            margin-left: -335px;
             color: #ff284c;
         }
         #ramme
         {
-            width:100%;
+            width: 100%;
             margin-top: 50px;
         }
         #meny
         {
             position: relative;
-            margin-left:35%;
+            margin-left: 35%;
             width: 200px;
             font-weight: bold;
             cursor: pointer;
@@ -43,14 +43,14 @@
             border: 1px solid black;
             display: block;
             padding: 12px;
-            margin:-1px;
+            margin: -1px;
         }
         .bokser
         {
-            width:45%;
-            position:relative;
-            float:left;
-            margin:2.49%;
+            width: 45%;
+            position: relative;
+            float: left;
+            margin: 2.49%;
         }
         .bokserInnhold
         {
@@ -120,7 +120,7 @@
     <!-- NEDRE DEL AV HTML-SIDEN -->
     <div id="ramme">
 
-        <!-- VENSTRE SIDE -->
+        <!-- VENSTRE BOKS -->
         <div class="bokser">
 
             <!-- MENYEN MED KNAPPENE -->
@@ -133,12 +133,12 @@
                 </div>
             </div>
 
-            <!-- DEN TOMME SIDEN SOM VISES NÅT DU IKKE HAR VALGT ET KODESPRÅK -->
+            <!-- TOM DIV SOM VISES NÅR DU IKKE HAR VALGT ET KODESPRÅK -->
             <div class="bokserInnhold venstreBoks" id="tomSide">
                 <p>Lær mer om de ulike kodespråkene!</p>
             </div>
 
-            <!-- HTML SIDEN -->
+            <!-- HTML DIV -->
             <div class="bokserInnhold venstreBoks" id="htmlSide" hidden>
                 <br>
                 <a href="https://www.w3schools.com/html/default.asp" target="_blank">W3schools' HTML tutorial</a>
@@ -147,7 +147,7 @@
                 <br><br>
             </div>
 
-            <!-- CSS SIDEN -->
+            <!-- CSS DIV -->
             <div class="bokserInnhold venstreBoks" id="cssSide" hidden>
                 <br>
                 <a href="https://www.w3schools.com/css/default.asp" target="_blank">W3schools' CSS tutorial</a>
@@ -156,7 +156,7 @@
                 <br><br>
             </div>
 
-            <!-- JAVASCRIPT SIDEN -->
+            <!-- JAVASCRIPT DIV -->
             <div class="bokserInnhold venstreBoks" id="jsSide" hidden>
                 <br>
                 <a href="https://www.w3schools.com/js/default.asp" target="_blank">W3school's JavaScript tutorial</a>
@@ -167,7 +167,7 @@
 
         </div>
 
-       <!-- HØYRE SIDE -->
+       <!-- HØYRE BOKS -->
         <div class="bokser">
 
             <p style="font-weight:bold;">GitHub</p>
@@ -185,8 +185,12 @@
 
     </div>
   
+
     <script>
-       
+    // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
+    // MENY FUNKSJONALITET
+    // KOMMENTAR: 
+
         var velg = document.getElementById("velg");
         var menyContent = document.getElementById("menyContent");
 
@@ -227,11 +231,11 @@
         var cssSide = document.getElementById("cssSide");
         var jsSide = document.getElementById("jsSide");
 
-        htmlKnapp.onclick=function()
+        htmlKnapp.onclick = function ()
         {
             menyContent.hidden = true;
             synlig = false;
-            activePage="HTML"
+            activePage = "HTML"
             velg.innerHTML= activePage;
             tomSide.hidden = true;
             htmlSide.hidden = false;
@@ -239,11 +243,11 @@
             jsSide.hidden = true;
         }
 
-        cssKnapp.onclick=function()
+        cssKnapp.onclick = function ()
         {
             menyContent.hidden = true;
             synlig = false;
-            activePage="CSS"
+            activePage = "CSS"
             velg.innerHTML= activePage;
             tomSide.hidden = true;
             htmlSide.hidden = true;
@@ -251,11 +255,11 @@
             jsSide.hidden = true;
         }
 
-        jsKnapp.onclick=function()
+        jsKnapp.onclick = function ()
         {
             menyContent.hidden = true;
             synlig = false;
-            activePage="JavaScript"
+            activePage = "JavaScript"
             velg.innerHTML= activePage;
             tomSide.hidden = true;
             htmlSide.hidden = true;
@@ -263,6 +267,9 @@
             jsSide.hidden = false;
         }
 
+    // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
+    // VIDEO BIBLIOTEK FUNKSJONALITET
+    // KOMMENTAR: 
 
         var previousButton = document.getElementById("previousButton");
         var nextButton = document.getElementById("nextButton");
@@ -306,6 +313,7 @@
         currentVideo.src = videoArray[counter] + autoplay + mute;
         nextVideo.src = videoArray[counter+1];
 
+    // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
     </script>
 
 </body>
