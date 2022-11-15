@@ -9,73 +9,21 @@
     <style>
         body
         {
-            text-align:center;
-            margin:0;
+            text-align: center;
+            margin: 0;
             font-family: "Helvetica", "Arial", sans-serif;
         }
-        #youtubeLink {
-            position:absolute;
-            margin-top:325px;
-            font-size:18px;
-            margin-left:-335px;
-            color: #ff284c;
-        }
-        #ramme{
-            width:100%;
-            margin-top: 50px;
-        }
-        #meny
-        {
-            position: relative;
-            margin-left:35%;
-            width: 200px;
-            font-weight: bold;
-            cursor: pointer;
-        }
-        #meny p.active
-        {
-            background-color: #ff284c;
-        }
-        #meny p
-        {
-            border: 1px solid black;
-            display: block;
-            padding: 12px;
-            margin:-1px;
-        }
-        .bokser{
-            width:45%;
-            position:relative;
-            float:left;
-            margin:2.49%;
-        }
-        .bokserInnhold
-        {
-            margin-top: 25px;
-            width: 100%;
-            background: #e5e8e9;
-            padding: 5px 0 5px 0;
-        }
-        .venstreBoks
-        {
-            margin-top: 17px;
-        }
+
+    /* - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - - */
+    /* VIDEOBIBLIOTEK UTSEENDE */
+    /* KOMMENTAR: */
 
         .SmåVideoer
         {
             position: absolute;
             margin-top: 67px;
         }
-        #previousVideo
-        {
-            left: 65px;
-        }
-        #nextVideo
-        {
-            right: 65px;
-        }
-
-        .preventYouTube
+        .PreventYouTube
         {
             width: 320px;
             height: 180px;
@@ -83,14 +31,77 @@
             top: 175px;
             cursor: pointer;
         }
-        #previousButton
+        .Previous
         {
             left: 65px;
         }
-        #nextButton
+        .Next
         {
             right: 65px;
         }
+
+        #youtubeLink
+        {
+            position: absolute;
+            margin-top: 325px;
+            font-size: 18px;
+            margin-left: -335px;
+            color: #ff284c;
+        }
+
+    /* - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - - */
+    /* BOKSER MED INFORMASJON UTSEENDE */
+    /* KOMMENTAR: */
+
+        #ramme
+        {
+            width: 100%;
+            margin-top: 50px;
+        }
+            .bokser
+            {
+                width: 45%;
+                position: relative;
+                float: left;
+                margin: 2.49%;
+            }
+                .bokserInnhold
+                {
+                    margin-top: 25px;
+                    width: 100%;
+                    background: #e5e8e9;
+                    padding: 5px 0 5px 0;
+                }
+                    .bokserInnhold a
+                    {
+                        color: #ff284c;
+                    }
+                .venstreBoks
+                {
+                    margin-top: 17px;
+                }
+
+                #meny
+                {
+                    position: relative;
+                    margin-left: 35%;
+                    width: 200px;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
+                    #meny p
+                    {
+                        border: 1px solid black;
+                        display: block;
+                        padding: 12px;
+                        margin: -1px;
+                    }
+                    #meny #velg
+                    {
+                        background-color: #ff284c;
+                    }
+
+    /* - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - - */
     </style>
 
 </head>
@@ -98,21 +109,27 @@
 
     <h2 style="margin-top: 50px;">Kode-Kurs for dummies</h2>
 
-    <iframe class="SmåVideoer" id="previousVideo" width="320" height="180" frameborder="0" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe id="currentVideo" width="560" height="315" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe> <!-- Kan legge til "?autoplay=1&mute=1" på slutte av URL-en for å spille av automatisk, uten lyd -->
-    <iframe class="SmåVideoer" id="nextVideo" width="320" height="180" frameborder="0" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <!-- TRE VIDEOELEMENTER: EN SOM VISER FORRIGE VIDEO, EN SOM VISER AKTIV VIDEO, OG EN SOM VISER NESTE VIDEO -->
+    <iframe id="previousVideo" width="320" height="180" frameborder="0" src="" class="SmåVideoer Previous"></iframe>
+    <iframe id="currentVideo" width="560" height="315" frameborder="0" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe id="nextVideo" width="320" height="180" frameborder="0" src="" class="SmåVideoer Next"></iframe>
    
-    <div class="preventYouTube" id="previousButton"></div>
-    <div class="preventYouTube" id="nextButton"></div>
+    <!-- OVERLAY SOM GJØR AT DU IKKE KAN SPILLE AV VIDEOENE SOM IKKE ER AKTIVE, MEN FUNGERER SOM KNAPPER -->
+    <div class="PreventYouTube Previous" id="previousButton"></div>
+    <div class="PreventYouTube Next" id="nextButton"></div>
 
     <a id="youtubeLink" target="_blank" href="https://www.youtube.com/channel/UCqXKOTXjzrQNVhZQtGBUebA">Gå til kanalen</a>
     
+
+    <!-- NEDRE DEL AV HTML-SIDEN -->
     <div id="ramme">
 
+        <!-- VENSTRE BOKS -->
         <div class="bokser">
 
+            <!-- MENYEN MED KNAPPENE -->
             <div id="meny">
-                <p class="active" id="velg">Velg kodespråk</p>
+                <p id="velg">Velg kodespråk</p>
                 <div id="menyContent" hidden>
                     <p id="htmlKnapp">HTML</p>
                     <p id="cssKnapp">CSS</p>
@@ -120,62 +137,66 @@
                 </div>
             </div>
 
+            <!-- TOM DIV SOM VISES NÅR DU IKKE HAR VALGT ET KODESPRÅK -->
             <div class="bokserInnhold venstreBoks" id="tomSide">
                 <p>Lær mer om de ulike kodespråkene!</p>
             </div>
+
+            <!-- HTML DIV -->
             <div class="bokserInnhold venstreBoks" id="htmlSide" hidden>
-                <p>HTML lorem ipsum</p>
+                <br>
+                <a href="https://www.w3schools.com/html/default.asp" target="_blank">W3schools' HTML tutorial</a>
+                <br><br>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">Mozilla Developer's HTML ressurser</a>
+                <br><br>
             </div>
+
+            <!-- CSS DIV -->
             <div class="bokserInnhold venstreBoks" id="cssSide" hidden>
-                <p>CSS lorem ipsum</p>
+                <br>
+                <a href="https://www.w3schools.com/css/default.asp" target="_blank">W3schools' CSS tutorial</a>
+                <br><br>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">Mozilla Developer's CSS ressurser</a>
+                <br><br>
             </div>
+
+            <!-- JAVASCRIPT DIV -->
             <div class="bokserInnhold venstreBoks" id="jsSide" hidden>
-                <p>JavaScript lorem ipsum</p>
+                <br>
+                <a href="https://www.w3schools.com/js/default.asp" target="_blank">W3school's JavaScript tutorial</a>
+                <br><br>
+                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">Mozilla Developer's JavaScript ressurser</a>
+                <br><br>
             </div>
+
         </div>
 
+       <!-- HØYRE BOKS -->
         <div class="bokser">
+
             <p style="font-weight:bold;">GitHub</p>
+
+             <!-- GITHUB SIDEN -->
             <div class="bokserInnhold" id="githubSide">
-                <p>GitHub lorem ipsum</p>
+                <br>
+                <a href="https://gist.github.com/brandon1024/14b5f9fcfd982658d01811ee3045ff1e" target="_blank">GitHub's Git tutorial</a>
+                <br><br>
+                <a href="https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources" target="_blank">GitHub ressurser</a>
+                <br><br>
             </div>
+
         </div>
 
     </div>
   
+
     <script>
-       
+    // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
+    // MENY FUNKSJONALITET
+    // KOMMENTAR: 
+        
         var velg = document.getElementById("velg");
         var menyContent = document.getElementById("menyContent");
-
-        var synlig = "usant";
-
-        velg.onclick = function()
-        {
-            if (synlig == "usant")
-            {
-                menyContent.hidden = false;
-                synlig = "sant";
-                velg.innerHTML = "Velg kodespråk";
-                tomSide.hidden = true;
-                htmlSide.hidden = true;
-                cssSide.hidden = true;
-                jsSide.hidden = true;
-            }
-            else if (synlig == "sant")
-            {
-                menyContent.hidden = true;
-                synlig = "usant";
-                velg.innerHTML = activePage;
-                if (activePage == "Velg kodespråk") {tomSide.hidden = false;}
-                else if (activePage == "HTML") {htmlSide.hidden = false;}
-                else if (activePage == "CSS") {cssSide.hidden = false;}
-                else if (activePage == "JavaScript") {jsSide.hidden = false;}
-            }
-            
-        }
-
-        var activePage ="Velg kodespråk"
 
         var htmlKnapp = document.getElementById("htmlKnapp");
         var cssKnapp = document.getElementById("cssKnapp");
@@ -186,35 +207,62 @@
         var cssSide = document.getElementById("cssSide");
         var jsSide = document.getElementById("jsSide");
 
-        htmlKnapp.onclick=function()
+        var synlig = false;
+        var activePage = "Velg kodespråk"
+
+        // Åpning og lukking av menyen
+        velg.onclick = function ()
+        {
+            if (synlig == false)
+            {
+                menyContent.hidden = false;
+                synlig = true;
+                velg.innerHTML = "Velg kodespråk";
+                tomSide.hidden = true;
+                htmlSide.hidden = true;
+                cssSide.hidden = true;
+                jsSide.hidden = true;
+            }
+            else if (synlig == true)
+            {
+                menyContent.hidden = true;
+                synlig = false;
+                velg.innerHTML = activePage;
+                if (activePage == "Velg kodespråk") {tomSide.hidden = false;}
+                else if (activePage == "HTML") {htmlSide.hidden = false;}
+                else if (activePage == "CSS") {cssSide.hidden = false;}
+                else if (activePage == "JavaScript") {jsSide.hidden = false;}
+            } 
+        }
+
+        // Menyens knappers funksjonalitet
+        htmlKnapp.onclick = function ()
         {
             menyContent.hidden = true;
-            synlig = "usant";
-            activePage="HTML"
-            velg.innerHTML= activePage;
+            synlig = false;
+            activePage = "HTML"
+            velg.innerHTML = activePage;
             tomSide.hidden = true;
             htmlSide.hidden = false;
             cssSide.hidden = true;
             jsSide.hidden = true;
         }
-
-        cssKnapp.onclick=function()
+        cssKnapp.onclick = function ()
         {
             menyContent.hidden = true;
-            synlig = "usant";
-            activePage="CSS"
-            velg.innerHTML= activePage;
+            synlig = false;
+            activePage = "CSS"
+            velg.innerHTML = activePage;
             tomSide.hidden = true;
             htmlSide.hidden = true;
             cssSide.hidden = false;
             jsSide.hidden = true;
         }
-
-        jsKnapp.onclick=function()
+        jsKnapp.onclick = function ()
         {
             menyContent.hidden = true;
-            synlig = "usant";
-            activePage="JavaScript"
+            synlig = false;
+            activePage = "JavaScript"
             velg.innerHTML= activePage;
             tomSide.hidden = true;
             htmlSide.hidden = true;
@@ -222,6 +270,9 @@
             jsSide.hidden = false;
         }
 
+    // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
+    // VIDEOBIBLIOTEK FUNKSJONALITET
+    // KOMMENTAR: 
 
         var previousButton = document.getElementById("previousButton");
         var nextButton = document.getElementById("nextButton");
@@ -235,42 +286,39 @@
         var kk03 = "https://www.youtube.com/embed/qL-BgejBNXM";
         var kk11 = "https://www.youtube.com/embed/pJFrJNbKJI8";
         var kk12 = "https://www.youtube.com/embed/1nyYjoOKOmw";
-
-        var videoArray = [kk01, kk02, kk03, kk11, kk12]
-        var counter = 0;
+        
+        var videoArray = [kk01, kk02, kk03, kk11, kk12];
+        var index = 0;
 
         var autoplay = "?autoplay=1";
         var mute = "&mute=1";
 
+        // Laster inn videoer ved oppstart
+        if (videoArray[index-1] == undefined) {previousVideo.src = "";}
+        else {previousVideo.src = videoArray[index-1];}
+        currentVideo.src = videoArray[index] + autoplay + mute;
+        nextVideo.src = videoArray[index+1];
+
+        // Går tilbake i listen over videoer
         previousButton.onclick = function()
         {
-            if (counter !== 0)
-            {
-                counter--;
-            }
-            if (counter == 0) {previousVideo.src = "";}
-            else {previousVideo.src = videoArray[counter-1];}
-            currentVideo.src = videoArray[counter] + autoplay;
-            nextVideo.src = videoArray[counter+1];
+            if (index !== 0) {index--;}
+            if (index == 0) {previousVideo.src = "";}
+            else {previousVideo.src = videoArray[index-1];}
+            currentVideo.src = videoArray[index] + autoplay;
+            nextVideo.src = videoArray[index+1];
         }
-
+        // Går frem i listen over videoer
         nextButton.onclick = function()
         {
-            if (counter < videoArray.length-1)
-            {
-                counter++;
-            }
-            if (counter == videoArray.length-1) {nextVideo.src = "";}
-            else {nextVideo.src = videoArray[counter+1];}
-            previousVideo.src = videoArray[counter-1];
-            currentVideo.src = videoArray[counter] + autoplay;
+            if (index < videoArray.length-1) {index++;}
+            if (index == videoArray.length-1) {nextVideo.src = "";}
+            else {nextVideo.src = videoArray[index+1];}
+            previousVideo.src = videoArray[index-1];
+            currentVideo.src = videoArray[index] + autoplay;
         }
 
-        if (videoArray[counter-1] == undefined) {previousVideo.src = "";}
-        else {previousVideo.src = videoArray[counter-1];}
-        currentVideo.src = videoArray[counter] + autoplay + mute;
-        nextVideo.src = videoArray[counter+1];
-
+    // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
     </script>
 
 </body>
