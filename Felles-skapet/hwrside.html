@@ -212,7 +212,7 @@
             const results = document.querySelector('.resultat pre');
             postData('https://bacit.info/', formJSON)
                 .then(data => {
-                    results.innerText = JSON.stringify(data, null, 2);
+                    results.innerText = JSON.stringify(data, null, 11);
                     timetrxidCOPY.value=data.time+"-"+data.trxid;
                 });
         }
