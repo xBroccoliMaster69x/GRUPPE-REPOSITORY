@@ -28,9 +28,14 @@
             width: 320px;
             height: 180px;
             position: absolute;
-            top: 175px;
+            top: 165px;
             cursor: pointer;
         }
+            .VideoLabels
+            {
+                margin-top: 195px;
+                font-weight: bold;
+            }
         .Previous
         {
             left: 65px;
@@ -60,17 +65,18 @@
         }
             .bokser
             {
-                width: 45%;
+                width: 43%;
                 position: relative;
                 float: left;
-                margin: 2.49%;
+                margin: 2.9%;
             }
                 .bokserInnhold
                 {
                     margin-top: 25px;
                     width: 100%;
                     background: #e5e8e9;
-                    padding: 5px 0 5px 0;
+                    padding: 5px 15px 5px 15px;
+                    text-align: left;
                 }
                     .bokserInnhold a
                     {
@@ -84,7 +90,7 @@
                 #meny
                 {
                     position: relative;
-                    margin-left: 35%;
+                    margin-left: 36.3%;
                     width: 200px;
                     font-weight: bold;
                     cursor: pointer;
@@ -115,8 +121,14 @@
     <iframe id="nextVideo" width="320" height="180" frameborder="0" src="" class="SmåVideoer Next"></iframe>
    
     <!-- OVERLAY SOM GJØR AT DU IKKE KAN SPILLE AV VIDEOENE SOM IKKE ER AKTIVE, MEN FUNGERER SOM KNAPPER -->
-    <div class="PreventYouTube Previous" id="previousButton"></div>
-    <div class="PreventYouTube Next" id="nextButton"></div>
+    <div class="PreventYouTube Previous" id="previousButton">
+        <!-- LABELS FOR FORRIGE VIDEO -->
+        <p class="VideoLabels" id="previousLabel">Forrige video</p>
+    </div>
+    <div class="PreventYouTube Next" id="nextButton">
+        <!-- LABELS FOR NESTE VIDEO -->
+        <p class="VideoLabels" id="nextLabel">Neste video</p>
+    </div>
 
     <a id="youtubeLink" target="_blank" href="https://www.youtube.com/channel/UCqXKOTXjzrQNVhZQtGBUebA">Gå til kanalen</a>
     
@@ -139,34 +151,66 @@
 
             <!-- TOM DIV SOM VISES NÅR DU IKKE HAR VALGT ET KODESPRÅK -->
             <div class="bokserInnhold venstreBoks" id="tomSide">
-                <p>Lær mer om de ulike kodespråkene!</p>
+                <div style="text-align: center;">
+                    <p>Lær mer om de ulike kodespråkene!</p>
+                </div>
             </div>
 
             <!-- HTML DIV -->
             <div class="bokserInnhold venstreBoks" id="htmlSide" hidden>
                 <br>
-                <a href="https://www.w3schools.com/html/default.asp" target="_blank">W3schools' HTML tutorial</a>
-                <br><br>
-                <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">Mozilla Developer's HTML ressurser</a>
-                <br><br>
+                <div style="text-align: center;">
+                    <a href="https://www.w3schools.com/html/default.asp" target="_blank">W3schools' HTML tutorial</a>
+                    <br><br>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">Mozilla Developer's HTML ressurser</a>
+                    <br><br>
+                </div>
+
+                <h4>Oppsett av en HTML side</h4>
+                <img src="HTML oppsett.png" width="500px">
+                <br>
+
+                <h4>Grunnleggende HTML elementer (første halvdel)</h4>
+                <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/EIccb5v6yiI" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <br>
             </div>
 
             <!-- CSS DIV -->
             <div class="bokserInnhold venstreBoks" id="cssSide" hidden>
                 <br>
-                <a href="https://www.w3schools.com/css/default.asp" target="_blank">W3schools' CSS tutorial</a>
-                <br><br>
-                <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">Mozilla Developer's CSS ressurser</a>
-                <br><br>
+                <div style="text-align: center;">
+                    <a href="https://www.w3schools.com/css/default.asp" target="_blank">W3schools' CSS tutorial</a>
+                    <br><br>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">Mozilla Developer's CSS ressurser</a>
+                    <br><br>
+                </div>
+                
+                <h4>Implementering av CSS</h4>
+                <img src="Implementering av CSS.png" width="500px">
+                <br>
+
+                <h4>Koble til et eksternt CSS dokument (filnavn.css)</h4>
+                <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/qL-BgejBNXM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <br>
             </div>
 
             <!-- JAVASCRIPT DIV -->
             <div class="bokserInnhold venstreBoks" id="jsSide" hidden>
                 <br>
-                <a href="https://www.w3schools.com/js/default.asp" target="_blank">W3school's JavaScript tutorial</a>
-                <br><br>
-                <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">Mozilla Developer's JavaScript ressurser</a>
-                <br><br>
+                <div style="text-align: center;">
+                    <a href="https://www.w3schools.com/js/default.asp" target="_blank">W3school's JavaScript tutorial</a>
+                    <br><br>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">Mozilla Developer's JavaScript ressurser</a>
+                    <br><br>
+                </div>
+                
+                <h4>Implementering av JavaScript</h4>
+                <img src="Implementering av JS.png" width="500px">
+                <br>
+
+                <h4>Koble til et eksternt JavaScript dokument (filnavn.js)</h4>
+                <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/qL-BgejBNXM" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <br>
             </div>
 
         </div>
@@ -174,15 +218,42 @@
        <!-- HØYRE BOKS -->
         <div class="bokser">
 
-            <p style="font-weight:bold;">GitHub</p>
+            <p style="font-weight:bold; margin-left: 22px;">GitHub</p>
 
              <!-- GITHUB SIDEN -->
             <div class="bokserInnhold" id="githubSide">
                 <br>
-                <a href="https://gist.github.com/brandon1024/14b5f9fcfd982658d01811ee3045ff1e" target="_blank">GitHub's Git tutorial</a>
-                <br><br>
-                <a href="https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources" target="_blank">GitHub ressurser</a>
-                <br><br>
+                <div style="text-align: center;">
+                    <a href="https://gist.github.com/brandon1024/14b5f9fcfd982658d01811ee3045ff1e" target="_blank">GitHub's Git tutorial</a>
+                    <br><br>
+                    <a href="https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources" target="_blank">GitHub ressurser</a>
+                    <br><br>
+                </div>
+
+                <h4>Installasjon av Git (for Mac)</h4>
+                <img src="Installasjon av Git.png" width="100%">
+                <br>
+
+                <h4>Push & Pull</h4>
+                <h4>1. git clone "link til github repository"</h4>
+                <p>Henter ned repository, både individuelt og gruppe.</p>
+                <h4>2. cd "din repository mappe"</h4>
+                <p>Sender Git til filplaseringen du har repository på. Ofte under Brukere/dinrepository [Users/yourrepository]. Eks. «cd GRUPPE-REPOSITORY/». Kan skrive «ls» for å finne ut hvor Git er i filsystemet ditt, slik at du kan finne hva du skal skrive.</p>
+                <h4>3. nano README.md (ctrl+O, enter, ctrl+X for å lagre når du er ferdig å redigere dokumentet)</h4>
+                <p>Nano bruker til å åpne og redigere tekst.</p>
+                <h4>4. git checkout -b "branch navn"</h4>
+                <p>Brukes til å flytte Git fra main til en branch innenfor en REPOSITORY/. -b brukes for å lage en ny branch, så hvis en skal bare flytte mellom branches trengs ikke -b.</p>
+                <h4>5. git add README.md (filen du har endret)</h4>
+                <p>Den legger til tesktfilen du har endret på.</p>
+                <h4>6. git commit -m "melding til commit"</h4>
+                <p>Denne lagrer endringene du har gjort på din lokale repository på pcen din. -m for å sende melding.</p>
+                <h4>7. git push -u origin "branch navn"</h4>
+                <p>Sender endringene du har gjort opp til Github. Technically, the -u flag adds a tracking reference to the upstream server you are pushing to.</p>
+                <br>
+
+                <h4>Automatisk synkronisering til GitHub med VSCode</h4>
+                <iframe width="560" height="315" frameborder="0" src="https://www.youtube.com/embed/kKCaQzJtnfw" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <br>
             </div>
 
         </div>
@@ -274,13 +345,17 @@
     // VIDEOBIBLIOTEK FUNKSJONALITET
     // KOMMENTAR: 
 
-        var previousButton = document.getElementById("previousButton");
-        var nextButton = document.getElementById("nextButton");
-
         var previousVideo = document.getElementById("previousVideo");
         var currentVideo = document.getElementById("currentVideo");
         var nextVideo = document.getElementById("nextVideo");
 
+        var previousButton = document.getElementById("previousButton");
+        var nextButton = document.getElementById("nextButton");
+
+        var previousLabel = document.getElementById("previousLabel");
+        var nextLabel = document.getElementById("nextLabel");
+    
+        // Videobilbiotek:
         var kk01 = "https://www.youtube.com/embed/EIccb5v6yiI";
         var kk02 = "https://www.youtube.com/embed/kKCaQzJtnfw";
         var kk03 = "https://www.youtube.com/embed/qL-BgejBNXM";
@@ -294,30 +369,56 @@
         var autoplay = "?autoplay=1";
         var mute = "&mute=1";
 
-        // Laster inn videoer ved oppstart
-        if (videoArray[index-1] == undefined) {previousVideo.src = "";}
-        else {previousVideo.src = videoArray[index-1];}
-        currentVideo.src = videoArray[index] + autoplay + mute;
-        nextVideo.src = videoArray[index+1];
 
-        // Går tilbake i listen over videoer
+        // Flytter index en plass bak i videobiblioteket med mindre man er på første video
         previousButton.onclick = function()
         {
             if (index !== 0) {index--;}
-            if (index == 0) {previousVideo.src = "";}
-            else {previousVideo.src = videoArray[index-1];}
-            currentVideo.src = videoArray[index] + autoplay;
-            nextVideo.src = videoArray[index+1];
+            UpdateVideos();
         }
-        // Går frem i listen over videoer
+        // Flytter index en plass frem i videobiblioteket med mindre man er på siste video
         nextButton.onclick = function()
         {
             if (index < videoArray.length-1) {index++;}
-            if (index == videoArray.length-1) {nextVideo.src = "";}
-            else {nextVideo.src = videoArray[index+1];}
-            previousVideo.src = videoArray[index-1];
-            currentVideo.src = videoArray[index] + autoplay;
+            UpdateVideos();
         }
+
+        // En funksjon som oppdaterer hvilke videoer som vises
+        function UpdateVideos ()
+        {
+            // Om man er på første video skal det ikke vises en "previous" video og "Forrige video"-label fjernes
+            if (videoArray[index-1] == undefined)
+            {
+                previousVideo.src = "";
+                previousLabel.hidden = true;
+            }
+            else
+            {
+                previousVideo.src = videoArray[index-1];
+                previousLabel.hidden = false;
+            }
+
+            // Spiller automatisk av videoen som er valgt, med lyd
+            currentVideo.src = videoArray[index] + autoplay;
+
+            // Om man er på siste video skal det ikke vises en "next" video og "Neste video"-label fjernes
+            if (videoArray[index+1] == undefined)
+            {
+                nextVideo.src = "";
+                nextLabel.hidden = true;
+            }
+            else
+            {
+                nextVideo.src = videoArray[index+1];
+                nextLabel.hidden = false;
+            }
+        }
+
+        // Kaller funksjonen ved oppstart
+        UpdateVideos();
+
+        // Setter videoen på lydløs når siden laster for første gang
+        currentVideo.src = videoArray[index] + autoplay + mute;
 
     // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
     </script>
