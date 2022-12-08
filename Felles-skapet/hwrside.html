@@ -204,7 +204,7 @@
             });
             return response.json(); // parses JSON response into native JavaScriptobjects
         }
-
+// Hei
         function handleSubmit(event) {
             event.preventDefault();
             const data = new FormData(event.target);
@@ -212,7 +212,7 @@
             const results = document.querySelector('.resultat pre');
             postData('https://bacit.info/', formJSON)
                 .then(data => {
-                    results.innerText = JSON.stringify(data, null, 2);
+                    results.innerText = JSON.stringify(data, null, 11);
                     timetrxidCOPY.value=data.time+"-"+data.trxid;
                 });
         }
