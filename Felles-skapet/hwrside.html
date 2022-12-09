@@ -174,7 +174,7 @@
       
         <!--Dette er for å gjøre time å trxid sammen og få det inn i tekstbox-->
        <div class="id">
-        Kopier id: <input type="text" id="timetrxidCOPY" style="width: 400px">
+        Kopier id: <input type="text" id="timetrxidINNDATA" style="width: 400px">
        </div>
 
         <!--Dette er for å få frem resultat-->   
@@ -213,7 +213,7 @@
             postData('https://bacit.info/', formJSON)
                 .then(data => {
                     results.innerText = JSON.stringify(data, null, 11);
-                    timetrxidCOPY.value=data.time+"-"+data.trxid;
+                    timetrxidINNDATA.value=data.time+"-"+data.trxid;
                 });
         }
         const form = document.querySelector('form');
