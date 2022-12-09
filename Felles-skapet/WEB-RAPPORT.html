@@ -14,14 +14,26 @@
             width: 50%;
             padding: 10px;
         }
+        
+        .invisible {
+            display: none;
+        }
+
     </style>
 </head>
 <body>
-    <section class="input">
+    <section class="input"> <!--Dette er visualiser knappen og lim inn boksen-->
         <p></p>
-        <p>Lim inn id:</p>
-        <input type="text" value="" style="width: 200px"><input type="button" value="Visualiser">
-        </div>
+        <p>Lim inn id: </p>
+        <input type="text" value="" id="timetrxidPASTE" style="width: 200px">
+        <div class="results" id="results">
+        <pre class="invisible"></pre>
+        <input type="button" id="btnData"value="Visualiser">
+        </div> 
+        
+        <!--Denne gjøre boksen større og mindre--> 
+        <div id="debug"></div>
+        <canvas id="report" width="550" height="550"></canvas>
     </section>
     
     <svg width="800" height="550">
@@ -90,7 +102,269 @@
 
 </svg>
 <script>
-    //Test
+
+//<!-- DataID-Innfelt -->
+var timetrxidPASTE=document.getElementById("timetrxidPASTE");
+    var btnData=document.getElementById("btnData");
+    var canvas = document.getElementById('report');
+    var context = canvas.getContext('2d');
+    const results = document.querySelector('.results pre');
+
+//<!-- Tegning av info i canvas  -->
+    context.font = '14px serif';       // Dette er font, KANSKJE SKIFTE DENNE TIL SAMME FONT SOM RESTEN AV SIDEN?
+    context.fillText('Early bird', 10, 24);       //Dette er navnet på slidersene
+    context.fillText('Night owl', 210, 24);
+
+    context.fillText('Work on it togheter', 10, 74);
+    context.fillText('Go off alone and think', 210, 74);
+
+    context.fillText('Tell me the backstory', 10, 124);
+    context.fillText('Cut to the chase', 210, 124);
+
+    context.fillText('Need to talk it out', 10, 174);
+    context.fillText('Need to move on', 210, 174);
+
+    context.fillText('Verbal processor', 10, 224);
+    context.fillText('Mental processor', 210, 224);
+
+    context.fillText('Schedule a time to chat', 10, 274);
+    context.fillText('Interrupt me when you need me', 210, 274);
+    
+    context.fillText('Video chat', 10, 324);
+    context.fillText('Slack/Text', 210, 324);
+
+    context.fillText('09-17 Hours', 10, 374);
+    context.fillText('I have no set schedule', 210, 374);
+
+    context.fillText('Take your time', 10, 424);
+    context.fillText('Work best under pressure', 210, 424);
+
+    context.fillText('Work a lot on one thing', 10, 474);
+    context.fillText('Work a little on several things', 210, 474);
+
+    context.fillText('Background noise', 10, 524);
+    context.fillText('Quiet place', 210, 524);
+
+// Dette er linjene mellom
+    context.beginPath();
+    context.moveTo(100, 20);
+    context.lineTo(200, 20);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100, 70);
+    context.lineTo(200, 70);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100, 120);
+    context.lineTo(200, 120);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100, 170);
+    context.lineTo(200, 170);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100, 220);
+    context.lineTo(200, 220);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100, 270);
+    context.lineTo(200, 270);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100,320);
+    context.lineTo(200, 320);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100, 370);
+    context.lineTo(200, 370);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100, 420);
+    context.lineTo(200, 420);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100, 470);
+    context.lineTo(200, 470);
+    context.stroke();
+
+    context.beginPath();
+    context.moveTo(100, 520);
+    context.lineTo(200, 520);
+    context.stroke();
+
+
+
+<!-- Innsamling av ny data -->
+
+    btnData.onclick=function () {
+<!-- Ny data -->
+        fetch("https://bacit.info/hwr/" + timetrxidPASTE.value + ".json", {cache: 'no-cache'})
+            .then(response => response.json())
+            .then(data => {
+                console.log(data);
+                results.innerText = JSON.stringify(data, null, 11);
+                document.querySelector("#debug").innerText = "Navn: " + data.navn + "\nGruppe: " + data.gruppe;
+
+                // Dette er ditt navn til høyre for sliders
+                context.fillStyle = "black";
+                context.fillText(data.navn, 410, 104,);
+                var X = 400;
+                var Y = 100;
+                var R = 4;
+                context.beginPath();
+                context.arc(X, Y, R, 0, 2 * Math.PI, false);
+                context.fillStyle = "pink";
+                context.fill();
+                context.lineWidth = 1;
+                context.strokeStyle = "black";
+                context.stroke();
+                context.closePath();
+
+                // Dette er inndata for sliders
+                var X = 100 + parseInt(data.eorn, 10);
+                var Y = 20;
+                var R = 4;
+                context.beginPath();
+                context.arc(X, Y, R, 0, 2 * Math.PI, false);
+                context.fillStyle = "pink";
+                context.fill();
+                context.lineWidth = 1;
+                context.strokeStyle = "black";
+                context.stroke();
+                context.closePath();
+
+                var X = 100 + parseInt(data.worg, 10);
+                var Y = 70;
+                var R = 4;
+                context.beginPath();
+                context.arc(X, Y, R, 0, 2 * Math.PI, false);
+                context.fillStyle = "pink";
+                context.fill();
+                context.lineWidth = 1;
+                context.strokeStyle = "black";
+                context.stroke();
+                context.closePath();
+
+                var X = 100 + parseInt(data.torc, 10);
+                var Y = 120;
+                var R = 4;
+                context.beginPath();
+                context.arc(X, Y, R, 0, 2 * Math.PI, false);
+                context.fillStyle = "pink";
+                context.fill();
+                context.lineWidth = 1;
+                context.strokeStyle = "black";
+                context.stroke();
+                context.closePath();
+
+                var X = 100 + parseInt(data.norn, 10);
+                var Y = 170;
+                var R = 4;
+                context.beginPath();
+                context.arc(X, Y, R, 0, 2 * Math.PI, false);
+                context.fillStyle = "pink";
+                context.fill();
+                context.lineWidth = 1;
+                context.strokeStyle = "black";
+                context.stroke();
+                context.closePath();
+
+                var X = 100 + parseInt(data.vorm, 10);
+                var Y = 220;
+                var R = 4;
+                context.beginPath();
+                context.arc(X, Y, R, 0, 2 * Math.PI, false);
+                context.fillStyle = "pink";
+                context.fill();
+                context.lineWidth = 1;
+                context.strokeStyle = "black";
+                context.stroke();
+                context.closePath();
+                
+                var X = 100 + parseInt(data.sori, 10);
+                var Y = 270;
+                var R = 4;
+                context.beginPath();
+                context.arc(X, Y, R, 0, 2 * Math.PI, false);
+                context.fillStyle = "pink";
+                context.fill();
+                context.lineWidth = 1;
+                context.strokeStyle = "black";
+                context.stroke();
+                context.closePath();
+
+                var X = 100 + parseInt(data.vors, 10);
+                var Y = 320;
+                var R = 4;
+                context.beginPath();
+                context.arc(X, Y, R, 0, 2 * Math.PI, false);
+                context.fillStyle = "pink";
+                context.fill();
+                context.lineWidth = 1;
+                context.strokeStyle = "black";
+                context.stroke();
+                context.closePath();
+
+                var X = 100 + parseInt(data.hori, 10);
+                var Y = 370;
+                var R = 4;
+                context.beginPath();
+                context.arc(X, Y, R, 0, 2 * Math.PI, false);
+                context.fillStyle = "pink";
+                context.fill();
+                context.lineWidth = 1;
+                context.strokeStyle = "black";
+                context.stroke();
+                context.closePath();
+
+                var X = 100 + parseInt(data.eks1, 10);
+                var Y = 420;
+                var R = 4;
+                context.beginPath();
+                context.arc(X, Y, R, 0, 2 * Math.PI, false);
+                context.fillStyle = "pink";
+                context.fill();
+                context.lineWidth = 1;
+                context.strokeStyle = "black";
+                context.stroke();
+                context.closePath();
+
+                var X = 100 + parseInt(data.eks2, 10);
+                var Y = 470;
+                var R = 4;
+                context.beginPath();
+                context.arc(X, Y, R, 0, 2 * Math.PI, false);
+                context.fillStyle = "pink";
+                context.fill();
+                context.lineWidth = 1;
+                context.strokeStyle = "black";
+                context.stroke();
+                context.closePath();
+
+                var X = 100 + parseInt(data.eks3, 10);
+                var Y = 520;
+                var R = 4;
+                context.beginPath();
+                context.arc(X, Y, R, 0, 2 * Math.PI, false);
+                context.fillStyle = "pink";
+                context.fill();
+                context.lineWidth = 1;
+                context.strokeStyle = "black";
+                context.stroke();
+                context.closePath();
+
+
+            });
+    }
 </script>
 </body>
 
