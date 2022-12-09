@@ -8,7 +8,7 @@
     <style>
         .input {
             text-align: center;
-            border: px solid black;
+            border: 5px solid black;
             margin: auto;
             margin-top: 10%;
             width: 50%;
@@ -25,7 +25,7 @@
     <section class="input"> <!--Dette er visualiser knappen og lim inn boksen-->
         <p></p>
         <p>Lim inn id: </p>
-        <input type="text" value="" id="timetrxidPASTE" style="width: 200px">
+        <input type="text" value="" id="timetrxidOUTDATA" style="width: 200px">
         <div class="results" id="results">
         <pre class="invisible"></pre>
         <input type="button" id="btnData"value="Visualiser">
@@ -33,337 +33,1058 @@
         
         <!--Denne gjøre boksen større og mindre--> 
         <div id="debug"></div>
-        <canvas id="report" width="550" height="550"></canvas>
+        <canvas id="report" width="650" height="550"></canvas>
     </section>
     
-    <svg width="800" height="500">
-        <rect x="60" y="100" width="100%" height="100%" fill="lightgray" />
-
-    <!--Navn til gruppemedlemmer--> 
-            <text x="700" y="120" font-size="13" fill="black">Amir</text>
-            <text x="700" y="140" font-size="13" fill="black">Alexander</text>
-            <text x="700" y="160" font-size="13" fill="black">Joackim</text>
-            <text x="700" y="180" font-size="13" fill="black">Rebekka</text>
-            <text x="700" y="200" font-size="13" fill="black">Simen</text>
-            <text x="700" y="220" font-size="13" fill="black">Tobias</text>
-            <text x="700" y="240" font-size="13" fill="black">Victor</text>
     
-     <!--Sirkel til navnene--> 
-            <circle cx="690" cy="117" r="5" stroke="black" stroke-width="1" fill="tomato"/>
-            <circle cx="690" cy="137" r="5" stroke="black" stroke-width="1" fill="blue"/>
-            <circle cx="690" cy="157" r="5" stroke="black" stroke-width="1" fill="fuchsia"/>
-            <circle cx="690" cy="177" r="5" stroke="black" stroke-width="1" fill="orange"/>
-            <circle cx="690" cy="197" r="5" stroke="black" stroke-width="1" fill="snow"/>
-            <circle cx="690" cy="217" r="5" stroke="black" stroke-width="1" fill="aqua"/>
-            <circle cx="690" cy="237" r="5" stroke="black" stroke-width="1" fill="chartreuse"/>
-
-    <!--Datakategorier--> 
-            <text x="150" y="120" font-size="13" text-anchor="middle" fill="black">Early bird</text>
-            <text x="520" y="120" font-size="13" text-anchor="middle" fill="black">Night owl</text>
-            <text x="150" y="160" font-size="13" text-anchor="middle" fill="black">Work on it together</text>
-            <text x="520" y="160" font-size="13" text-anchor="middle" fill="black">Go off alone and think</text>
-            <text x="150" y="200" font-size="13" text-anchor="middle" fill="black">Tell me the backstory</text>
-            <text x="520" y="200" font-size="13" text-anchor="middle" fill="black">Cut to the chase</text>
-            <text x="150" y="240" font-size="13" text-anchor="middle" fill="black">Need to talk it out</text>
-            <text x="520" y="240" font-size="13" text-anchor="middle" fill="black">Need to move on</text>
-            <text x="150" y="280" font-size="13" text-anchor="middle" fill="black">Verbal proccessor</text>
-            <text x="520" y="280" font-size="13" text-anchor="middle" fill="black">Mental Processor</text>
-            <text x="150" y="320" font-size="13" text-anchor="middle" fill="black">Schedule a time to chat</text>
-            <text x="520" y="320" font-size="13" text-anchor="middle" fill="black">Interrupt me when you need me</text>
-            <text x="150" y="360" font-size="13" text-anchor="middle" fill="black">Video chat</text>
-            <text x="520" y="360" font-size="13" text-anchor="middle" fill="black">Slack/Text</text>
-            <text x="150" y="400" font-size="13" text-anchor="middle" fill="black">09-17 Hours</text>
-            <text x="520" y="400" font-size="13" text-anchor="middle" fill="black">I have no set schedule</text>
-            <text x="150" y="440" font-size="13" text-anchor="middle" fill="black">Take your time</text>
-            <text x="520" y="440" font-size="13" text-anchor="middle" fill="black">Work best under pressure</text>
-            <text x="150" y="480" font-size="13" text-anchor="middle" fill="black">Work a lot on one thing</text>
-            <text x="520" y="480" font-size="13" text-anchor="middle" fill="black">Work a little on several things</text>
-            <text x="150" y="520" font-size="13" text-anchor="middle" fill="black">Background noise</text>
-            <text x="520" y="520" font-size="13" text-anchor="middle" fill="black">Quiet place</text>
-
-    <!--Linje til datakategorier--> 
-            <line x1="225" x2="425" y1="120" y2="120" stroke="black" stroke-width="2"/>
-            <line x1="225" x2="425" y1="160" y2="160" stroke="black" stroke-width="2"/>
-            <line x1="225" x2="425" y1="200" y2="200" stroke="black" stroke-width="2"/>
-            <line x1="225" x2="425" y1="240" y2="240" stroke="black" stroke-width="2"/>
-            <line x1="225" x2="425" y1="280" y2="280" stroke="black" stroke-width="2"/>
-            <line x1="225" x2="425" y1="320" y2="320" stroke="black" stroke-width="2"/>
-            <line x1="225" x2="425" y1="360" y2="360" stroke="black" stroke-width="2"/>
-            <line x1="225" x2="425" y1="400" y2="400" stroke="black" stroke-width="2"/>
-            <line x1="225" x2="425" y1="440" y2="440" stroke="black" stroke-width="2"/>
-            <line x1="225" x2="425" y1="480" y2="480" stroke="black" stroke-width="2"/>
-
-    <!--Sirkler plasert på linje--> 
-            <circle cx="260" cy="120" r="5" stroke="black" stroke-width="1" fill="red" />
-            <circle cx="360" cy="120" r="5" stroke="black" stroke-width="1" fill="blue" />
-            <circle cx="350" cy="240" r="5" stroke="black" stroke-width="1" fill="red" />
-            <circle cx="290" cy="240" r="5" stroke="black" stroke-width="1" fill="blue" /> 
-
-</svg>
 <script>
 
-//<!-- DataID-Innfelt -->
-var timetrxidPASTE=document.getElementById("timetrxidPASTE");
+    // variabler og funksjoner
+    var timetrxidOUTDATA=document.getElementById("timetrxidOUTDATA");
     var btnData=document.getElementById("btnData");
     var canvas = document.getElementById('report');
-    var context = canvas.getContext('2d');
+    var ctx = canvas.getContext('2d');
     const results = document.querySelector('.results pre');
 
-//<!-- Tegning av info i canvas  -->
-    context.font = '14px serif';       // Dette er font, KANSKJE SKIFTE DENNE TIL SAMME FONT SOM RESTEN AV SIDEN?
-    context.fillText('Early bird', 10, 24);       //Dette er navnet på slidersene
-    context.fillText('Night owl', 210, 24);
+    //Dette er teksten 
+    ctx.font = '14px serif';                 // Dette er font, KANSKJE SKIFTE DENNE TIL SAMME FONT SOM RESTEN AV SIDEN?
+    ctx.fillText('Early bird', 5, 30);       //Dette er navnet på slidersene
+    ctx.fillText('Night owl', 325, 30);
 
-    context.fillText('Work on it togheter', 10, 74);
-    context.fillText('Go off alone and think', 210, 74);
+    ctx.fillText('Work on it togheter', 5, 80);
+    ctx.fillText('Go off alone and think', 325, 80);
 
-    context.fillText('Tell me the backstory', 10, 124);
-    context.fillText('Cut to the chase', 210, 124);
+    ctx.fillText('Tell me the backstory', 5, 130);
+    ctx.fillText('Cut to the chase', 325, 130);
 
-    context.fillText('Need to talk it out', 10, 174);
-    context.fillText('Need to move on', 210, 174);
+    ctx.fillText('Need to talk it out', 5, 180);
+    ctx.fillText('Need to move on', 325, 180);
 
-    context.fillText('Verbal processor', 10, 224);
-    context.fillText('Mental processor', 210, 224);
+    ctx.fillText('Verbal processor', 5, 230);
+    ctx.fillText('Mental processor', 325, 230);
 
-    context.fillText('Schedule a time to chat', 10, 274);
-    context.fillText('Interrupt me when you need me', 210, 274);
+    ctx.fillText('Schedule a time to chat', 5, 280);
+    ctx.fillText('Interrupt me when you need me', 325, 280);
     
-    context.fillText('Video chat', 10, 324);
-    context.fillText('Slack/Text', 210, 324);
+    ctx.fillText('Video chat', 5, 330);
+    ctx.fillText('Slack/Text', 325, 330);
 
-    context.fillText('09-17 Hours', 10, 374);
-    context.fillText('I have no set schedule', 210, 374);
+    ctx.fillText('09-17 Hours', 5, 380);
+    ctx.fillText('I have no set schedule', 325, 380);
 
-    context.fillText('Take your time', 10, 424);
-    context.fillText('Work best under pressure', 210, 424);
+    ctx.fillText('Take your time', 5, 430);
+    ctx.fillText('Work best under pressure', 325, 430);
 
-    context.fillText('Work a lot on one thing', 10, 474);
-    context.fillText('Work a little on several things', 210, 474);
+    ctx.fillText('Work a lot on one thing', 5, 480);
+    ctx.fillText('Work a little on several things', 325, 480);
 
-    context.fillText('Background noise', 10, 524);
-    context.fillText('Quiet place', 210, 524);
+    ctx.fillText('Background noise', 5, 530);
+    ctx.fillText('Quiet place', 325, 530);
 
 // Dette er linjene mellom
-    context.beginPath();
-    context.moveTo(100, 20);
-    context.lineTo(200, 20);
-    context.stroke();
+    ctx.beginPath();
+    ctx.moveTo(150, 26);
+    ctx.lineTo(295, 26);
+    ctx.stroke();
 
-    context.beginPath();
-    context.moveTo(100, 70);
-    context.lineTo(200, 70);
-    context.stroke();
+    ctx.beginPath();
+    ctx.moveTo(150, 76);
+    ctx.lineTo(295, 76);
+    ctx.stroke();
 
-    context.beginPath();
-    context.moveTo(100, 120);
-    context.lineTo(200, 120);
-    context.stroke();
+    ctx.beginPath();
+    ctx.moveTo(150, 126);
+    ctx.lineTo(295, 126);
+    ctx.stroke();
 
-    context.beginPath();
-    context.moveTo(100, 170);
-    context.lineTo(200, 170);
-    context.stroke();
+    ctx.beginPath();
+    ctx.moveTo(150, 176);
+    ctx.lineTo(295, 176);
+    ctx.stroke();
 
-    context.beginPath();
-    context.moveTo(100, 220);
-    context.lineTo(200, 220);
-    context.stroke();
+    ctx.beginPath();
+    ctx.moveTo(150, 226);
+    ctx.lineTo(295, 226);
+    ctx.stroke();
 
-    context.beginPath();
-    context.moveTo(100, 270);
-    context.lineTo(200, 270);
-    context.stroke();
+    ctx.beginPath();
+    ctx.moveTo(150, 276);
+    ctx.lineTo(295, 276);
+    ctx.stroke();
 
-    context.beginPath();
-    context.moveTo(100,320);
-    context.lineTo(200, 320);
-    context.stroke();
+    ctx.beginPath();
+    ctx.moveTo(150,326);
+    ctx.lineTo(295, 326);
+    ctx.stroke();
 
-    context.beginPath();
-    context.moveTo(100, 370);
-    context.lineTo(200, 370);
-    context.stroke();
+    ctx.beginPath();
+    ctx.moveTo(150, 376);
+    ctx.lineTo(295, 376);
+    ctx.stroke();
 
-    context.beginPath();
-    context.moveTo(100, 420);
-    context.lineTo(200, 420);
-    context.stroke();
+    ctx.beginPath();
+    ctx.moveTo(150, 426);
+    ctx.lineTo(295, 426);
+    ctx.stroke();
 
-    context.beginPath();
-    context.moveTo(100, 470);
-    context.lineTo(200, 470);
-    context.stroke();
+    ctx.beginPath();
+    ctx.moveTo(150, 476);
+    ctx.lineTo(295, 476);
+    ctx.stroke();
 
-    context.beginPath();
-    context.moveTo(100, 520);
-    context.lineTo(200, 520);
-    context.stroke();
+    ctx.beginPath();
+    ctx.moveTo(150, 526);
+    ctx.lineTo(295, 526);
+    ctx.stroke();
 
-
-
-<!-- Innsamling av ny data -->
-
+    
+    // Funksjon for å hente data
     btnData.onclick=function () {
-<!-- Ny data -->
-        fetch("https://bacit.info/hwr/" + timetrxidPASTE.value + ".json", {cache: 'no-cache'})
+        fetch("https://bacit.info/hwr/" + timetrxidOUTDATA.value + ".json", {cache: 'no-cache'})
             .then(response => response.json())
             .then(data => {
                 console.log(data);
                 results.innerText = JSON.stringify(data, null, 11);
                 document.querySelector("#debug").innerText = "Navn: " + data.navn + "\nGruppe: " + data.gruppe;
 
-                // Dette er ditt navn til høyre for sliders
-                context.fillStyle = "black";
-                context.fillText(data.navn, 410, 104,);
-                var X = 400;
-                var Y = 100;
-                var R = 4;
-                context.beginPath();
-                context.arc(X, Y, R, 0, 2 * Math.PI, false);
-                context.fillStyle = "pink";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = "black";
-                context.stroke();
-                context.closePath();
+     // Dette er ditt navn til høyre for sliders
+    ctx.fillStyle = "black";
+    ctx.fillText(data.navn, 510, 104,);
+    var X = 500;
+    var Y = 100;
+    var R = 4;
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "pink";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
 
-                // Dette er inndata for sliders
-                var X = 100 + parseInt(data.eorn, 10);
-                var Y = 20;
-                var R = 4;
-                context.beginPath();
-                context.arc(X, Y, R, 0, 2 * Math.PI, false);
-                context.fillStyle = "pink";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = "black";
-                context.stroke();
-                context.closePath();
+    // Dette er inndata for sliders
+    var X = 150 + parseInt(data.eorn, 12);
+    var Y = 26;
+    var R = 4;
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "pink";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
 
-                var X = 100 + parseInt(data.worg, 10);
-                var Y = 70;
-                var R = 4;
-                context.beginPath();
-                context.arc(X, Y, R, 0, 2 * Math.PI, false);
-                context.fillStyle = "pink";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = "black";
-                context.stroke();
-                context.closePath();
+    var X = 150 + parseInt(data.worg, 12);
+    var Y = 76;
+    var R = 4;
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "pink";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
 
-                var X = 100 + parseInt(data.torc, 10);
-                var Y = 120;
-                var R = 4;
-                context.beginPath();
-                context.arc(X, Y, R, 0, 2 * Math.PI, false);
-                context.fillStyle = "pink";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = "black";
-                context.stroke();
-                context.closePath();
+    var X = 150 + parseInt(data.torc, 10);
+    var Y = 126;
+    var R = 4;
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "pink";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
 
-                var X = 100 + parseInt(data.norn, 10);
-                var Y = 170;
-                var R = 4;
-                context.beginPath();
-                context.arc(X, Y, R, 0, 2 * Math.PI, false);
-                context.fillStyle = "pink";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = "black";
-                context.stroke();
-                context.closePath();
+    var X = 150 + parseInt(data.norn, 10);
+    var Y = 176;
+    var R = 4;
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "pink";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
 
-                var X = 100 + parseInt(data.vorm, 10);
-                var Y = 220;
-                var R = 4;
-                context.beginPath();
-                context.arc(X, Y, R, 0, 2 * Math.PI, false);
-                context.fillStyle = "pink";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = "black";
-                context.stroke();
-                context.closePath();
-                
-                var X = 100 + parseInt(data.sori, 10);
-                var Y = 270;
-                var R = 4;
-                context.beginPath();
-                context.arc(X, Y, R, 0, 2 * Math.PI, false);
-                context.fillStyle = "pink";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = "black";
-                context.stroke();
-                context.closePath();
+    var X = 150 + parseInt(data.vorm, 10);
+    var Y = 226;
+    var R = 4;
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "pink";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+    
+    var X = 150 + parseInt(data.sori, 10);
+    var Y = 276;
+    var R = 4;
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "pink";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
 
-                var X = 100 + parseInt(data.vors, 10);
-                var Y = 320;
-                var R = 4;
-                context.beginPath();
-                context.arc(X, Y, R, 0, 2 * Math.PI, false);
-                context.fillStyle = "pink";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = "black";
-                context.stroke();
-                context.closePath();
+    var X = 150 + parseInt(data.vors, 10);
+    var Y = 326;
+    var R = 4;
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "pink";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
 
-                var X = 100 + parseInt(data.hori, 10);
-                var Y = 370;
-                var R = 4;
-                context.beginPath();
-                context.arc(X, Y, R, 0, 2 * Math.PI, false);
-                context.fillStyle = "pink";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = "black";
-                context.stroke();
-                context.closePath();
+    var X = 150 + parseInt(data.hori, 10);
+    var Y = 376;
+    var R = 4;
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "pink";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
 
-                var X = 100 + parseInt(data.eks1, 10);
-                var Y = 420;
-                var R = 4;
-                context.beginPath();
-                context.arc(X, Y, R, 0, 2 * Math.PI, false);
-                context.fillStyle = "pink";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = "black";
-                context.stroke();
-                context.closePath();
+    var X = 150 + parseInt(data.eks1, 10);
+    var Y = 426;
+    var R = 4;
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "pink";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
 
-                var X = 100 + parseInt(data.eks2, 10);
-                var Y = 470;
-                var R = 4;
-                context.beginPath();
-                context.arc(X, Y, R, 0, 2 * Math.PI, false);
-                context.fillStyle = "pink";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = "black";
-                context.stroke();
-                context.closePath();
+    var X = 150 + parseInt(data.eks2, 10);
+    var Y = 476;
+    var R = 4;
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "pink";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
 
-                var X = 100 + parseInt(data.eks3, 10);
-                var Y = 520;
-                var R = 4;
-                context.beginPath();
-                context.arc(X, Y, R, 0, 2 * Math.PI, false);
-                context.fillStyle = "pink";
-                context.fill();
-                context.lineWidth = 1;
-                context.strokeStyle = "black";
-                context.stroke();
-                context.closePath();
+    var X = 150 + parseInt(data.eks3, 10);
+    var Y = 526;
+    var R = 4;
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "pink";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
 
 
-            });
+        })
     }
+
+    // Her er gruppe 5A sitt resultat. Den går fra 150 som er = 0 til 295 som er = 100
+
+    // Rød farge = Amir
+
+    var X = 190;var Y = 26;var R = 4; // Early bird or night owl
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "tomato";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 76;var R = 4; //Work on it togheter or Go off alone and think
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "tomato";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 126;var R = 4; //Tell me the backstory or Cut to the chase
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "tomato";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 176;var R = 4; //Need to talk it out or Need to move on
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "tomato";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 226;var R = 4; //Verbal processor or Mental processor
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "tomato";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 276;var R = 4; //Schedule a time to chat or Interrupt me when you need me
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "tomato";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 326;var R = 4; //Video chat or Slack/text 
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "tomato";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 200;var Y = 376;var R = 4; //09-17 hours or I have no set schedule
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "tomato";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 426;var R = 4; //Take your time or Work best under pressure
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "tomato";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 476;var R = 4;  //Work a lot on one thing or Work a little on several things
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "tomato";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 526;var R = 4; //Background noise or Quiet place
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "tomato";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    // Blå farge = Alexander
+
+    var X = 190;var Y = 26;var R = 4; // Early bird or night owl
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "blue";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 76;var R = 4; //Work on it togheter or Go off alone and think
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "blue";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 126;var R = 4; //Tell me the backstory or Cut to the chase
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "blue";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 176;var R = 4; //Need to talk it out or Need to move on
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "blue";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 226;var R = 4; //Verbal processor or Mental processor
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "blue";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 276;var R = 4; //Schedule a time to chat or Interrupt me when you need me
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "blue";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 326;var R = 4; //Video chat or Slack/text 
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "blue";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 200;var Y = 376;var R = 4; //09-17 hours or I have no set schedule
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "blue";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 426;var R = 4; //Take your time or Work best under pressure
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "blue";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 170;var Y = 476;var R = 4;  //Work a lot on one thing or Work a little on several things
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "blue";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 526;var R = 4; //Background noise or Quiet place
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "blue";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    // Lilla/rosa = Joackim
+
+    var X = 190;var Y = 26;var R = 4; // Early bird or night owl
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "fuchsia";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 76;var R = 4; //Work on it togheter or Go off alone and think
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "fuchsia";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 126;var R = 4; //Tell me the backstory or Cut to the chase
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "fuchsia";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 176;var R = 4; //Need to talk it out or Need to move on
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "fuchsia";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 226;var R = 4; //Verbal processor or Mental processor
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "fuchsia";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 276;var R = 4; //Schedule a time to chat or Interrupt me when you need me
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "fuchsia";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 326;var R = 4; //Video chat or Slack/text 
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "fuchsia";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 200;var Y = 376;var R = 4; //09-17 hours or I have no set schedule
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "fuchsia";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 426;var R = 4; //Take your time or Work best under pressure
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "fuchsia";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 150;var Y = 476;var R = 4;  //Work a lot on one thing or Work a little on several things
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "fuchsia";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 150;var Y = 526;var R = 4; //Background noise or Quiet place
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "fuchsia";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    // Oransj farge = Rebekka
+
+    var X = 190;var Y = 26;var R = 4; // Early bird or night owl
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 76;var R = 4; //Work on it togheter or Go off alone and think
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 126;var R = 4; //Tell me the backstory or Cut to the chase
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 176;var R = 4; //Need to talk it out or Need to move on
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 226;var R = 4; //Verbal processor or Mental processor
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 276;var R = 4; //Schedule a time to chat or Interrupt me when you need me
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 326;var R = 4; //Video chat or Slack/text 
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 200;var Y = 376;var R = 4; //09-17 hours or I have no set schedule
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 426;var R = 4; //Take your time or Work best under pressure
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 295;var Y = 476;var R = 4;  //Work a lot on one thing or Work a little on several things
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 526;var R = 4; //Background noise or Quiet place
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "orange";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+     // Hvit farge = Simen
+
+    var X = 195;var Y = 26;var R = 4; // Early bird or night owl
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "snow";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 230;var Y = 76;var R = 4; //Work on it togheter or Go off alone and think
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "snow";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 255;var Y = 126;var R = 4; //Tell me the backstory or Cut to the chase
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "snow";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 230;var Y = 176;var R = 4; //Need to talk it out or Need to move on
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "snow";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 200;var Y = 226;var R = 4; //Verbal processor or Mental processor
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "snow";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 280;var Y = 276;var R = 4; //Schedule a time to chat or Interrupt me when you need me
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "snow";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 200;var Y = 326;var R = 4; //Video chat or Slack/text 
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "snow";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 260;var Y = 376;var R = 4; //09-17 hours or I have no set schedule
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "snow";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 260;var Y = 426;var R = 4; //Take your time or Work best under pressure
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "snow";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 195;var Y = 476;var R = 4;  //Work a lot on one thing or Work a little on several things
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "snow";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 240;var Y = 526;var R = 4; //Background noise or Quiet place
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "snow";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    // Aqua = Tobias
+
+    var X = 190;var Y = 26;var R = 4; // Early bird or night owl
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "aqua";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 76;var R = 4; //Work on it togheter or Go off alone and think
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "aqua";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 126;var R = 4; //Tell me the backstory or Cut to the chase
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "aqua";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 176;var R = 4; //Need to talk it out or Need to move on
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "aqua";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 226;var R = 4; //Verbal processor or Mental processor
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "aqua";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 276;var R = 4; //Schedule a time to chat or Interrupt me when you need me
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "aqua";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 326;var R = 4; //Video chat or Slack/text 
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "aqua";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 200;var Y = 376;var R = 4; //09-17 hours or I have no set schedule
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "aqua";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 426;var R = 4; //Take your time or Work best under pressure
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "aqua";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 180;var Y = 476;var R = 4;  //Work a lot on one thing or Work a little on several things
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "aqua";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 150;var Y = 526;var R = 4; //Background noise or Quiet place
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "aqua";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    // Grønn farge = Victor
+
+    var X = 190;var Y = 26;var R = 4; // Early bird or night owl
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "chartreuse";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 76;var R = 4; //Work on it togheter or Go off alone and think
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "chartreuse";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 126;var R = 4; //Tell me the backstory or Cut to the chase
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "chartreuse";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 176;var R = 4; //Need to talk it out or Need to move on
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "chartreuse";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 226;var R = 4; //Verbal processor or Mental processor
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "chartreuse";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 276;var R = 4; //Schedule a time to chat or Interrupt me when you need me
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "chartreuse";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 326;var R = 4; //Video chat or Slack/text 
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "chartreuse";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 200;var Y = 376;var R = 4; //09-17 hours or I have no set schedule
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "chartreuse";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 426;var R = 4; //Take your time or Work best under pressure
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "chartreuse";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 220;var Y = 476;var R = 4;  //Work a lot on one thing or Work a little on several things
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "chartreuse";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
+    var X = 190;var Y = 526;var R = 4; //Background noise or Quiet place
+    ctx.beginPath();
+    ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+    ctx.fillStyle = "chartreuse";
+    ctx.fill();
+    ctx.lineWidth = 1;
+    ctx.strokeStyle = "black";
+    ctx.stroke();
+    ctx.closePath();
+
 </script>
 </body>
 
