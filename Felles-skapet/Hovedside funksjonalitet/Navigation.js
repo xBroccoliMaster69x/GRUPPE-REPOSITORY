@@ -95,3 +95,17 @@
     // Kaller funksjonene ved oppstart
     UpdateNavigationMenu();
     UpdatePageContent();
+
+
+    // UiA logoen åpner nettsiden til UiA ved klikk
+    HTMLlogo.onclick = function ()
+    {
+        window.open("https://www.uia.no");
+    }
+
+    HTMLpageName.onclick = function ()
+    {
+        currentPage = "aboutUs";
+        UpdateNavigationMenu();
+        UpdatePageContent();
+    }

@@ -25,11 +25,20 @@
         margin-bottom: 10px;
     }
 
-    /* Disse to med :hover gjør at musepekeren endrer utseende når man har musa over en knapp i menylinja */
+    /* Disse fire elementene med :hover gjør at musepekeren endrer utseende når man har musa over en knapp i menylinja */
+    #logo
+    {
+        z-index: 1;
+        cursor: pointer;
+    }
     #groupName:hover
     {
         cursor: pointer;
         text-decoration: underline;
+    }
+    #pageName:hover
+    {
+        cursor: pointer;
     }
     .NavigationMenuContents:hover
     {
