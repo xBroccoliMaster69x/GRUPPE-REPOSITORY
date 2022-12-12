@@ -5,48 +5,101 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Felles-skapet</title>
-
     <style>
-        body
+        body /* Stil som påvirker hele body-en */
         {
             margin: 0;
             font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
+
+        /* MENYLINJA PÅ TOPPEN */
+        #header {
+            position: fixed;
+            width: 100%;
+            overflow: auto;
+            background-color: #FF284C;
+        }
+        #header * { /* Alle elementene inne i menylinja */
+            position: absolute;
+            color: white;
+            font-size: 20px;
+            text-decoration: none;
+            top: 0;
+            margin-top: 40px;
+            cursor: default;
+        }
+            #header__logo {
+                height: 50px;
+                margin-top: 25px;
+                z-index: 1;
+                cursor: pointer;
+            }
+            #header__title {
+                font-size: 30px;
+                cursor: pointer;
+            }
+            #header__group-name:hover { /* Endrer elementet når man drar musepekeren over det */
+                cursor: pointer;
+                text-decoration: underline;
+            }
+            /* ALLE KNAPPENE I NAVIGASJONSMENYEN I MENYLINJA */
+            #header__navigation-menu button {
+                position: relative;
+                margin-top: -10px;
+                background-color: transparent;
+                border: none;
+                padding: 10px;
+                margin-bottom: 10px;
+            }
+            #header__navigation-menu button:hover { /* Endrer knappene når man drar musepekeren over de */
+                cursor: pointer;
+                text-decoration: underline;
+            }
+
+        /* EN DIV FOR ALT AV INNHOLD PÅ SIDEN HVOR iframes BLIR LAGT INN */
+        #page {
+            position: absolute;
+            width: 100%;
+        }
+        #page iframe { /* Alle iframe-elementene inne i page (4) */
+            position: absolute;
+            width: 100%;
+            border: 0;
+            overflow: auto;
+        }
     </style>
-
-<!-- HER HENTER VI INN CSS DOKUMENTER -->
-    <link rel="stylesheet" href="Hovedside funksjonalitet/Header og Content.css">
-
 </head>
 <body>
-
-        <div id="header">
-            <img class="HeaderContents" id="logo" src="UiA logo.png" style="height: 50px; margin-top: 25px;">
-            <p class="HeaderContents" id="pageName" style="font-size: 30px;">FELLES-SKAPET</p>
-            <a class="HeaderContents" id="groupName" href="https://github.com/xBroccoliMaster69x/GRUPPE-REPOSITORY" target="_blank">| Gruppe 5A</a> <!-- LINK TIL GITHUB GRUPPE-REPOSITORY -->
-            <div class="HeaderContents" id="navigationMenu" style="right: 0;">
-                <button class="HeaderContents NavigationMenuContents" id="buttonHowWeRoll">How We Roll</button>
-                <button class="HeaderContents NavigationMenuContents" id="buttonHWRReport">HWR Report</button>
-                <button class="HeaderContents NavigationMenuContents" id="buttonSyntax">Syntax</button>
-                <button class="HeaderContents NavigationMenuContents" id="buttonAboutUs">About Us</button>
-            </div>
+    <!-- MENYLINJEN SOM GÅR IGJEN I ALLE SIDENE -->
+    <div id="header">
+        <img id="header__logo" src="UiA logo.png">
+        <p id="header__title">FELLES-SKAPET</p>
+        <a id="header__group-name" href="https://github.com/xBroccoliMaster69x/GRUPPE-REPOSITORY" target="_blank">| Gruppe 5A</a>
+        <!-- EN NAVIGASJONSMENY HVOR DU VELGER HVILKEN SIDE SOM VISES -->
+        <div id="header__navigation-menu" style="right:0;">
+            <button id="navigation-menu__button--hwr">How We Roll</button>
+            <button id="navigation-menu__button--hwr-report">HWR Report</button>
+            <button id="navigation-menu__button--syntax">Syntax</button>
+            <button id="navigation-menu__button--about-us">About Us</button>
         </div>
+    </div>
 
-        <div id="page">
+    <!-- DE ULIKE SIDENE MAN KAN NAVIGERE TIL -->
+    <div id="page">
+        <iframe id="page__hwr" src="hwrside.html"></iframe> <!-- Display for how we roll input-side -->
+        <iframe id="page__hwr-report" src="WEB-RAPPORT.html"></iframe> <!-- Display for how we roll output-side -->
+        <iframe id="page__syntax" src="Syntax page/syntax.html"></iframe> <!-- Display for syntax-side -->
+        <iframe id="page__about-us" src="About Us page/Aboutus.html"></iframe> <!-- Display for visittkort-side -->
+    </div>
 
-            <iframe class="PageContents" id="howWeRoll" src="hwrside.html"></iframe> <!-- Legg inn How We Roll html her -->
-            <iframe class="PageContents" id="hwrReport" src="WEB-RAPPORT.html"></iframe> <!-- Legg inn HWR Report html her -->
-            <iframe class="PageContents" id="syntax" src="Syntax page/syntax.html"></iframe> <!-- Legg inn Syntax html her -->
-            <iframe class="PageContents" id="aboutUs" src="About Us page/Aboutus.html"></iframe> <!-- Legg inn About Us html her -->
-        </div>
-
+    <!-- DETTE SCRIPTET GJØR AT MAN KAN KLIKKE PÅ UiA LOGOEN OG BLI SENDT TIL HJEMMESIDEN DERES -->
     <script>
-        
+        var HTMLlogo = document.getElementById("header__logo");
+        HTMLlogo.onclick = function () {window.open("https://www.uia.no");}
     </script>
 
-<!-- HENTER HENTER VI INN JAVASCRIPT DOKUMENTER -->
-    <script src="Hovedside funksjonalitet/Resizing.js" ></script>
-    <script src="Hovedside funksjonalitet/Navigation.js" ></script>
-    
+    <!-- HER HENTER VI INN EKSTERNE JAVASCRIPT DOKUMENTER -->
+    <script src="Hovedside funksjonalitet/Resizing.js" ></script> <!-- Et script som endrer layout på siden etter vindusstørrelse -->
+    <script src="Hovedside funksjonalitet/Navigation.js" ></script> <!-- Et script som gjør navigasjonsmenyen funksjonell -->
 </body>
 </html>
