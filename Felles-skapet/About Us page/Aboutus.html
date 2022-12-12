@@ -1,87 +1,73 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>About us</title>
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About us</title>
 
-  <style>
-        body
-        {
+    <style>
+        body { /* Stil som påvirker hele body-en */
             text-align: center;
             background-color: rgb(255, 255, 255);
         }
+        * { /* Stil som påvirker alle elementer */
+            box-sizing: border-box;
+        }
 
-
-* {
-  box-sizing: border-box;
-}
-/* Kolonnen er for å kunne samle noen av bildene i en samme kolonne   */
-.kolonne {
-  float: left;
-  width: 20%;
-  padding: 5px;
-}
-/*   sette bildene og teksten inne i en boks inne i kolonnen      */
-.Bilderad::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-* {
-  box-sizing: border-box;
-}
-/*  Dette er den andre kolonnen som skal samle de nederste bildene og teksten    */
-.kolonne2 {
-  float: left;
-  width: 20%;
-  padding: 5px;
-}
-/*  Sette de bildene nede sammen i en rad  */
-.Bilderad2::after {
-  content: "";
-  clear: both;
-  display: table;
-}
-</style>
-
-    </head>
+        .bilderad { /* Deler inn siden i to rader med bilder */
+            position: relative;
+            top: 20px;
+            content: "";
+            clear: both;
+            display: table;
+        }
+        .bildekolonne { /* Bestemmer størrelsen og plasseringen per kolonne/bilde */
+            float: left;
+            position: relative;
+            left: 5%;
+            width: 22.5%;
+            padding: 2%;
+        }
+        #nederste-bilderad div {left: 16.0%;} /* Flytter de nederste kolonnene mot midten, da det kun er 3 der istedet for 4 */
+    </style>
+</head>
 <body>
-  <!-- en div slik at alle bildene i visittkortet bli på samme linje, hvertfall de første 4 --> 
-  <div class="Bilderad">
-    <div class="kolonne">
-      <img src="joackim.jpg" alt="joe" style="width:100%">
-      <p1>Joackim er 21 år fra karmøy, han har studert ved uia et år, da studerte han markedsføring og ledelse, men han fant fort ut det ikke var noe for han. Joackim har ikke mye erfaring innen programmering, men gleder seg utrolig mye til å lære.</p1>
+    <!-- ØVERSTE RAD MED BILDER -->
+    <div class="bilderad">
+        <div class="bildekolonne">
+            <img src="joackim.jpg" alt="Joackim" style="width:100%">
+            <p>Joackim er 21 år fra karmøy, han har studert ved uia et år, da studerte han markedsføring og ledelse, men han fant fort ut det ikke var noe for han. Joackim har ikke mye erfaring innen programmering, men gleder seg utrolig mye til å lære.</p>
+        </div>
+        <div class="bildekolonne">
+            <img src="toby.jpg" alt="Tobias" style="width: 100%">
+            <p>Tobias er 19 år og kommer fra Sogndal. Han har videregående utdanning innen Medier og Kommunikasjon, og har derfor kunnskap om design og behandling av bilde, lyd og video. På videregående tok han også valgfaget IT2, hvor han fikk erfaring innenfor HTLM, CSS og JavaScript. Tobias er engasjert for å lære mer og liker også å lære bort det han kan, gjennom blant annet selvlagede YouTube-tutorials.</p>
+        </div>
+        <div class="bildekolonne">
+            <img src="viccy.jpg" alt="Victor" style="width:100%">
+            <p>Victor er 24 år fra Oppegård. Han har tidligere gått Sammenlignende politikk på UIB. Han har en generell interesse for IT, men har lite kunnskaper om programmering før han begynte på studiet.</p>
+        </div>
+        <div class="bildekolonne">
+            <img src="simen.jpg" alt="Simen" style="width:100%">
+            <p>Simen er fra Sauda, og har et fagbrev innenfor IT fra før. Han kommer direkte ut fra førstegangstjeneste og har ikke studert ved et universitet før. Liker fotball og da Viking spesielt. Innenfor IT har han jobbet mest med maskinvare og serverdrift.</p>
+        </div>
     </div>
-<div class="kolonne">
-     <img src="toby.jpg" alt="toby" style="width: 100%">
-     <p1>Tobias er 19 år og kommer fra Sogndal. Han har videregående utdanning innen Medier og Kommunikasjon, og har derfor kunnskap om design og behandling av bilde, lyd og video. På videregående tok han også valgfaget IT2, hvor han fikk erfaring innenfor HTLM, CSS og JavaScript. Tobias er engasjert for å lære mer og liker også å lære bort det han kan, gjennom blant annet selvlagede YouTube-tutorials.</p1>
+    
+    <!-- NEDERSTE RAD MED BILDER -->
+    <div class="bilderad" id="nederste-bilderad">
+        <div class="bildekolonne">
+            <img src="rebs.jpg" alt="Rebekka" style="width:100%">
+            <p>Rebekka er en 23 år gammel jente fra Haugesund. Hun har fra tidligere en bachelor i markedsføring og ledelse som hun ønsker å kombinere med videre utdanning innenfor IT og informasjonssystemer. Hun har  ingen erfaring med programmering og koding fra før, men har lyst til å utvide kunnskapen sin innenfor disse feltene.</p>
+        </div>
+        <div class="bildekolonne">
+            <img src="amir.jpg" alt="Amir" style="width:100%">
+            <p>Amir er født og oppvokst i Kristiansand, og har foreldre fra Bosnia. Han kommer rett fra videregående skole, der han hadde for det meste økonomifag. Amir har ingen IT-kunnskaper fra før, men håper å lære noe disse årene.</p>
+        </div>
+        <div class="bildekolonne">
+            <img src="ga.jpg" alt="Alexander" style="width:100%">
+            <p>Alexander er Dansk-Serber. Han har bodd I Norge siden har var 4 og behersker Norsk på morsmålsnivå. Alexnader har fullført studeispesialisering med realfag på videregående og har et års erfaring med gamedev. I hans år med gamedev jobbet Alexander med 3d-modellering og teksturering.</p>
+        </div>
     </div>
-    <div class="kolonne">
-      <img src="viccy.jpg" alt="joe" style="width:100%">
-      <p2>Victor er 24 år fra Oppegård. Han har tidligere gått Sammenlignende politikk på UIB. Han har en generell interesse for IT, men har lite kunnskaper om programmering før han begynte på studiet.</p2>
-    </div>
-    <div class="kolonne">
-      <img src="simen.jpg" alt="joe" style="width:100%">
-      <p1>Simen er fra Sauda, og har et fagbrev innenfor IT fra før. Han kommer direkte ut fra førstegangstjeneste og har ikke studert ved et universitet før. Liker fotball og da Viking spesielt. Innenfor IT har han jobbet mest med maskinvare og serverdrift.</p1>
-    </div>
-  </div>
-
-  <div class="Bilderad2">
-    <div class="kolonne2">
-      <img src="rebs.jpg" alt="joe" style="width:100%">
-      <p1>Rebekka er en 23 år gammel jente fra Haugesund. Hun har fra tidligere en bachelor i markedsføring og ledelse som hun ønsker å kombinere med videre utdanning innenfor IT og informasjonssystemer. Hun har  ingen erfaring med programmering og koding fra før, men har lyst til å utvide kunnskapen sin innenfor disse feltene.</p1>
-    </div>
-    <div class="kolonne2">
-      <img src="amir.jpg" alt="joe" style="width:100%">
-      <p1>Amir er født og oppvokst i Kristiansand, og har foreldre fra Bosnia. Han kommer rett fra videregående skole, der han hadde for det meste økonomifag. Amir har ingen IT-kunnskaper fra før, men håper å lære noe disse årene.</p1>
-    </div>
-    <div class="kolonne2">
-      <img src="ga.jpg" alt="joe" style="width:100%">
-      <p1>Alexander er Dansk-Serber. Han har bodd I Norge siden har var 4 og behersker Norsk på morsmålsnivå. Alexnader har fullført studeispesialisering med realfag på videregående og har et års erfaring med gamedev. I hans år med gamedev jobbet Alexander med 3d-modellering og teksturering.</p1>
-    </div>
-  </div>
 
 </body>
 </html>
