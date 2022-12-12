@@ -1,190 +1,170 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-      <meta charset="UTF-8">
-      <meta http-equiv="X-UA-Compatible" content="IE=edge">
-      <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <title>How We Roll</title>
-     
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>How We Roll</title>
     <style>
+        body { /* Stil som påvirker hele body-en */
+            text-align: center;
+            margin: 0;
+            font-family: "Helvetica", "Arial", sans-serif;
+        }
 
-.slidecontainer /* Hører til sliders, dette er class til sliders */
-{
-   /* Brukte  width: 650px;   men den fører til at slider forskyver seg til venste */
-    margin-top: 25px;
-    text-align: center;
-}
-  
-.slider /* Denne justere selve slidersene */
-{    
-    -webkit-appearance: none;
-    width: 20%;
-    height: 15px;
-    border-radius: 5px;
-    background: #d3d3d3;
-    outline: none;
-    opacity: 0.7;
-    -webkit-transition: .2s;
-    transition: opacity .2s;
-}
- 
-.slider:hover /* Mouse-over effects */
-{
-    opacity: 1;
-}
-  
-.slider::-webkit-slider-thumb /* Denne justere den røde kula i midten av sliders */
-{
-    -webkit-appearance: none;
-    appearance: none;
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #FF284C;
-    cursor: pointer;
-}
-  
-.slider::-moz-range-thumb /* Hører til sliders, for moz */
-{
-    width: 25px;
-    height: 25px;
-    border-radius: 50%;
-    background: #FF284C;
-    cursor: pointer;
-}
-
-  .center-button /* Hører til sliders, den er for å sentrere knappen */
-{
-   display: flex;
-    justify-content: center;
-   align-items: center;
-   height: 200px;
-}
-
-.resultat /* Er for å gjøre form data hidden */
-{
-    visibility: hidden;
-}
-
-.id /* Fikser margin på tekstbox samt lagre knappen */
-{
-   margin-top: 10px;
-}
-
-.form /* Gjøre textbokse pluss buttons sentrert */
-{
-    text-align: center;
-
-}           
-
-    </style>
-    </head>
-       <body>
+        /* SLIDERS */
+        .slide-container {
+            /* Brukte (width: 650px;) men den fører til at slider forskyver seg til venste */
+            margin-top: 25px;
+        }
+        .slider { /* Denne justere selve slidersene */
+            appearance: none;
+            -webkit-appearance: none;
+            width: 20%;
+            height: 15px;
+            border-radius: 5px;
+            background: #d3d3d3;
+            outline: none;
+            opacity: 0.7;
+            -webkit-transition: .2s;
+            transition: opacity .2s;
+        }
+            .slider:hover {opacity: 1;} /* Mouse-over effects */
         
-        <!-- Overskriften samt fyll inn boksene -->
-        <section class="form">
-          <h1>How We Roll</h1>
-          <h3>Fyll inn</h3>
-          <form>
-              <p><label for="data01">Navn</label>
-                  <input type="text" name="navn" id="data01" /></p>
-      
-              <p><label for="data02">Gruppe</label>
-                  <input type="text" name="gruppe" id="data02" /></p>
+            .slider::-webkit-slider-thumb { /* Denne justere den røde kula i midten av sliders */
+                -webkit-appearance: none;
+                appearance: none;
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                background: #FF284C;
+                cursor: pointer;
+            }
+            .slider::-moz-range-thumb { /* Hører til sliders, for mozilla */
+                width: 25px;
+                height: 25px;
+                border-radius: 50%;
+                background: #FF284C;
+                cursor: pointer;
+            }
+
+        #submit-button { /* Gjør submit knappen rund i kantene og samme farge som menylinja */ 
+            margin: 25px 0 10px 0;
+            width: 60px;
+            height: 30px;
+            font-size: 14px;
+            background-color: #FF284C;
+            border-radius: 5px;
+            border: 0;
+            color: white;
+            cursor: pointer;
+        }
+        #resultat { /* Skjuler resultatet fra input siden */
+            margin-top: 25px;
+            visibility: hidden;
+        }
+    </style>
+</head>
+<body>
+    <!-- INNTASTINGSFELT SOM MÅ FYLLES UT (NAVN OG GRUPPE) -->
+    <h4>Fyll inn</h4>
+    <form>
+        <p><label for="data01">Navn</label> <input type="text" name="navn" id="data01" required></p>
+        <p><label for="data02">Gruppe</label> <input type="text" name="gruppe" id="data02" required></p>
 
         <!-- Slider 1 -->
-        <div class="slidecontainer">
-             <label>Early bird</label> <!-- Navn før slideren -->
+        <div class="slide-container">
+            <label>Early bird</label> <!-- Navn før slideren -->
             <input type="range" min="0" max="100" value="50" class="slider" name="eorn"> <!--Dette er selve slideren-->
-             <label>Night owl</label> <!-- // Navn etter slideren -->
+            <label>Night owl</label> <!-- // Navn etter slideren -->
         </div>
 
         <!-- Slider 2 -->
-        <div class="slidecontainer">
+        <div class="slide-container">
             <label>Work on it together</label> <!-- Navn før slideren -->
             <input type="range" min="0" max="100" value="50" class="slider" name="worg"> <!--Dette er selve slideren-->
             <label>Go off alone and think</label> <!-- // Navn etter slideren -->
-          </div>
+        </div>
 
         <!-- Slider 3 -->
-        <div class="slidecontainer">
+        <div class="slide-container">
             <label>Tell me the backstory</label> <!-- Navn før slideren -->
             <input type="range" min="0" max="100" value="50" class="slider" name="torc"> <!--Dette er selve slideren-->
             <label>Cut to the chase</label> <!-- // Navn etter slideren -->
         </div>
 
-         <!-- Slider 4 -->
-        <div class="slidecontainer">
-             <label>Need to talk it out</label> <!-- Navn før slideren -->
-             <input type="range" min="0" max="100" value="50" class="slider" name="norn"> <!--Dette er selve slideren-->
-             <label>Need to move on</label> <!-- // Navn etter slideren -->
+        <!-- Slider 4 -->
+        <div class="slide-container">
+            <label>Need to talk it out</label> <!-- Navn før slideren -->
+            <input type="range" min="0" max="100" value="50" class="slider" name="norn"> <!--Dette er selve slideren-->
+            <label>Need to move on</label> <!-- // Navn etter slideren -->
         </div>
 
         <!-- Slider 5 -->
-        <div class="slidecontainer">
+        <div class="slide-container">
             <label>Verbal processor</label> <!-- Navn før slideren -->
             <input type="range" min="0" max="100" value="50" class="slider" name="vorm"> <!--Dette er selve slideren-->
             <label>Mental processor</label> <!-- // Navn etter slideren -->
         </div>
 
         <!-- Slider 6 -->
-        <div class="slidecontainer">
-             <label>Schedule a time to chat</label> <!-- Navn før slideren -->
+        <div class="slide-container">
+            <label>Schedule a time to chat</label> <!-- Navn før slideren -->
             <input type="range" min="0" max="100" value="50" class="slider" name="sori"> <!--Dette er selve slideren-->
             <label>Interrupt me when you need me</label> <!-- // Navn etter slideren -->
         </div>
 
         <!-- Slider 7 -->
-        <div class="slidecontainer">
+        <div class="slide-container">
             <label>Video chat</label> <!-- Navn før slideren -->
             <input type="range" min="0" max="100" value="50" class="slider" name="vors"> <!--Dette er selve slideren-->
-             <label>Slack/Text</label> <!-- // Navn etter slideren --> 
+            <label>Slack/Text</label> <!-- // Navn etter slideren --> 
         </div>
 
         <!-- Slider 8 -->
-        <div class="slidecontainer">
+        <div class="slide-container">
             <label>09-17 Hours</label> <!-- Navn før slideren -->
             <input type="range" min="0" max="100" value="50" class="slider" name="hori"> <!--Dette er selve slideren-->
             <label>I have no set schedule</label> <!-- // Navn etter slideren -->
         </div>
 
         <!-- Slider 9 -->
-        <div class="slidecontainer">
+        <div class="slide-container">
             <label>Take your time</label> <!-- Navn før slideren -->
             <input type="range" min="0" max="100" value="50" class="slider" name="eks1"> <!--Dette er selve slideren-->
             <label>Work best under pressure</label> <!-- // Navn etter slideren -->
         </div>
 
         <!-- Slider 10 -->
-        <div class="slidecontainer">
-           <label>Work a lot on one thing</label> <!-- Navn før slideren -->
-           <input type="range" min="0" max="100" value="50" class="slider" name="eks2"> <!--Dette er selve slideren-->
-           <label>Work a little on several things</label> <!-- // Navn etter slideren -->
+        <div class="slide-container">
+            <label>Work a lot on one thing</label> <!-- Navn før slideren -->
+            <input type="range" min="0" max="100" value="50" class="slider" name="eks2"> <!--Dette er selve slideren-->
+            <label>Work a little on several things</label> <!-- // Navn etter slideren -->
         </div>
 
-        <!-- Slider 10 -->
-        <div class="slidecontainer">
+        <!-- Slider 11 -->
+        <div class="slide-container">
             <label>Background sound</label> <!-- Navn før slideren -->
             <input type="range" min="0" max="100" value="50" class="slider" name="eks3"> <!--Dette er selve slideren-->
             <label>Quiet place</label> <!-- // Navn etter slideren -->
-         </div>
+        </div>
 
-        <!-- Lagreknapp -->
-        <button class="id"type="submit" id="btn">Lagre</button>
-      
-        <!--Dette er for å gjøre time å trxid sammen og få det inn i tekstbox-->
-       <div class="id">
-        Kopier id: <input type="text" id="timetrxidINNDATA" style="width: 400px">
-       </div>
+        <!-- Submit/Lagreknapp -->
+        <button id="submit-button" type="submit">Lagre</button>
+    </form>
+    
+    <!-- Her kan man kopiere id-en for dataen man putter inn (Slår time og trxid sammen) -->
+    <p>Kopier id: <input type="text" id="timetrxidINNDATA" style="width:400px;"></p>
 
-        <!--Dette er for å få frem resultat-->   
-       <div class="resultat">
-        <h2>Form Data</h2>
-        <pre></pre>
-       </div>
+    <!--Dette er for å få frem resultat, blir skjult av CSS-->   
+    <div id="resultat">
+        <h3>Form Data:</h3>
+        <pre></pre> <!-- Det er i denne dataen blir satt inn -->
+    </div>
 
-
-<script> // Dette er for å få frem dataen i slidersene, hentet av tidligere gruppe, samt Janis
+    <script>
+        // Dette er for å få frem dataen i slidersene, hentet av tidligere gruppe, samt Janis
+        
         // From https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch 
         // Example POST method implementation using fetch:
         async function postData(url = '', data = {}) {
@@ -204,22 +184,22 @@
             });
             return response.json(); // parses JSON response into native JavaScriptobjects
         }
-// Hei
+
         function handleSubmit(event) {
             event.preventDefault();
             const data = new FormData(event.target);
             const formJSON = Object.fromEntries(data.entries());
-            const results = document.querySelector('.resultat pre');
+            const results = document.querySelector('#resultat pre');
             postData('https://bacit.info/', formJSON)
                 .then(data => {
                     results.innerText = JSON.stringify(data, null, 11);
                     timetrxidINNDATA.value=data.time+"-"+data.trxid;
                 });
         }
+        // HENTER INN FORM-SKJEMAET SOM BLIR TATT I BRUK
         const form = document.querySelector('form');
+        // DENNE FUNKSJONEN REGISTRERER NÅR SUBMIT KNAPPEN BLIR TRYKKET PÅ OG KALLER FUNKSJONEN "handleSubmit"
         form.addEventListener('submit', handleSubmit);
-
-</script>
-
-    </body>
+    </script>
+</body>
 </html>
