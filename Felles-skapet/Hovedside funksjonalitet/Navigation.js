@@ -4,7 +4,7 @@
 */
 
     // MED DENNE VARIABELEN KAN MAN ENDRE HVILKEN SIDE SOM ER FORSIDA
-    var landingPage = "aboutUs"; // Setter default landing page
+    var landingPage = "aboutUs"; // Setter default landing page (aboutUs)
 
     var currentPage = landingPage; // Gjør at forsida blir den aktive siden (IKKE BYTT)
 
