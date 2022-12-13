@@ -5,48 +5,34 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Syntax</title>
-
     <style>
-        body
-        {
+        body { /* Stil som påvirker hele body-en */
             text-align: center;
             margin: 0;
             font-family: "Helvetica", "Arial", sans-serif;
         }
 
-    /* - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - - */
-    /* VIDEOBIBLIOTEK UTSEENDE */
-    /* KOMMENTAR: */
+        /* VIDEOBIBLIOTEK*/
+        .video-elements--left {left: 65px;}
+        .video-elements--right {right: 65px;}
 
-        .SmåVideoer
-        {
+        .inactive-videos {
             position: absolute;
             margin-top: 67px;
         }
-        .PreventYouTube
-        {
+        .prevent-videoplayback {
             width: 320px;
             height: 180px;
             position: absolute;
             top: 165px;
             cursor: pointer;
         }
-            .VideoLabels
-            {
+            .video-labels {
                 margin-top: 195px;
                 font-weight: bold;
             }
-        .Previous
-        {
-            left: 65px;
-        }
-        .Next
-        {
-            right: 65px;
-        }
-
-        #youtubeLink
-        {
+        
+        #link--youtube-kanal {
             position: absolute;
             margin-top: 325px;
             font-size: 18px;
@@ -54,112 +40,90 @@
             color: #ff284c;
         }
 
-    /* - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - - */
-    /* BOKSER MED INFORMASJON UTSEENDE */
-    /* KOMMENTAR: */
-
-        #ramme
-        {
+        /* BOKSER MED SYNTAX/TIPS&TRIKS */
+        #ramme--nedre-halvdel {
             width: 100%;
             margin-top: 50px;
         }
-            .bokser
-            {
+            .ramme__bokser {
                 width: 43%;
                 position: relative;
                 float: left;
                 margin: 2.9%;
             }
-                .bokserInnhold
-                {
-                    margin-top: 25px;
+                .bokser__sider {
+                    margin-top: 17px;
                     width: 100%;
                     background: #e5e8e9;
                     padding: 5px 15px 5px 15px;
                     text-align: left;
                 }
-                    .bokserInnhold a
-                    {
-                        color: #ff284c;
-                    }
-                .venstreBoks
-                {
-                    margin-top: 17px;
-                }
+                    .bokser__sider a {color: #ff284c;} /* Endrer fargen på linkene (a) i sidene i boksene */
 
-                #meny
-                {
-                    position: relative;
-                    margin-left: 36.3%;
-                    width: 200px;
-                    font-weight: bold;
-                    cursor: pointer;
+            #venstre-boks__meny {
+                position: relative;
+                margin-left: 36.3%;
+                width: 200px;
+                font-weight: bold;
+                cursor: pointer;
+            }
+                #venstre-boks__meny p { /* Endrer alle p-elementer i menyen i den venstre boksen */
+                    border: 1px solid black;
+                    display: block;
+                    padding: 12px;
+                    margin: -1px;
                 }
-                    #meny p
-                    {
-                        border: 1px solid black;
-                        display: block;
-                        padding: 12px;
-                        margin: -1px;
-                    }
-                    #meny #velg
-                    {
-                        background-color: #ff284c;
-                    }
-
-    /* - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - - */
+                #meny__active-page {background-color: #ff284c;}
     </style>
-
 </head>
 <body>
 
-    <h2 style="margin-top: 50px;">Kode-Kurs for dummies</h2>
+    <h2 style="margin-top:50px;">Kode-Kurs for dummies</h2>
 
     <!-- TRE VIDEOELEMENTER: EN SOM VISER FORRIGE VIDEO, EN SOM VISER AKTIV VIDEO, OG EN SOM VISER NESTE VIDEO -->
-    <iframe id="previousVideo" width="320" height="180" frameborder="0" src="" class="SmåVideoer Previous"></iframe>
-    <iframe id="currentVideo" width="560" height="315" frameborder="0" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe id="nextVideo" width="320" height="180" frameborder="0" src="" class="SmåVideoer Next"></iframe>
+    <iframe id="video--previous" class="inactive-videos video-elements--left" width="320" height="180" frameborder="0" src=""></iframe>
+    <iframe id="video--current" width="560" height="315" frameborder="0" src="" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <iframe id="video--next" class="inactive-videos video-elements--right" width="320" height="180" frameborder="0" src=""></iframe>
    
     <!-- OVERLAY SOM GJØR AT DU IKKE KAN SPILLE AV VIDEOENE SOM IKKE ER AKTIVE, MEN FUNGERER SOM KNAPPER -->
-    <div class="PreventYouTube Previous" id="previousButton">
-        <!-- LABELS FOR FORRIGE VIDEO -->
-        <p class="VideoLabels" id="previousLabel">Forrige video</p>
+    <div id="button--previous" class="prevent-videoplayback video-elements--left">
+        <p id="label--previous" class="video-labels">Forrige video</p> <!-- Labels for forrige video -->
     </div>
-    <div class="PreventYouTube Next" id="nextButton">
-        <!-- LABELS FOR NESTE VIDEO -->
-        <p class="VideoLabels" id="nextLabel">Neste video</p>
+    <div id="button--next" class="prevent-videoplayback video-elements--right">
+        <p id="label--next" class="video-labels">Neste video</p> <!-- Labels for neste video -->
     </div>
 
-    <a id="youtubeLink" target="_blank" href="https://www.youtube.com/channel/UCqXKOTXjzrQNVhZQtGBUebA">Gå til kanalen</a>
+    <a id="link--youtube-kanal" target="_blank" href="https://www.youtube.com/channel/UCqXKOTXjzrQNVhZQtGBUebA">Gå til kanalen</a>
     
 
     <!-- NEDRE DEL AV HTML-SIDEN -->
-    <div id="ramme">
+    <div id="ramme--nedre-halvdel">
 
         <!-- VENSTRE BOKS -->
-        <div class="bokser">
+        <div id="ramme__venstre-boks" class="ramme__bokser">
 
             <!-- MENYEN MED KNAPPENE -->
-            <div id="meny">
-                <p id="velg">Velg kodespråk</p>
-                <div id="menyContent" hidden>
-                    <p id="htmlKnapp">HTML</p>
-                    <p id="cssKnapp">CSS</p>
-                    <p id="jsKnapp">JavaScript</p>
+            <div id="venstre-boks__meny">
+                <p id="meny__active-page">Velg kodespråk</p>
+                <div id="meny__choices" hidden>
+                    <p id="meny__choices__html">HTML</p>
+                    <p id="meny__choices__css">CSS</p>
+                    <p id="meny__choices__js">JavaScript</p>
                 </div>
             </div>
 
             <!-- TOM DIV SOM VISES NÅR DU IKKE HAR VALGT ET KODESPRÅK -->
-            <div class="bokserInnhold venstreBoks" id="tomSide">
-                <div style="text-align: center;">
+            <div id="venstre-boks__tom-side" class="bokser__sider">
+                <div style="text-align:center;">
                     <p>Lær mer om de ulike kodespråkene!</p>
                 </div>
             </div>
 
             <!-- HTML DIV -->
-            <div class="bokserInnhold venstreBoks" id="htmlSide" hidden>
+            <div id="venstre-boks__html-side" class="bokser__sider" hidden>
                 <br>
-                <div style="text-align: center;">
+                <!-- LINKER TIL ULIKE RESSURSER -->
+                <div style="text-align:center;">
                     <a href="https://www.w3schools.com/html/default.asp" target="_blank">W3schools' HTML tutorial</a>
                     <br><br>
                     <a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">Mozilla Developer's HTML ressurser</a>
@@ -181,7 +145,7 @@
                 <p>HTML paragrafer er definert med en <b>p</b> tag. Paragrafer skal inneholde vanlig tekst, som et avsnitt på en nettside.</p>
                 <img src="p example.png" width="40%">
                 <h4>HTML Links</h4>
-                <p>HTML linker er definert med en <b>a</b> tag. Man skriver linken til en nettside i en <b>href</b> attributt, og deretter det man vil skal være synlig mellom de to taggene ("This is a link" i eksempelet nedenfor).</p>
+                <p>HTML linker er definert med en <b>a</b> tag. Man skriver linken til en nettside i en <b>href</b> attributt, og deretter det man vil skal være erSynlig mellom de to taggene ("This is a link" i eksempelet nedenfor).</p>
                 <img src="a example.png" width="66%">
                 <h4>HTML Images</h4>
                 <p>HTML bilder er definert med en <b>img</b> tag. Kildefilen <b>src</b>, bredden <b>width</b> og høyden <b>height</b> defineres som attributter.</p>
@@ -203,9 +167,10 @@
             </div>
 
             <!-- CSS DIV -->
-            <div class="bokserInnhold venstreBoks" id="cssSide" hidden>
+            <div id="venstre-boks__css-side" class="bokser__sider" hidden>
                 <br>
-                <div style="text-align: center;">
+                <!-- LINKER TIL ULIKE RESSURSER -->
+                <div style="text-align:center;">
                     <a href="https://www.w3schools.com/css/default.asp" target="_blank">W3schools' CSS tutorial</a>
                     <br><br>
                     <a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">Mozilla Developer's CSS ressurser</a>
@@ -256,9 +221,10 @@
             </div>
 
             <!-- JAVASCRIPT DIV -->
-            <div class="bokserInnhold venstreBoks" id="jsSide" hidden>
+            <div id="venstre-boks__js-side" class="bokser__sider" hidden>
                 <br>
-                <div style="text-align: center;">
+                <!-- LINKER TIL ULIKE RESSURSER -->
+                <div style="text-align:center;">
                     <a href="https://www.w3schools.com/js/default.asp" target="_blank">W3school's JavaScript tutorial</a>
                     <br><br>
                     <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript" target="_blank">Mozilla Developer's JavaScript ressurser</a>
@@ -319,14 +285,15 @@
         </div>
 
        <!-- HØYRE BOKS -->
-        <div class="bokser">
+        <div id="ramme__høyre-boks" class="ramme__bokser">
 
-            <p style="font-weight:bold; margin-left: 22px;">GitHub</p>
+            <p style="font-weight:bold;margin-left:22px;">GitHub</p>
 
              <!-- GITHUB SIDEN -->
-            <div class="bokserInnhold" id="githubSide">
+            <div id="høyre-boks__github-side" class="bokser__sider" style="margin-top:25px;">
                 <br>
-                <div style="text-align: center;">
+                <!-- LINKER TIL ULIKE RESSURSER -->
+                <div style="text-align:center;">
                     <a href="https://gist.github.com/brandon1024/14b5f9fcfd982658d01811ee3045ff1e" target="_blank">GitHub's Git tutorial</a>
                     <br><br>
                     <a href="https://docs.github.com/en/get-started/quickstart/git-and-github-learning-resources" target="_blank">GitHub ressurser</a>
@@ -363,102 +330,29 @@
 
     </div>
   
-
     <script>
-    // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
-    // MENY FUNKSJONALITET
-    // KOMMENTAR: 
-        
-        var velg = document.getElementById("velg");
-        var menyContent = document.getElementById("menyContent");
-
-        var htmlKnapp = document.getElementById("htmlKnapp");
-        var cssKnapp = document.getElementById("cssKnapp");
-        var jsKnapp = document.getElementById("jsKnapp");
-
-        var tomSide = document.getElementById("tomSide");
-        var htmlSide = document.getElementById("htmlSide");
-        var cssSide = document.getElementById("cssSide");
-        var jsSide = document.getElementById("jsSide");
-
-        var synlig = false;
-        var activePage = "Velg kodespråk"
-
-        // Åpning og lukking av menyen
-        velg.onclick = function ()
-        {
-            if (synlig == false)
-            {
-                menyContent.hidden = false;
-                synlig = true;
-                velg.innerHTML = "Velg kodespråk";
-                tomSide.hidden = true;
-                htmlSide.hidden = true;
-                cssSide.hidden = true;
-                jsSide.hidden = true;
-            }
-            else if (synlig == true)
-            {
-                menyContent.hidden = true;
-                synlig = false;
-                velg.innerHTML = activePage;
-                if (activePage == "Velg kodespråk") {tomSide.hidden = false;}
-                else if (activePage == "HTML") {htmlSide.hidden = false;}
-                else if (activePage == "CSS") {cssSide.hidden = false;}
-                else if (activePage == "JavaScript") {jsSide.hidden = false;}
-            } 
-        }
-
-        // Menyens knappers funksjonalitet
-        htmlKnapp.onclick = function ()
-        {
-            menyContent.hidden = true;
-            synlig = false;
-            activePage = "HTML"
-            velg.innerHTML = activePage;
-            tomSide.hidden = true;
-            htmlSide.hidden = false;
-            cssSide.hidden = true;
-            jsSide.hidden = true;
-        }
-        cssKnapp.onclick = function ()
-        {
-            menyContent.hidden = true;
-            synlig = false;
-            activePage = "CSS"
-            velg.innerHTML = activePage;
-            tomSide.hidden = true;
-            htmlSide.hidden = true;
-            cssSide.hidden = false;
-            jsSide.hidden = true;
-        }
-        jsKnapp.onclick = function ()
-        {
-            menyContent.hidden = true;
-            synlig = false;
-            activePage = "JavaScript"
-            velg.innerHTML= activePage;
-            tomSide.hidden = true;
-            htmlSide.hidden = true;
-            cssSide.hidden = true;
-            jsSide.hidden = false;
-        }
-
-    // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
+    // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - - 
     // VIDEOBIBLIOTEK FUNKSJONALITET
-    // KOMMENTAR: 
 
-        var previousVideo = document.getElementById("previousVideo");
-        var currentVideo = document.getElementById("currentVideo");
-        var nextVideo = document.getElementById("nextVideo");
+        // HENTER INN HTML-ELEMENTENE SOM BLIR TATT I BRUK
+        // STARTER VARIABELNAVNENE MED "HTML" FOR Å ILLUSTRERE AT DET ER HTML-ELEMENTER
+        var HTMLpreviousVideo = document.getElementById("video--previous");
+        var HTMLcurrentVideo = document.getElementById("video--current");
+        var HTMLnextVideo = document.getElementById("video--next");
 
-        var previousButton = document.getElementById("previousButton");
-        var nextButton = document.getElementById("nextButton");
+        var HTMLpreviousButton = document.getElementById("button--previous");
+        var HTMLnextButton = document.getElementById("button--next");
 
-        var previousLabel = document.getElementById("previousLabel");
-        var nextLabel = document.getElementById("nextLabel");
+        var HTMLpreviousLabel = document.getElementById("label--previous");
+        var HTMLnextLabel = document.getElementById("label--next");
+
+        // VARIABLER SOM KAN LEGGES TIL I SLUTTEN AV EN URL
+        var autoplay = "?autoplay=1";
+        var mute = "&mute=1";
     
-        // Videobilbiotek:
+        // VIDEOBIBLIOTEK:
+        // VARIABELNAVNENE FØLGER NAVNENE TIL VIDEOEN (EKS. KODE-KURS 0.1 = "kk01")
+        // MAN KAN LEGGE INN NYE VIDEOER ETTERHVERT, MEN HUSK Å LEGGE TIL VARIABELEN I ARRAYET "videoBibliotek"
         var kk01 = "https://www.youtube.com/embed/EIccb5v6yiI";
         var kk02 = "https://www.youtube.com/embed/kKCaQzJtnfw";
         var kk03 = "https://www.youtube.com/embed/qL-BgejBNXM";
@@ -466,65 +360,116 @@
         var kk12 = "https://www.youtube.com/embed/1nyYjoOKOmw";
         var kk13 = "https://www.youtube.com/embed/HpEl0KpDyes";
         
-        var videoArray = [kk01, kk02, kk03, kk11, kk12, kk13];
+        var videoBibliotek = [kk01, kk02, kk03, kk11, kk12, kk13];
+        // HER KAN MAN BESTEMME HVILKEN VIDEO BIBLIOTEKET SKAL STARTE PÅ (ARRAY INDEX):
         var index = 3;
 
-        var autoplay = "?autoplay=1";
-        var mute = "&mute=1";
+        // DENNE FUNKSJONEN OPPDATERER HVILKE VIDEOER SOM SPILLES AV BASERT PÅ BRUKER INPUT
+        function updateVideoDisplay ()
+        {
+            if (videoBibliotek[index-1] == undefined) // Om man er på første video skal det ikke vises en "previous" video og "Forrige video"-label fjernes
+            {
+                HTMLpreviousVideo.src = "";
+                HTMLpreviousLabel.hidden = true;
+            }
+            else
+            {
+                HTMLpreviousVideo.src = videoBibliotek[index-1];
+                HTMLpreviousLabel.hidden = false;
+            }
 
+            if (videoBibliotek[index+1] == undefined) // Om man er på siste video skal det ikke vises en "next" video og "Neste video"-label fjernes
+            {
+                HTMLnextVideo.src = "";
+                HTMLnextLabel.hidden = true;
+            }
+            else
+            {
+                HTMLnextVideo.src = videoBibliotek[index+1];
+                HTMLnextLabel.hidden = false;
+            }
 
-        // Flytter index en plass bak i videobiblioteket med mindre man er på første video
-        previousButton.onclick = function()
+            HTMLcurrentVideo.src = videoBibliotek[index] + autoplay; // Spiller automatisk av valgt video, med lyd
+        }
+
+        // DENNE FUNKSJONEN REGISTRERER NÅR KNAPPEN "Forrige video" BLIR TRYKKET PÅ,
+        // OG FLYTTER INDEX EN PLASS BAK I VIDEOBIBLIOTEKET, MED MINDRE MAN ER PÅ ALLER FØRSTE VIDEO
+        HTMLpreviousButton.onclick = function ()
         {
             if (index !== 0) {index--;}
-            UpdateVideos();
+            updateVideoDisplay();
         }
-        // Flytter index en plass frem i videobiblioteket med mindre man er på siste video
-        nextButton.onclick = function()
+        // DENNE FUNKSJONEN REGISTRERER NÅR KNAPPEN "Neste video" BLIR TRYKKET PÅ,
+        // OG FLYTTER INDEX EN PLASS FREM I VIDEOBIBLIOTEKET, MED MINDRE MAN ER PÅ ALLER SISTE VIDEO
+        HTMLnextButton.onclick = function ()
         {
-            if (index < videoArray.length-1) {index++;}
-            UpdateVideos();
+            if (index < videoBibliotek.length-1) {index++;}
+            updateVideoDisplay();
         }
 
-        // En funksjon som oppdaterer hvilke videoer som vises
-        function UpdateVideos ()
+        // KALLER FUNKSJONEN VED OPPSTART SLIK AT VIDEOENE ALLTID ER OPPDATERT
+        updateVideoDisplay();
+        // STARTER VIDEO VED OPPSTART, UTEN LYD
+        HTMLcurrentVideo.src = videoBibliotek[index] + autoplay + mute;
+
+    // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -   
+    // SIDEMENY FUNKSJONALITET
+        
+        // HENTER INN HTML-ELEMENTENE SOM BLIR TATT I BRUK
+        // STARTER VARIABELNAVNENE MED "HTML" FOR Å ILLUSTRERE AT DET ER HTML-ELEMENTER
+        var HTMLåpneMeny = document.getElementById("meny__active-page");
+        var menyInnhold = document.getElementById("meny__choices");
+
+        var HTMLknappHtml = document.getElementById("meny__choices__html");
+        var HTMLknappCss = document.getElementById("meny__choices__css");
+        var HTMLknappJs = document.getElementById("meny__choices__js");
+
+        var HTMLsideTom = document.getElementById("venstre-boks__tom-side");
+        var HTMLsideHtml = document.getElementById("venstre-boks__html-side");
+        var HTMLsideCss = document.getElementById("venstre-boks__css-side");
+        var HTMLsideJs = document.getElementById("venstre-boks__js-side");
+
+        var erSynlig = false; // En variabel som teller når menyen er åpen eller ikke
+        // MED DENNE VARIABELEN KAN MAN ENDRE HVILKET KODESRPÅK SOM VISES SOM DEFAULT
+        var activePage = "Velg kodespråk"; // Standard: "Velg kodespråk"
+
+        // DENNE FUNKSJONEN ÅPNER OG LUKKER MENYEN OG VISER "activePage" BASERT PÅ HVILKEN KNAPP BRUKEREN TRYKKER PÅ
+        function updateActivePage ()
         {
-            // Om man er på første video skal det ikke vises en "previous" video og "Forrige video"-label fjernes
-            if (videoArray[index-1] == undefined)
-            {
-                previousVideo.src = "";
-                previousLabel.hidden = true;
-            }
-            else
-            {
-                previousVideo.src = videoArray[index-1];
-                previousLabel.hidden = false;
-            }
+            HTMLsideTom.hidden = true;
+            HTMLsideHtml.hidden = true;
+            HTMLsideCss.hidden = true;
+            HTMLsideJs.hidden = true;
 
-            // Spiller automatisk av videoen som er valgt, med lyd
-            currentVideo.src = videoArray[index] + autoplay;
+            if (erSynlig == false)
+            {
+                erSynlig = true;
+                menyInnhold.hidden = false;
+                HTMLåpneMeny.innerHTML = "Velg kodespråk";
+            }
+            else if (erSynlig == true)
+            {
+                erSynlig = false;
+                menyInnhold.hidden = true;
+                HTMLåpneMeny.innerHTML = activePage;
 
-            // Om man er på siste video skal det ikke vises en "next" video og "Neste video"-label fjernes
-            if (videoArray[index+1] == undefined)
-            {
-                nextVideo.src = "";
-                nextLabel.hidden = true;
-            }
-            else
-            {
-                nextVideo.src = videoArray[index+1];
-                nextLabel.hidden = false;
-            }
+                if (activePage == "Velg kodespråk") {HTMLsideTom.hidden = false;}
+                else if (activePage == "HTML") {HTMLsideHtml.hidden = false;}
+                else if (activePage == "CSS") {HTMLsideCss.hidden = false;}
+                else if (activePage == "JavaScript") {HTMLsideJs.hidden = false;}
+            } 
         }
+        
+        // DENNE FUNKSJONEN REGISTRERER NÅR BRUKEREN KLIKKER FOR Å ÅPNE MENYEN OG KJØRER FUNKSJONEN "updateActivePage"
+        HTMLåpneMeny.onclick = function () {updateActivePage();}
+        // DISSE FUNKSJONENE REGISTRERER NÅR EN KNAPP I MENYEN BLIR TRYKKET PÅ OG BYTTER VARIABELEN "activePage" RESPEKTIVT, OG KJØRER FUNKSJONEN "updateActivePage"
+        HTMLknappHtml.onclick = function () {activePage = "HTML"; updateActivePage();}
+        HTMLknappCss.onclick = function () {activePage = "CSS"; updateActivePage();}
+        HTMLknappJs.onclick = function () {activePage = "JavaScript"; updateActivePage();}
 
-        // Kaller funksjonen ved oppstart
-        UpdateVideos();
-
-        // Setter videoen på lydløs når siden laster for første gang
-        currentVideo.src = videoArray[index] + autoplay + mute;
-
+        // KALLER FUNKSJONEN TO GANGER VED OPPSTART FOR Å ÅPNE OG LUKKE MENYEN SLIK AT INNHOLDET PÅ SIDEN ALLTID ER OPPDATERT
+        updateActivePage(); updateActivePage();
     // - - - - - - - - - - : - - - - - - - - - - : - - - - - - - - - -
     </script>
-
 </body>
 </html>

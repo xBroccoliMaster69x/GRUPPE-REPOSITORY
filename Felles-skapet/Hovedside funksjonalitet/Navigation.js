@@ -1,111 +1,66 @@
-// NAVIGATION MENU - FUNKSJONALITET
-// STATUS: DONE
-// NEED HELP: -
-/* COMMENT: Seksjonen bytter bakgrunnsfarge på knapper for å visualisere hvilken side du befinner deg på, etter knappetrykk.
-    Den åpner også de relevante HTML sidene gjennom iframes.
+/* 
+    DETTE SCRIPTET ÅPNER DE RELEVANTE HTML SIDENE GJENNOM "iframes" BASERT PÅ HVILKEN KNAPP MAN TRYKKER PÅ.
+    DEN ENDRER OGSÅ UTSEENDE TIL KNAPPENE FOR Å VISUALISERE HVILKEN SIDE DU BEFINNER DEG PÅ.
 */
 
-    var currentPage = "aboutUs"; // Default landing page
+    // MED DENNE VARIABELEN KAN MAN ENDRE HVILKEN SIDE SOM ER FORSIDA
+    var landingPage = "aboutUs"; // Setter default landing page (aboutUs)
 
-    // Starter variabelnavnet med HTML for å vise at det er et HTML-element
-    var HTMLbuttonHowWeRoll = document.getElementById("buttonHowWeRoll");
-    var HTMLbuttonHWRReport = document.getElementById("buttonHWRReport");
-    var HTMLbuttonSyntax = document.getElementById("buttonSyntax");
-    var HTMLbuttonAboutUs = document.getElementById("buttonAboutUs");
+    var currentPage = landingPage; // Gjør at forsida blir den aktive siden (IKKE BYTT)
 
-    var HTMLhowWeRoll = document.getElementById("howWeRoll");
-    var HTMLhwrReport = document.getElementById("hwrReport");
-    var HTMLsyntax = document.getElementById("syntax");
-    var HTMLaboutUs = document.getElementById("aboutUs");
+    // HENTER INN HTML-ELEMENTENE SOM BLIR TATT I BRUK
+    // STARTER VARIABELNAVNENE MED "HTML" FOR Å ILLUSTRERE AT DET ER HTML-ELEMENTER
+    var HTMLbuttonHwr = document.getElementById("navigation-menu__button--hwr");
+    var HTMLbuttonHwrReport = document.getElementById("navigation-menu__button--hwr-report");
+    var HTMLbuttonSyntax = document.getElementById("navigation-menu__button--syntax");
+    var HTMLbuttonAboutUs = document.getElementById("navigation-menu__button--about-us");
+    var navigationMenuContents = document.getElementById("header__navigation-menu").children; // Et array av elementene (4) over
 
-    // Når en knapp blir trykket på bytter variabelen "currentPage" til den respektive siden og funksjonen "UpdateNavigationMenu" blir kjørt
-    HTMLbuttonHowWeRoll.onclick = function() {currentPage = "howWeRoll"; UpdateNavigationMenu(); UpdatePageContent();}
-    HTMLbuttonHWRReport.onclick = function() {currentPage = "hwrReport"; UpdateNavigationMenu(); UpdatePageContent();}
-    HTMLbuttonSyntax.onclick = function() {currentPage = "syntax"; UpdateNavigationMenu(); UpdatePageContent();}
-    HTMLbuttonAboutUs.onclick = function() {currentPage = "aboutUs"; UpdateNavigationMenu(); UpdatePageContent();}
+    var HTMLhowWeRoll = document.getElementById("page__hwr");
+    var HTMLhwrReport = document.getElementById("page__hwr-report");
+    var HTMLsyntax = document.getElementById("page__syntax");
+    var HTMLaboutUs = document.getElementById("page__about-us");
+    var pageContents = document.getElementById("page").children; // Et array av elementene (4) over
 
-    // Funksjonen tester hva som er "currentPage" og bytter bakgrunnsfarge på den respektive knappen
-    function UpdateNavigationMenu ()
+    // DENNE FUNKSJONEN GJØR FØRST ALLE KNAPPENE GJENNOMSIKTIGE OG SER DERETTER ETTER HVA SOM ER "currentPage",
+    // OG BYTTER SÅ BAKGRUNNSFARGE PÅ DEN RESPEKTIVE KNAPPEN FOR Å VISUALISERE HVOR DU BEFINNER DEG
+    function updateNavigationMenu ()
     {
-        if (currentPage == "howWeRoll")
+        for (let i = 0; i < navigationMenuContents.length; i++)
         {
-            HTMLbuttonHowWeRoll.style.backgroundColor = "#F40029";
-            HTMLbuttonHWRReport.style.backgroundColor = "transparent";
-            HTMLbuttonSyntax.style.backgroundColor = "transparent";
-            HTMLbuttonAboutUs.style.backgroundColor = "transparent";
+            navigationMenuContents[i].style.backgroundColor = "transparent";
         }
-        else if (currentPage == "hwrReport")
-        {
-            HTMLbuttonHowWeRoll.style.backgroundColor = "transparent";
-            HTMLbuttonHWRReport.style.backgroundColor = "#F40029";
-            HTMLbuttonSyntax.style.backgroundColor = "transparent";
-            HTMLbuttonAboutUs.style.backgroundColor = "transparent";
-        }
-        else if (currentPage == "syntax")
-        {
-            HTMLbuttonHowWeRoll.style.backgroundColor = "transparent";
-            HTMLbuttonHWRReport.style.backgroundColor = "transparent";
-            HTMLbuttonSyntax.style.backgroundColor = "#F40029";
-            HTMLbuttonAboutUs.style.backgroundColor = "transparent";
-        }
-        else if (currentPage == "aboutUs")
-        {
-            HTMLbuttonHowWeRoll.style.backgroundColor = "transparent";
-            HTMLbuttonHWRReport.style.backgroundColor = "transparent";
-            HTMLbuttonSyntax.style.backgroundColor = "transparent";
-            HTMLbuttonAboutUs.style.backgroundColor = "#F40029";
-        }
-        else {document.write("ERROR: NAVIGATION MENU JS")}
+        if (currentPage == "howWeRoll") {HTMLbuttonHwr.style.backgroundColor = "#F40029";}
+        else if (currentPage == "hwrReport") {HTMLbuttonHwrReport.style.backgroundColor = "#F40029";}
+        else if (currentPage == "syntax") {HTMLbuttonSyntax.style.backgroundColor = "#F40029";}
+        else if (currentPage == "aboutUs") {HTMLbuttonAboutUs.style.backgroundColor = "#F40029";}
+        else {alert("ERROR: Navigation.js: currentPage Not Found");} // Feilmelding om variabelen "currentPage" ikke stemmer med de 4 alternativene
     }
 
-    // Funksjonen skjuler de sidene (HTML dokuementene hentet med iframe) som ikke er aktive (trykket på) og viser den som er aktiv
-    function UpdatePageContent ()
+    // DENNE FUNKSJONEN SKJULER FØRST ALLE SIDENE (HTML DOKUMENTENE HENTET MED "iframe") OG VISER DERETTER DEN SOM ER AKTIV (BASERT PÅ "currentPage")
+    function updatePageContents ()
     {
-        if (currentPage == "howWeRoll")
+        for (let i = 0; i < pageContents.length; i++)
         {
-            HTMLhowWeRoll.hidden = false;
-            HTMLhwrReport.hidden = true;
-            HTMLsyntax.hidden = true;
-            HTMLaboutUs.hidden = true;
+            pageContents[i].hidden = true;
         }
-        else if (currentPage == "hwrReport")
-        {
-            HTMLhowWeRoll.hidden = true;
-            HTMLhwrReport.hidden = false;
-            HTMLsyntax.hidden = true;
-            HTMLaboutUs.hidden = true;
-        }
-        else if (currentPage == "syntax")
-        {
-            HTMLhowWeRoll.hidden = true;
-            HTMLhwrReport.hidden = true;
-            HTMLsyntax.hidden = false;
-            HTMLaboutUs.hidden = true;
-        }
-        else if (currentPage == "aboutUs")
-        {
-            HTMLhowWeRoll.hidden = true;
-            HTMLhwrReport.hidden = true;
-            HTMLsyntax.hidden = true;
-            HTMLaboutUs.hidden = false;
-        }
-        else {document.write("ERROR: NAVIGATION MENU JS")}
+        if (currentPage == "howWeRoll") {HTMLhowWeRoll.hidden = false;}
+        else if (currentPage == "hwrReport") {HTMLhwrReport.hidden = false;}
+        else if (currentPage == "syntax") {HTMLsyntax.hidden = false;}
+        else if (currentPage == "aboutUs") {HTMLaboutUs.hidden = false;}
+        else {alert("ERROR: Navigation.js: currentPage Not Found");} // Feilmelding om variabelen "currentPage" ikke stemmer med de 4 alternativene
     }
 
-    // Kaller funksjonene ved oppstart
-    UpdateNavigationMenu();
-    UpdatePageContent();
+    // DISSE FUNKSJONENE REGISTRERER NÅR EN KNAPP BLIR TRYKKET PÅ OG ENDRER VARIABELEN "currentPage" TIL DEN RESPEKTIVE SIDEN,
+    // OG KJØRER DERETTER FUNKSJONENE "updateNavigationMenu" og "updatePageContents"
+    HTMLbuttonHwr.onclick = function () {currentPage = "howWeRoll"; updateNavigationMenu(); updatePageContents();}
+    HTMLbuttonHwrReport.onclick = function () {currentPage = "hwrReport"; updateNavigationMenu(); updatePageContents();}
+    HTMLbuttonSyntax.onclick = function () {currentPage = "syntax"; updateNavigationMenu(); updatePageContents();}
+    HTMLbuttonAboutUs.onclick = function () {currentPage = "aboutUs"; updateNavigationMenu(); updatePageContents();}
 
-
-    // UiA logoen åpner nettsiden til UiA ved klikk
-    HTMLlogo.onclick = function ()
-    {
-        window.open("https://www.uia.no");
-    }
-
-    HTMLpageName.onclick = function ()
-    {
-        currentPage = "aboutUs";
-        UpdateNavigationMenu();
-        UpdatePageContent();
-    }
+    // DENNE FUNKSJONEN GJØR AT SIDETITTELEN TAR DEG TILBAKE TIL FORSIDEN (aboutUs)
+    HTMLtitle.onclick = function () {currentPage = landingPage; updateNavigationMenu(); updatePageContents();}
+    
+    // KALLER BEGGE FUNKSJONENE VED OPPSTART SLIK AT INNHOLDET PÅ SIDEN ALLTID ER OPPDATERT
+    updateNavigationMenu();
+    updatePageContents();
