@@ -66,6 +66,9 @@
 
         var entries = 0; // En variabel som brukes til å telle hvor mange personer som har lagt inn data
 
+        // ET ARRAY MED FORSKJELLIGE FARGER EN BRUKER KAN FÅ TILDELT VED OUTPUT
+        var fargeListe = ["yellow", "seagreen", "red", "darkviolet", "plum", "tan"]; // HER ER DET BARE Å LEGGE TIL FARGER!
+
         //HER SKRIVER VI TEKSTEN TIL SLIDERENE
         ctx.font = '13px Helvetica, Arial, sans-serif';
 
@@ -172,7 +175,7 @@
                     drawDataPoints(data.eks3, 526, color); // Data fra slider "Background noise OR Quiet place"
 
                     // Vis navn og gruppenummer øverst dersom dataen er lagt inn fra en bruker
-                    if (isExternal) {document.querySelector("#subject-name").innerText = "Navn: " + data.navn + "\nGruppe: " + data.gruppe;}
+                    if (isExternal) {document.querySelector("#subject-name").innerText = "Navn: " + data.navn + "\nGruppe: " + data.gruppe + "\nFarge: " + color;}
                     else {}
                 })
         }
@@ -181,7 +184,8 @@
         retrieveDataFromServer med dataId og farge som argumenter */
         HTMLbuttonVisualize.onclick = function ()
         {
-            retrieveDataFromServer(timetrxidOUTDATA.value, "pink", true);
+            index = Math.floor(Math.random() * fargeListe.length) // Velger en tilfeldig farge fra arrayet
+            retrieveDataFromServer(timetrxidOUTDATA.value, fargeListe[index], true);
         }
 
         // GRUPPE 5A SIN INNDATA LAGRET PÅ SERVEREN
