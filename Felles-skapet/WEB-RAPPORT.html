@@ -6,176 +6,192 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>WEB-RAPPORT</title>
     <style>
-        .input {
+        body { /* Stil som påvirker hele body-en */
             text-align: center;
-            border: 5px solid black;
-            margin: auto;
-            margin-top: 10%;
-            width: 50%;
-            padding: 10px;
+            margin: 0;
+            font-family: "Helvetica", "Arial", sans-serif;
         }
         
-        .invisible {
+        #display { /* Påvirker boksen med alt innhold */
+            text-align: center;
+            margin: auto;
+            margin-top: 20px;
+            width: 50%;
+            padding: 10px;
+            box-shadow: 0px 0px 10px 0px;
+        }
+        
+        #invisible { /* Skjuler resultatet i sin rå form */
             display: none;
         }
 
+        #visualize-button { /* Gjør knappen rund i kantene og samme farge som menylinja */ 
+            margin: 10px 0 10px 0;
+            width: 100px;
+            height: 30px;
+            font-size: 14px;
+            background-color: #FF284C;
+            border-radius: 5px;
+            border: 0;
+            color: white;
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
-    <section class="input"> <!--Dette er visualiser knappen og lim inn boksen-->
-        <p></p>
+    <!-- BOKSEN SOM VISUALISERER ALT -->
+    <section id="display">
         <p>Lim inn id: </p>
-        <input type="text" value="" id="timetrxidOUTDATA" style="width: 200px">
-        <div class="results" id="results">
-        <pre class="invisible"></pre>
-        <input type="button" id="btnData"value="Visualiser">
-        </div> 
+        <input type="text" value="" id="utdata-id" style="width:300px">
         
-        <!--Denne gjøre boksen større og mindre--> 
-        <div id="debug"></div>
-        <canvas id="report" width="650" height="550"></canvas>
+        <div id="results">
+            <pre id="invisible"></pre> <!-- Her blir rå data limt inn, men blir skjult av CSS -->
+        </div> 
+
+        <input type="button" id="visualize-button"value="Visualiser">
+        
+        <div id="subject-name"></div> <!-- Her blir navnet og gruppen til brukeren skrevet inn -->
+        <br>
+        <canvas id="my-canvas" width="750" height="550"></canvas> <!-- Her tegner vi dataen -->
     </section>
     
+    <script>
+        // DEFINERER FØRST VARIABLER SOM ER NØDVENDIGE
+        var timetrxidOUTDATA = document.getElementById("utdata-id");
+        var HTMLbuttonVisualize = document.getElementById("visualize-button");
+        var HTMLcanvas = document.getElementById('my-canvas');
+        var ctx = HTMLcanvas.getContext('2d');
 
-<script>
+        const results = document.querySelector('#results pre'); // Her limes rå data inn
 
-    // variabler og funksjoner
-    var timetrxidOUTDATA=document.getElementById("timetrxidOUTDATA");
-    var btnData=document.getElementById("btnData");
-    var canvas = document.getElementById('report');
-    var ctx = canvas.getContext('2d');
-    const results = document.querySelector('.results pre');
+        var entries = 0; // En variabel som brukes til å telle hvor mange personer som har lagt inn data
 
-    var entries = 0; // Brukes til å telle hvor mange personer som har lagt inn data
+        //HER SKRIVER VI TEKSTEN TIL SLIDERENE
+        ctx.font = '13px Helvetica, Arial, sans-serif';
 
-    //Dette er teksten 
-    ctx.font = '14px serif';                 // Dette er font, KANSKJE SKIFTE DENNE TIL SAMME FONT SOM RESTEN AV SIDEN?
-    ctx.fillText('Early bird', 5, 30);       //Dette er navnet på slidersene
-    ctx.fillText('Night owl', 325, 30);
+        ctx.fillText('Early bird', 5, 30);
+        ctx.fillText('Night owl', 360, 30);
 
-    ctx.fillText('Work on it togheter', 5, 80);
-    ctx.fillText('Go off alone and think', 325, 80);
+        ctx.fillText('Work on it togheter', 5, 80);
+        ctx.fillText('Go off alone and think', 360, 80);
 
-    ctx.fillText('Tell me the backstory', 5, 130);
-    ctx.fillText('Cut to the chase', 325, 130);
+        ctx.fillText('Tell me the backstory', 5, 130);
+        ctx.fillText('Cut to the chase', 360, 130);
 
-    ctx.fillText('Need to talk it out', 5, 180);
-    ctx.fillText('Need to move on', 325, 180);
+        ctx.fillText('Need to talk it out', 5, 180);
+        ctx.fillText('Need to move on', 360, 180);
 
-    ctx.fillText('Verbal processor', 5, 230);
-    ctx.fillText('Mental processor', 325, 230);
+        ctx.fillText('Verbal processor', 5, 230);
+        ctx.fillText('Mental processor', 360, 230);
 
-    ctx.fillText('Schedule a time to chat', 5, 280);
-    ctx.fillText('Interrupt me when you need me', 325, 280);
-    
-    ctx.fillText('Video chat', 5, 330);
-    ctx.fillText('Slack/Text', 325, 330);
+        ctx.fillText('Schedule a time to chat', 5, 280);
+        ctx.fillText('Interrupt me when you need me', 360, 280);
+        
+        ctx.fillText('Video chat', 5, 330);
+        ctx.fillText('Slack/Text', 360, 330);
 
-    ctx.fillText('09-17 Hours', 5, 380);
-    ctx.fillText('I have no set schedule', 325, 380);
+        ctx.fillText('09-17 Hours', 5, 380);
+        ctx.fillText('I have no set schedule', 360, 380);
 
-    ctx.fillText('Take your time', 5, 430);
-    ctx.fillText('Work best under pressure', 325, 430);
+        ctx.fillText('Take your time', 5, 430);
+        ctx.fillText('Work best under pressure', 360, 430);
 
-    ctx.fillText('Work a lot on one thing', 5, 480);
-    ctx.fillText('Work a little on several things', 325, 480);
+        ctx.fillText('Work a lot on one thing', 5, 480);
+        ctx.fillText('Work a little on several things', 360, 480);
 
-    ctx.fillText('Background noise', 5, 530);
-    ctx.fillText('Quiet place', 325, 530);
+        ctx.fillText('Background noise', 5, 530);
+        ctx.fillText('Quiet place', 360, 530);
 
-// Tegn linjene mellom teksten
-    function DrawLines (y)
-    {
-        ctx.beginPath();
-        ctx.moveTo(150, y);
-        ctx.lineTo(295, y);
-        ctx.stroke();
-    }
+    // DENNE FUNKSJONEN TEGNER LINJENE MELLOM TEKSTEN
+        function drawLines (y) // Får (y) fra for-loopen under
+        {
+            ctx.beginPath();
+            ctx.moveTo(150, y);
+            ctx.lineTo(150 + (100 * 2), y); // Ganger skalaen med 2 for å gjøre linjene lengre og mer synlige
+            ctx.stroke();
+        }
+        for (let i = 0; i < 11; i++) // Kjører funksjonen over 11 ganger, da det er 11 sliders
+        {
+            drawLines(26 + (i * 50)); // Hopper ned 50 pixler hver gang
+        }
 
-    for (let i = 0; i < 11; i++) // 11 er antall sliders
-    {
-        DrawLines(26 + (i * 50)); // Hopper ned 50 pixler hver gang
-    }
+        // DENNE FUNKSJONEN SKRIVER NAVNENE I HØYRE KOLONNE
+        function writeName (data, y, color) // Argumentene blir sendt fra funksjonen "retrieveDataFromServer"
+        {
+            ctx.fillStyle = "black";
+            ctx.fillText(data.navn, 580+4, y+4);
 
+            var R = 4;
+            ctx.beginPath();
+            ctx.arc(570, y, R, 0, 2 * Math.PI, false);
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+            ctx.closePath();
+        }
 
-    // Funksjon for å skrive navn
-    function WriteName (data, y, color)
-    {
-        ctx.fillStyle = "black";
-        ctx.fillText(data.navn, 564, y+4,);
-        var R = 4;
-        ctx.beginPath();
-        ctx.arc(550, y, R, 0, 2 * Math.PI, false);
-        ctx.fillStyle = color;
-        ctx.fill();
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = "black";
-        ctx.stroke();
-        ctx.closePath();
-    }
+        // DENNE FUNKSJONEN TEGNER PUNKTER LANGS LINJENE BASERT PÅ DATAEN SOM BLIR LEST
+        function drawDataPoints (data, y, color) // Argumentene blir sendt fra funksjonen "retrieveDataFromServer"
+        {
+            var R = 4;
+            ctx.beginPath();
+            ctx.arc((150 + parseInt(data, 10) * 2), y, R, 0, 2 * Math.PI, false); // Ganger med 2 for å plassere punktene riktig på den forstørra linjen
+            ctx.fillStyle = color;
+            ctx.fill();
+            ctx.lineWidth = 1;
+            ctx.strokeStyle = "black";
+            ctx.stroke();
+            ctx.closePath();
+        }
+        
+        // DENNE FUNKSJONEN HENTER DATA FRA SERVEREN
+        function retrieveDataFromServer (dataId, color, isExternal) // Argumentene blir sendt fra "onclick" funksjonen under
+        {
+            fetch("https://bacit.info/hwr/" + dataId + ".json", {cache: 'no-cache'})
+                .then(response => response.json())
+                .then(data => {
+                    results.innerText = JSON.stringify(data, null, 11);
 
-    // Funksjon for å visualisere data
-    function DrawDataPoints (data, y, color)
-    {
-        var R = 4;
-        ctx.beginPath();
-        ctx.arc((150 + parseInt(data, 12)), y, R, 0, 2 * Math.PI, false);
-        ctx.fillStyle = color;
-        ctx.fill();
-        ctx.lineWidth = 1;
-        ctx.strokeStyle = "black";
-        ctx.stroke();
-        ctx.closePath();
-    }
-    
-    // Funksjon for å hente data fra server
-    function RetrieveDataFromServer (dataId, color)
-    {
-        fetch("https://bacit.info/hwr/" + dataId + ".json", {cache: 'no-cache'})
-            .then(response => response.json())
-            .then(data => {
-                console.log(data);
-                results.innerText = JSON.stringify(data, null, 11);
-                document.querySelector("#debug").innerText = "Navn: " + data.navn + "\nGruppe: " + data.gruppe; // Mulig denne mpå endres
+                    // Tegn navnet til deltakeren med et fargepunkt
+                    writeName(data, 26 + (entries * 30), color); // Tallet i parantesen bestemmer avstanden mellom navnene
+                    entries++;
 
-                // Tegn navnet til deltakeren med et fargepunkt
-                entries++;
-                WriteName(data, 26 + (entries * 30), color); // Tallet i parantesen bestemmer avstanden mellom navnene
-               
-                //Tegn data fra de ulike slidersene
-                DrawDataPoints(data.eorn, 26, color); // Data fra slider "Early bird OR Night owl"
-                DrawDataPoints(data.worg, 76, color); // Data fra slider "Work on it togheter OR Go off alone and think"
-                DrawDataPoints(data.torc, 126, color); // Data fra slider "Tell me the backstory OR Cut to the chase"
-                DrawDataPoints(data.norn, 176, color); // Data fra slider "Need to talk it out OR Need to move on"
-                DrawDataPoints(data.vorm, 226, color); // Data fra slider "Verbal processor OR Mental processor"
-                DrawDataPoints(data.sori, 276, color); // Data fra slider "Schedule a time to chat OR Interrupt me when you need me"
-                DrawDataPoints(data.vors, 326, color); // Data fra slider "Video chat OR Slack/text "
-                DrawDataPoints(data.hori, 376, color); // Data fra slider "09-17 Hours OR I have no set schedule"
-                DrawDataPoints(data.eks1, 426, color); // Data fra slider "Take your time OR Work best under pressure"
-                DrawDataPoints(data.eks2, 476, color); // Data fra slider "Work a lot on one thing OR Work a little on several things"
-                DrawDataPoints(data.eks3, 526, color); // Data fra slider "Background noise OR Quiet place"
-            })
-    }
+                    //Tegn data fra de ulike slidersene
+                    drawDataPoints(data.eorn, 26, color); // Data fra slider "Early bird OR Night owl"
+                    drawDataPoints(data.worg, 76, color); // Data fra slider "Work on it togheter OR Go off alone and think"
+                    drawDataPoints(data.torc, 126, color); // Data fra slider "Tell me the backstory OR Cut to the chase"
+                    drawDataPoints(data.norn, 176, color); // Data fra slider "Need to talk it out OR Need to move on"
+                    drawDataPoints(data.vorm, 226, color); // Data fra slider "Verbal processor OR Mental processor"
+                    drawDataPoints(data.sori, 276, color); // Data fra slider "Schedule a time to chat OR Interrupt me when you need me"
+                    drawDataPoints(data.vors, 326, color); // Data fra slider "Video chat OR Slack/text "
+                    drawDataPoints(data.hori, 376, color); // Data fra slider "09-17 Hours OR I have no set schedule"
+                    drawDataPoints(data.eks1, 426, color); // Data fra slider "Take your time OR Work best under pressure"
+                    drawDataPoints(data.eks2, 476, color); // Data fra slider "Work a lot on one thing OR Work a little on several things"
+                    drawDataPoints(data.eks3, 526, color); // Data fra slider "Background noise OR Quiet place"
 
-    /* Registrerer når knappen "Visualiser" blir trykket på, og kjører funksjonen
-    RetrieveDataFromServer med dataId og farge som argumenter */
-    btnData.onclick=function ()
-    {
-        RetrieveDataFromServer(timetrxidOUTDATA.value, "pink");
-    }
+                    // Vis navn og gruppenummer øverst dersom dataen er lagt inn fra en bruker
+                    if (isExternal) {document.querySelector("#subject-name").innerText = "Navn: " + data.navn + "\nGruppe: " + data.gruppe;}
+                    else {}
+                })
+        }
 
+        /* Registrerer når knappen "Visualiser" blir trykket på, og kjører funksjonen
+        retrieveDataFromServer med dataId og farge som argumenter */
+        HTMLbuttonVisualize.onclick = function ()
+        {
+            retrieveDataFromServer(timetrxidOUTDATA.value, "pink", true);
+        }
 
-    // Gruppe 5A sin inndata lagret på server
-        RetrieveDataFromServer("", "tomato"); // rød = AMIR
-        RetrieveDataFromServer("20221210224540-3d3d8b247cf0cb358472c2d375cb2e88", "blue"); // blå = ALEXANDER
-        RetrieveDataFromServer("20221212114847-be54d9ffa4fa6d5c623616625b6ae5fe", "fuchsia"); // lilla/roda = JOACKIM
-        RetrieveDataFromServer("20221212111229-39b958d0eee700ac3fb2b4e95e41444d", "orange"); // oransj = REBEKKA
-        RetrieveDataFromServer("20221211193424-4f062030c6b58c570e937134f99dd9a4", "snow"); // hvit = SIMEN
-        RetrieveDataFromServer("20221210112013-6e0afd1cd355d8d0ee2bc859741335ae", "aqua"); // lysblå = TOBIAS
-        RetrieveDataFromServer("20221210164422-1bdab7d58dba65cc9937dc03531493dd", "chartreuse"); // grønn = VICTOR
-
-</script>
+        // GRUPPE 5A SIN INNDATA LAGRET PÅ SERVEREN
+        retrieveDataFromServer("", "tomato"); // rød = AMIR
+        retrieveDataFromServer("20221210224540-3d3d8b247cf0cb358472c2d375cb2e88", "blue"); // blå = ALEXANDER
+        retrieveDataFromServer("20221212114847-be54d9ffa4fa6d5c623616625b6ae5fe", "fuchsia"); // lilla/roda = JOACKIM
+        retrieveDataFromServer("20221212111229-39b958d0eee700ac3fb2b4e95e41444d", "orange"); // oransj = REBEKKA
+        retrieveDataFromServer("20221211193424-4f062030c6b58c570e937134f99dd9a4", "snow"); // hvit = SIMEN
+        retrieveDataFromServer("20221210112013-6e0afd1cd355d8d0ee2bc859741335ae", "#00cfff"); // lysblå = TOBIAS
+        retrieveDataFromServer("20221210164422-1bdab7d58dba65cc9937dc03531493dd", "chartreuse"); // grønn = VICTOR
+    </script>
 </body>
-
 </html>
-
